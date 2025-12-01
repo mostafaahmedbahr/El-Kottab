@@ -26,13 +26,35 @@ class AppStyles {
       decoration: decoration,
     );
   }
-
+  static final TextStyle white12SemiBold = _createStyle(
+    fontSize: 12.sp,
+    fontWeight: semiBold,
+    color: AppColors.white,
+  );
+  static final TextStyle black12SemiBold = _createStyle(
+    fontSize: 12.sp,
+    fontWeight: semiBold,
+    color: AppColors.black,
+  );
   static final TextStyle black16SemiBold = _createStyle(
     fontSize: 16.sp,
     fontWeight: semiBold,
     color: AppColors.black,
   );
-
+  static final TextStyle black24SemiBold = _createStyle(
+    fontSize: 24.sp,
+    fontWeight: semiBold,
+    color: AppColors.black,
+  ); static final TextStyle gray14SemiBold = _createStyle(
+    fontSize: 14.sp,
+    fontWeight: semiBold,
+    color: AppColors.gray,
+  );
+  static final TextStyle white24SemiBold = _createStyle(
+    fontSize: 24.sp,
+    fontWeight: semiBold,
+    color: AppColors.white,
+  );
   static final TextStyle primary16SemiBold = _createStyle(
     fontSize: 16.sp,
     fontWeight: semiBold,

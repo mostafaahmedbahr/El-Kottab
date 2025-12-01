@@ -42,6 +42,12 @@ abstract class LangKeys
     static const signUp = "signUp";
     static const forgetPassword = "forgetPassword";
     static const signUpMsg = "signUpMsg";
+    static const verifyOtpCode = "verifyOtpCode";
+    static const confirmYourEmail = "confirmYourEmail";
+    static const sendVerificationCode = "sendVerificationCode";
+    static const pleaseEnterValidOtp = "pleaseEnterValidOtp";
+    static const resendCode = "resendCode";
+    static const resendEmailOtp = "resendEmailOtp";
 
 
 

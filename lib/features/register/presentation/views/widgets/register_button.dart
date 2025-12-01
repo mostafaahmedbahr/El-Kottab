@@ -1,5 +1,7 @@
 
 import 'package:easy_localization/easy_localization.dart';
+import 'package:el_kottab/core/utils/app_nav.dart';
+import 'package:el_kottab/features/otp/presentation/views/otp_view.dart';
 
 import '../../../../../main_imports.dart';
 import '../../view_model/register_cubit.dart';
@@ -33,6 +35,7 @@ class RegisterButton extends StatelessWidget {
                 borderColor: AppColors.white,
                 btnText: LangKeys.signUp.tr(),
                 onPressed: (){
+                  AppNav.customNavigator(context: context, screen: OtpView(goToLayoutOrResetPassword: "false"),finish: true);
                   if (formKey.currentState!.validate()) {
                     // registerCubit.register(
                     //   name: registerCubit.nameCon.text,
