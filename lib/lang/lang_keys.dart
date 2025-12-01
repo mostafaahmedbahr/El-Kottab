@@ -41,6 +41,7 @@ abstract class LangKeys
     static const doNotHaveAnAccount = "doNotHaveAnAccount";
     static const signUp = "signUp";
     static const forgetPassword = "forgetPassword";
+    static const signUpMsg = "signUpMsg";
 
 
 

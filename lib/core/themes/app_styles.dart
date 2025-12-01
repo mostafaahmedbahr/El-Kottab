@@ -33,6 +33,12 @@ class AppStyles {
     color: AppColors.black,
   );
 
+  static final TextStyle primary16SemiBold = _createStyle(
+    fontSize: 16.sp,
+    fontWeight: semiBold,
+    color: AppColors.darkOlive,
+  );
+
   static final TextStyle white16SemiBold = _createStyle(
     fontSize: 16.sp,
     fontWeight: semiBold,
@@ -64,11 +70,7 @@ class AppStyles {
     color: AppColors.darkOlive,
   );
 
-  static final TextStyle primary16SemiBold = _createStyle(
-    fontSize: 16.sp,
-    fontWeight: semiBold,
-    color: AppColors.darkOlive,
-  );
+
 
   static final TextStyle black14Regular = _createStyle(
     fontSize: 14.sp,
