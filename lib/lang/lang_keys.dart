@@ -48,6 +48,13 @@ abstract class LangKeys
     static const pleaseEnterValidOtp = "pleaseEnterValidOtp";
     static const resendCode = "resendCode";
     static const resendEmailOtp = "resendEmailOtp";
+    static const primaryData = "primaryData";
+    static const pleaseEnterTheFollowingData = "pleaseEnterTheFollowingData";
+    static const enterTheFollowingInformationToSuccessfullyCreateAnAccount = "enterTheFollowingInformationToSuccessfullyCreateAnAccount";
+    static const name = "name";
+    static const gender = "gender";
+    static const male = "male";
+    static const female = "female";
 
 
 

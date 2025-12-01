@@ -1,5 +1,7 @@
 
 import 'package:easy_localization/easy_localization.dart';
+import 'package:el_kottab/core/utils/app_nav.dart';
+import 'package:el_kottab/features/complete_register/presentation/views/complete_register_view.dart';
 
 import '../../../../../main_imports.dart';
 import '../../view_model/otp_cubit.dart';
@@ -48,6 +50,7 @@ class VerifyOtpButton extends StatelessWidget {
                   // context.read<OtpCubit>().verifyOtp(
                   //   otpCode: controller.text,
                   // );
+                  AppNav.customNavigator(context: context, screen: CompleteRegisterView());
                 } else {
                   ScaffoldMessenger.of(context).showSnackBar(
                       SnackBar(content: Text(LangKeys.pleaseEnterValidOtp.tr())),

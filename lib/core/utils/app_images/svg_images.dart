@@ -7,6 +7,9 @@ class SvgImages
   static const String eye = "$svgPath/eye.svg";
   static const String openEye = "$svgPath/open_eye.svg";
   static const String email = "$svgPath/email.svg";
+  static const String profile = "$svgPath/profile.svg";
+  static const String man = "$svgPath/man.svg";
+  static const String woman = "$svgPath/woman.svg";
 
 
 
