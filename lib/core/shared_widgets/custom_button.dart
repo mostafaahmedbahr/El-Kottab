@@ -18,7 +18,7 @@ class CustomButton extends StatelessWidget {
   final Color? btnColor;
   final Color? borderColor;
   final double? radius;
-  final Widget btnText;
+  final String btnText;
   final void Function()? onPressed;
 
   @override
@@ -39,7 +39,7 @@ class CustomButton extends StatelessWidget {
           backgroundColor: btnColor ?? AppColors.darkOlive,
           foregroundColor: AppColors.darkOlive,
         ),
-        child: btnText,
+        child: Text(btnText ,style: AppStyles.white16SemiBold,),
       ),
     );
   }

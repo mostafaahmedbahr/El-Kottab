@@ -189,13 +189,13 @@ class CustomTextFormField extends StatelessWidget {
         prefixIcon: prefixIcon,
         filled: true,
         suffixIcon: suffixIcon,
-        prefixIconColor: AppColors.darkOlive,
-        suffixIconColor: AppColors.darkOlive,
+        prefixIconColor: AppColors.white,
+        suffixIconColor: AppColors.white,
         enabled: enabled ?? true,
         contentPadding: contentPadding ??
             EdgeInsets.symmetric(
                 horizontal: width ?? 15.w, vertical: height ?? 15.h),
-        fillColor: backgroundColor ?? AppColors.darkOlive,
+        fillColor: backgroundColor ?? AppColors.white,
       ),
       maxLines: isChat ? null : 1,
       minLines: isChat ? null : minLines,

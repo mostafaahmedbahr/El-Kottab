@@ -6,6 +6,7 @@ import 'package:el_kottab/features/login/presentation/views/widgets/do_not_have_
 import 'package:el_kottab/features/login/presentation/views/widgets/forget_password.dart';
 import 'package:el_kottab/features/login/presentation/views/widgets/login_button.dart';
 import 'package:el_kottab/features/login/presentation/views/widgets/login_email_and_password_form.dart';
+import 'package:el_kottab/features/login/presentation/views/widgets/logo_widget.dart';
 
 import '../../../../core/app_services/remote_services/service_locator.dart';
 import '../../../../main_imports.dart';
@@ -33,9 +34,8 @@ class LoginView extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Gap(60.h),
-                  // Logo(),
-                  Gap(60.h),
+                  Logo(),
+                  Gap(30.h),
                   LoginEmailAndPasswordForm(),
                   Gap(12.h),
                   LoginButton(formKey: loginKey,),

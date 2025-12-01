@@ -36,7 +36,7 @@ class LoginButton extends StatelessWidget {
           fallback: (context) => CustomLoading(),
           builder: (context) {
             return CustomButton(
-              btnText: Text(LangKeys.continuee.tr()),
+              btnText:  LangKeys.signIn.tr(),
               onPressed:  () {
                 if (formKey.currentState!.validate()) {
                   loginCubit.login(

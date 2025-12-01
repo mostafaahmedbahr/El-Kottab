@@ -25,8 +25,8 @@ class LoginEmailAndPasswordForm extends StatelessWidget {
               keyboardType: TextInputType.visiblePassword,
               hintText: LangKeys.email.tr(),
               prefixIcon: Padding(
-                padding: const EdgeInsets.all(10.0),
-                child: SvgPicture.asset(SvgImages.email,),
+                padding:   EdgeInsets.all(10.0.r),
+                child: SvgPicture.asset(SvgImages.email,colorFilter: ColorFilter.mode(AppColors.black, BlendMode.srcIn),),
               ),
               validator: (value)=> AppValidators.emailValidator(value),
             ),
@@ -37,13 +37,13 @@ class LoginEmailAndPasswordForm extends StatelessWidget {
               keyboardType: TextInputType.visiblePassword,
               hintText: LangKeys.password.tr(),
               prefixIcon: Padding(
-                padding: const EdgeInsets.all(10.0),
-                child: SvgPicture.asset(SvgImages.lock,),
+                padding:   EdgeInsets.all(10.0.r),
+                child: SvgPicture.asset(SvgImages.lock,colorFilter: ColorFilter.mode(AppColors.black, BlendMode.srcIn),),
               ),
               suffixIcon: IconButton(
                 color: AppColors.gray,
                 icon: SvgPicture.asset(loginCubit.isPasswordVisible ?
-                SvgImages.eye : SvgImages.openEye),
+                SvgImages.eye : SvgImages.openEye ,colorFilter: ColorFilter.mode(AppColors.black, BlendMode.srcIn),),
                 onPressed: loginCubit.changePasswordVisible,
               ),
               obscureText: loginCubit.isPasswordVisible,

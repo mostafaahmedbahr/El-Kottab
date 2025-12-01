@@ -33,6 +33,12 @@ class AppStyles {
     color: AppColors.black,
   );
 
+  static final TextStyle white16SemiBold = _createStyle(
+    fontSize: 16.sp,
+    fontWeight: semiBold,
+    color: AppColors.white,
+  );
+
   static final TextStyle black16Medium = _createStyle(
     fontSize: 16.sp,
     fontWeight: medium,
