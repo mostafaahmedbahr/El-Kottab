@@ -1,6 +1,6 @@
 
 import 'package:easy_localization/easy_localization.dart';
-import 'package:el_kotab/core/utils/app_validator/app_validator.dart';
+import 'package:el_kottab/core/utils/app_validator/app_validator.dart';
 
  import '../../../../../main_imports.dart';
 import '../../view_model/login_cubit.dart';

@@ -1,5 +1,5 @@
 import 'package:easy_localization/easy_localization.dart';
-import 'package:el_kotab/features/login/presentation/views/login_view.dart';
+import 'package:el_kottab/features/splash/presentation/views/splash_view.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 import 'core/shared_cubits/auth_cubit/auth_cubit.dart';
 import 'core/shared_cubits/lang_cubit/lang_cubit.dart';
@@ -47,7 +47,7 @@ class MyApp extends StatelessWidget {
                         backgroundColor: AppColors.white,
                       ),
                     ),
-                    home: LoginView(),
+                    home: SplashView(),
                     builder: (context, child) {
                       SystemChrome.setSystemUIOverlayStyle(
                         const SystemUiOverlayStyle(
