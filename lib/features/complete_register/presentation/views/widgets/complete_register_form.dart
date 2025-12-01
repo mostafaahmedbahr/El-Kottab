@@ -108,6 +108,26 @@ class CompleteRegisterForm extends StatelessWidget {
               obscureText: completeRegisterCubit.isPasswordVisible,
               validator: (String? value) => AppValidators.passwordValidator(value),
             ),
+            Gap(20.h),
+            Text(LangKeys.confirmPassword.tr(),style: AppStyles.black14Medium,),
+            Gap(8.h),
+            CustomTextFormField(
+              controller: completeRegisterCubit.passwordCon,
+              keyboardType: TextInputType.visiblePassword,
+              hintText: LangKeys.confirmPassword.tr(),
+              prefixIcon: Padding(
+                padding:   EdgeInsets.all(10.0.r),
+                child: SvgPicture.asset(SvgImages.lock,colorFilter: ColorFilter.mode(AppColors.black, BlendMode.srcIn),),
+              ),
+              suffixIcon: IconButton(
+                color: AppColors.gray,
+                icon: SvgPicture.asset(completeRegisterCubit.isPasswordVisible ?
+                SvgImages.eye : SvgImages.openEye ,colorFilter: ColorFilter.mode(AppColors.black, BlendMode.srcIn),),
+                onPressed: completeRegisterCubit.changePasswordVisible,
+              ),
+              obscureText: completeRegisterCubit.isPasswordVisible,
+              validator: (String? value) => AppValidators.passwordValidator(value),
+            ),
           ],
         );
       },

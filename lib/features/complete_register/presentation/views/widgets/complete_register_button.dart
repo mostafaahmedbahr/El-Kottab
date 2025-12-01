@@ -1,5 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:el_kottab/core/utils/app_nav.dart';
+import 'package:el_kottab/features/create_account_done/presentation/views/create_account_done_view.dart';
 import 'package:el_kottab/features/otp/presentation/views/otp_view.dart';
 import '../../../../../main_imports.dart';
 import '../../view_model/complete_register_cubit.dart';
@@ -31,9 +32,9 @@ class CompleteRegisterButton extends StatelessWidget {
             builder: (context){
               return  CustomButton(
                 borderColor: AppColors.white,
-                btnText: LangKeys.signUp.tr(),
+                btnText: LangKeys.save.tr(),
                 onPressed: (){
-                  AppNav.customNavigator(context: context, screen: OtpView(goToLayoutOrResetPassword: "false"),finish: true);
+                  AppNav.customNavigator(context: context, screen: CreateAccountDoneView(),finish: true);
                   if (formKey.currentState!.validate()) {
                     // registerCubit.register(
                     //   name: registerCubit.nameCon.text,
@@ -45,6 +46,7 @@ class CompleteRegisterButton extends StatelessWidget {
                     //   countryId: registerCubit.selectedCountry!.id!,
                     //   cityId: registerCubit.selectedCity!.id,
                     // );
+
                   }
                 },
               );

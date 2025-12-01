@@ -51,10 +51,14 @@ abstract class LangKeys
     static const primaryData = "primaryData";
     static const pleaseEnterTheFollowingData = "pleaseEnterTheFollowingData";
     static const enterTheFollowingInformationToSuccessfullyCreateAnAccount = "enterTheFollowingInformationToSuccessfullyCreateAnAccount";
+    static const successfullyCreateAnAccount = "successfullyCreateAnAccount";
     static const name = "name";
     static const gender = "gender";
     static const male = "male";
     static const female = "female";
+    static const confirmPassword = "confirmPassword";
+    static const goToHome = "goToHome";
+    static const save = "save";
 
 
 
