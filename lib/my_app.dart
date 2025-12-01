@@ -34,7 +34,7 @@ class MyApp extends StatelessWidget {
                     supportedLocales: context.supportedLocales,
                     locale: context.locale,
                     debugShowCheckedModeBanner: false,
-                    title: "Easy Deal",
+                    title: "El Kottab",
                     theme: ThemeData(
                       fontFamily: locale.languageCode == 'ar' ? "Cairo" : "RobotoCondensed",
                       scaffoldBackgroundColor: AppColors.white,

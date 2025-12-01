@@ -49,19 +49,19 @@ class AppStyles {
   static final TextStyle primary14Medium = _createStyle(
     fontSize: 14.sp,
     fontWeight: medium,
-    color: AppColors.primaryDark,
+    color: AppColors.darkOlive,
   );
 
   static final TextStyle primary16Medium = _createStyle(
     fontSize: 16.sp,
     fontWeight: medium,
-    color: AppColors.primaryDark,
+    color: AppColors.darkOlive,
   );
 
   static final TextStyle primary16SemiBold = _createStyle(
     fontSize: 16.sp,
     fontWeight: semiBold,
-    color: AppColors.primaryDark,
+    color: AppColors.darkOlive,
   );
 
   static final TextStyle black14Regular = _createStyle(

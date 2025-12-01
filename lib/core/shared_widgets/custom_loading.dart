@@ -10,7 +10,7 @@ class CustomLoading extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: LoadingAnimationWidget.threeArchedCircle(
-        size:size?? 50, color:color?? AppColors.primaryDark,
+        size:size?? 50, color:color?? AppColors.darkOlive,
       ),
     );
   }
