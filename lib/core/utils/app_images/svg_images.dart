@@ -6,6 +6,7 @@ class SvgImages
   static const String lock = "$svgPath/lock.svg";
   static const String eye = "$svgPath/eye.svg";
   static const String openEye = "$svgPath/open_eye.svg";
+  static const String email = "$svgPath/email.svg";
 
 
 
