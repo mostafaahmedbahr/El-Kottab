@@ -33,9 +33,6 @@ abstract class LangKeys
     static const phoneEgyptInvalid = "phoneEgyptInvalid";
     static const phoneUSInvalid = "phoneUSInvalid";
     static const phoneInternationalInvalid = "phoneInternationalInvalid";
-
-
-
     static const password = "password";
     static const signIn = "signIn";
     static const doNotHaveAnAccount = "doNotHaveAnAccount";
