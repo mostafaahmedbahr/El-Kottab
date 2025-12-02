@@ -24,6 +24,8 @@ export 'package:el_kottab/core/utils/app_images/png_images.dart';
 export 'package:el_kottab/core/utils/app_validator/app_validator.dart';
 export 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
 export 'package:el_kottab/core/shared_widgets/custom_button.dart';
+export 'package:el_kottab/core/shared_widgets/custom_cached_network_image.dart';
+
 
 
 

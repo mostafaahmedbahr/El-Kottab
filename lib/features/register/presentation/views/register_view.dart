@@ -1,10 +1,8 @@
 import 'package:easy_localization/easy_localization.dart';
-import 'package:el_kottab/core/utils/app_nav.dart';
 import 'package:el_kottab/features/register/presentation/view_model/register_cubit.dart';
 import 'package:el_kottab/features/register/presentation/views/widgets/register_button.dart';
 import 'package:el_kottab/features/register/presentation/views/widgets/register_email_form.dart';
 import 'package:el_kottab/main_imports.dart';
-
 import '../../../../core/app_services/remote_services/service_locator.dart';
 import '../../data/repos/register_repos_imple.dart';
 

@@ -56,6 +56,13 @@ class EnLang {
     "confirmPassword": "confirmPassword",
     "goToHome": "goToHome",
     "save": "save",
+    "exit": "Exit",
+    "home": "Home",
+    "profile": "Profile",
+    "sessions": "Sessions",
+    "teachers": "Teachers",
+    "notifications": "Notifications",
+    "deleteAll": "Delete All"
 
   };
 }

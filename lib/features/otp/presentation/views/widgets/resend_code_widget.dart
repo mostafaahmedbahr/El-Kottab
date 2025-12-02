@@ -19,7 +19,7 @@ class ResendCodeWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocConsumer<OtpCubit, OtpStates>(
       buildWhen: (previous, current) {
-        // إعادة البناء فقط عند هذه الحالات
+
         return current is OtpTimerTickState ||
             current is OtpTimerFinishedState ||
             current is ResendOtpLoadingState ||
@@ -44,7 +44,7 @@ class ResendCodeWidget extends StatelessWidget {
       builder: (context, state) {
         final cubit = context.read<OtpCubit>();
 
-        // Start the timer when widget initializes if not already running
+
         WidgetsBinding.instance.addPostFrameCallback((_) {
           if (state is! OtpTimerTickState && state is! OtpTimerFinishedState && state is !ResendOtpLoadingState) {
             cubit.startOtpTimer();

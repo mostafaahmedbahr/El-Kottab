@@ -40,7 +40,7 @@ class _OtpViewState extends State<OtpView> {
         child: BlocBuilder<OtpCubit, OtpStates>(
           builder: (context, state) {
             return SingleChildScrollView(
-              padding: const EdgeInsets.all(20.0),
+              padding:   EdgeInsets.all(20.0.r),
               child: ConstrainedBox(
                 constraints: BoxConstraints(
                   minHeight: MediaQuery.of(context).size.height -
@@ -65,7 +65,7 @@ class _OtpViewState extends State<OtpView> {
                       children: [
                         VerifyOtpButton(controller: _otpController,goToLayoutOrResetPassword: widget.goToLayoutOrResetPassword,),
                         SizedBox(
-                          height: 80 + MediaQuery.of(context).viewInsets.bottom,
+                          height: 80.h + MediaQuery.of(context).viewInsets.bottom,
                         ),
                       ],
                     ),

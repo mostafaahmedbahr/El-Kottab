@@ -1,4 +1,5 @@
   import 'package:easy_localization/easy_localization.dart';
+import 'package:el_kottab/features/home/presentation/views/home_view.dart';
 
 import '../../../../main_imports.dart';
 import 'layout_states.dart';
@@ -14,7 +15,7 @@ class LayoutCubit extends Cubit<LayoutStates> {
 
 
   List screens = [
-    Text("1"),
+    HomeView(),
     Text("1"),
     Text("1"),
     Text("1"),

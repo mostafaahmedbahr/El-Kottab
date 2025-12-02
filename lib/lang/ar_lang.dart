@@ -56,6 +56,13 @@ class ArLang {
     "confirmPassword": "تأكيد كلمة المرور",
     "goToHome": "الانتقال إلى الصفحة الرئيسية",
     "save": "حفظ",
+    "exit": "خروج",
+    "home": "الرئيسية",
+    "profile": "الملف الشخصي",
+    "sessions": "الجلسات",
+    "teachers": "المعلمون",
+    "notifications": "الإشعارات",
+    "deleteAll": "حذف الكل"
 
   };
 }
