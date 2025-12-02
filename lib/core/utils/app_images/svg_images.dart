@@ -10,6 +10,11 @@ class SvgImages
   static const String profile = "$svgPath/profile.svg";
   static const String man = "$svgPath/man.svg";
   static const String woman = "$svgPath/woman.svg";
+  static const String notify = "$svgPath/notify.svg";
+  static const String home = "$svgPath/home-1-svgrepo-com.svg";
+  static const String sessions = "$svgPath/session-svgrepo-com.svg";
+  static const String teachers = "$svgPath/people-svgrepo-com.svg";
+
 
 
 

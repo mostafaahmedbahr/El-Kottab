@@ -1,8 +1,10 @@
 import 'package:easy_localization/easy_localization.dart';
+import 'package:el_kottab/features/layout/presentation/views/layout_view.dart';
 import 'package:el_kottab/features/splash/presentation/views/splash_view.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 import 'core/shared_cubits/auth_cubit/auth_cubit.dart';
 import 'core/shared_cubits/lang_cubit/lang_cubit.dart';
+import 'features/layout/presentation/view_model/layout_cubit.dart';
 import 'main_imports.dart';
 
 class MyApp extends StatelessWidget {
@@ -24,6 +26,7 @@ class MyApp extends StatelessWidget {
               providers: [
                 BlocProvider(create: (context) => AuthCubit()..checkAuthStatus()),
                 BlocProvider(create: (context) => LanguageCubit()),
+                BlocProvider(create: (context) => LayoutCubit()),
               ],
               child: BlocBuilder<LanguageCubit, Locale>(
                 builder: (context, locale) {

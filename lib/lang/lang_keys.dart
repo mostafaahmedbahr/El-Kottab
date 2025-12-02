@@ -56,6 +56,11 @@ abstract class LangKeys
     static const confirmPassword = "confirmPassword";
     static const goToHome = "goToHome";
     static const save = "save";
+    static const exit = "exit";
+    static const home = "home";
+    static const profile = "profile";
+    static const sessions = "sessions";
+    static const teachers = "teachers";
 
 
 

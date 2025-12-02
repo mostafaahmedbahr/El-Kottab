@@ -1,4 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
+import 'package:el_kottab/core/utils/app_nav.dart';
+import 'package:el_kottab/features/layout/presentation/views/layout_view.dart';
 import 'package:el_kottab/main_imports.dart';
 
 import '../../../../core/utils/app_images/jpg_images.dart';
@@ -24,7 +26,9 @@ class CreateAccountDoneView extends StatelessWidget {
           ),
           CustomButton(
             btnText: LangKeys.goToHome.tr(),
-              onPressed: (){},
+              onPressed: (){
+              AppNav.customNavigator(context: context, screen: LayoutView(),finish: true);
+              },
           ),
         ],),
       )),
