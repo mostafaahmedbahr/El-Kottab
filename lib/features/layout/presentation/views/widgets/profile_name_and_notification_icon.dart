@@ -1,6 +1,9 @@
 
 
 
+import 'package:el_kottab/core/utils/app_nav.dart';
+import 'package:el_kottab/features/notifications/presentation/views/notifications_view.dart';
+
 import '../../../../../core/shared_widgets/custom_cached_network_image.dart';
 import '../../../../../main_imports.dart';
 
@@ -39,7 +42,7 @@ class ProfileNameAndNotificationIcon extends StatelessWidget {
         ),
         InkWell(
             onTap: (){
-
+              AppNav.customNavigator(context: context, screen: NotificationView());
             },
             child: SvgPicture.asset(SvgImages.notify,colorFilter: ColorFilter.mode(AppColors.darkOlive, BlendMode.srcIn),)),
       ],

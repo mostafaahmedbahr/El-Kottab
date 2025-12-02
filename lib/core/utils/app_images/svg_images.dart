@@ -14,6 +14,7 @@ class SvgImages
   static const String home = "$svgPath/home-1-svgrepo-com.svg";
   static const String sessions = "$svgPath/session-svgrepo-com.svg";
   static const String teachers = "$svgPath/people-svgrepo-com.svg";
+  static const String trash = "$svgPath/trash.svg";
 
 
 

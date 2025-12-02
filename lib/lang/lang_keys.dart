@@ -61,6 +61,8 @@ abstract class LangKeys
     static const profile = "profile";
     static const sessions = "sessions";
     static const teachers = "teachers";
+    static const notifications = "notifications";
+    static const deleteAll = "deleteAll";
 
 
 

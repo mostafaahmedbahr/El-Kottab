@@ -1,5 +1,7 @@
 import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
 import 'package:easy_localization/easy_localization.dart';
+import 'package:el_kottab/core/utils/app_nav.dart';
+import 'package:el_kottab/features/layout/presentation/views/layout_view.dart';
 import '../../../../../core/shared_widgets/custom_button.dart';
 import '../../../../../core/utils/toast/toast.dart';
 import '../../../../../main_imports.dart';
@@ -39,10 +41,11 @@ class LoginButton extends StatelessWidget {
               btnText:  LangKeys.signIn.tr(),
               onPressed:  () {
                 if (formKey.currentState!.validate()) {
-                  loginCubit.login(
-                    email: loginCubit.emailCon.text,
-                    password: loginCubit.passwordCon.text,
-                  );
+                  AppNav.customNavigator(context: context, screen: LayoutView(),finish: true);
+                  // loginCubit.login(
+                  //   email: loginCubit.emailCon.text,
+                  //   password: loginCubit.passwordCon.text,
+                  // );
                 }
               } ,
 
