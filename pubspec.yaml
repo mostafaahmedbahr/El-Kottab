@@ -65,6 +65,7 @@ dependencies:
   flutter_screenutil: ^5.9.3
   flashy_tab_bar2: ^0.0.10
   shimmer: ^3.0.0
+  animated_toggle_switch: ^0.8.5
 
 dev_dependencies:
   flutter_test:

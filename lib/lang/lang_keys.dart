@@ -63,6 +63,12 @@ abstract class LangKeys
     static const teachers = "teachers";
     static const notifications = "notifications";
     static const deleteAll = "deleteAll";
+    static const allTeachers = "allTeachers";
+    static const favoriteTeachers = "favoriteTeachers";
+    static const search = "search";
+    static const voiceCall = "voiceCall";
+    static const videoCall = "videoCall";
+    static const aboutTeacher = "aboutTeacher";
 
 
 

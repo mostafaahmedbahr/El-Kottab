@@ -15,6 +15,13 @@ class SvgImages
   static const String sessions = "$svgPath/session-svgrepo-com.svg";
   static const String teachers = "$svgPath/people-svgrepo-com.svg";
   static const String trash = "$svgPath/trash.svg";
+  static const String search = "$svgPath/search-normal.svg";
+  static const String filter = "$svgPath/filter-svgrepo-com.svg";
+  static const String phone = "$svgPath/phone-calling-rounded-svgrepo-com.svg";
+  static const String video = "$svgPath/video-player-headphones-svgrepo-com.svg";
+  static const String fav = "$svgPath/favourite-svgrepo-com.svg";
+  static const String star = "$svgPath/star-svgrepo-com.svg";
+  static const String empty = "$svgPath/empty-set-slash-svgrepo-com.svg";
 
 
 
