@@ -69,6 +69,11 @@ abstract class LangKeys
     static const voiceCall = "voiceCall";
     static const videoCall = "videoCall";
     static const aboutTeacher = "aboutTeacher";
+    static const summary = "summary";
+    static const compatibility = "compatibility";
+    static const ejazat = "ejazat";
+    static const languages = "languages";
+    static const comments = "comments";
 
 
 

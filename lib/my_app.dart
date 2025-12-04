@@ -50,7 +50,7 @@ class MyApp extends StatelessWidget {
                         backgroundColor: AppColors.white,
                       ),
                     ),
-                    home: SplashView(),
+                    home: LayoutView(),
                     builder: (context, child) {
                       SystemChrome.setSystemUIOverlayStyle(
                         const SystemUiOverlayStyle(

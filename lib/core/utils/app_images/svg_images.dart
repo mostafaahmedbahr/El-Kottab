@@ -22,6 +22,10 @@ class SvgImages
   static const String fav = "$svgPath/favourite-svgrepo-com.svg";
   static const String star = "$svgPath/star-svgrepo-com.svg";
   static const String empty = "$svgPath/empty-set-slash-svgrepo-com.svg";
+  static const String summary = "$svgPath/help-circle-svgrepo-com.svg";
+  static const String ejazat = "$svgPath/bill-receipt-svgrepo-com.svg";
+  static const String lang = "$svgPath/language-translate-svgrepo-com.svg";
+  static const String comment = "$svgPath/comment-2-svgrepo-com.svg";
 
 
 
