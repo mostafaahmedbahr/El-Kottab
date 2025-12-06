@@ -8,35 +8,35 @@ class AdditionalActionsButtonAndSoundIcon extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return   Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      mainAxisAlignment: MainAxisAlignment.end,
       children: [
-        Row(
-          children: [
-            Icon(
-              Icons.volume_up,
-              color: Colors.white70,
-              size: 18.r,
-            ),
-            Gap(8.w),
-            Container(
-              width: 80.w,
-              height: 4.h,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(2.r),
-                color: Colors.white.withValues(alpha: 0.2),
-              ),
-              child: FractionallySizedBox(
-                widthFactor: 0.7,
-                child: Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(2.r),
-                    color: AppColors.darkOlive,
-                  ),
-                ),
-              ),
-            ),
-          ],
-        ),
+        // Row(
+        //   children: [
+        //     Icon(
+        //       Icons.volume_up,
+        //       color: Colors.white70,
+        //       size: 18.r,
+        //     ),
+        //     Gap(8.w),
+        //     Container(
+        //       width: 80.w,
+        //       height: 4.h,
+        //       decoration: BoxDecoration(
+        //         borderRadius: BorderRadius.circular(2.r),
+        //         color: Colors.white.withValues(alpha: 0.2),
+        //       ),
+        //       child: FractionallySizedBox(
+        //         widthFactor: 0.7,
+        //         child: Container(
+        //           decoration: BoxDecoration(
+        //             borderRadius: BorderRadius.circular(2.r),
+        //             color: AppColors.darkOlive,
+        //           ),
+        //         ),
+        //       ),
+        //     ),
+        //   ],
+        // ),
 
 
         CustomButton(
