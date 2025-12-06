@@ -88,29 +88,29 @@ class SessionItem extends StatelessWidget {
   // }
 
   // دالة للحذف
-  void _deleteSession(BuildContext context) {
-    showDialog(
-      context: context,
-      builder: (context) => AlertDialog(
-        title: Text('حذف الجلسة'),
-        content: Text('هل أنت متأكد من حذف هذه الجلسة؟'),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.pop(context),
-            child: Text('إلغاء'),
-          ),
-          TextButton(
-            onPressed: () {
-              Navigator.pop(context);
-              // كود الحذف الفعلي
-            },
-            child: Text(
-              'حذف',
-              style: TextStyle(color: Colors.red),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
+  // void _deleteSession(BuildContext context) {
+  //   showDialog(
+  //     context: context,
+  //     builder: (context) => AlertDialog(
+  //       title: Text('حذف الجلسة'),
+  //       content: Text('هل أنت متأكد من حذف هذه الجلسة؟'),
+  //       actions: [
+  //         TextButton(
+  //           onPressed: () => Navigator.pop(context),
+  //           child: Text('إلغاء'),
+  //         ),
+  //         TextButton(
+  //           onPressed: () {
+  //             Navigator.pop(context);
+  //             // كود الحذف الفعلي
+  //           },
+  //           child: Text(
+  //             'حذف',
+  //             style: TextStyle(color: Colors.red),
+  //           ),
+  //         ),
+  //       ],
+  //     ),
+  //   );
+  // }
 }

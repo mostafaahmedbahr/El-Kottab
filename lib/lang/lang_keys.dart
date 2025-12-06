@@ -74,7 +74,19 @@ abstract class LangKeys
     static const ejazat = "ejazat";
     static const languages = "languages";
     static const comments = "comments";
-
     static const showMore = "showMore";
+    static const theBestTeachers = "theBestTeachers";
+    static const packages = "packages";
+    static const browsePackages = "browsePackages";
+    static const doNotHaveAnActivatedPackage = "doNotHaveAnActivatedPackage";
+    static const browseAvailablePackages = "browseAvailablePackages";
+
+    static const validFor = "validFor";
+    static const day = "day";
+    static const minute = "minute";
+    static const discount = "discount";
+    static const customCodes = "customCodes";
+    static const writePackageCode = "writePackageCode";
+    static const apply = "apply";
 
 }

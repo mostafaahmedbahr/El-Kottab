@@ -26,6 +26,8 @@ class SvgImages
   static const String ejazat = "$svgPath/bill-receipt-svgrepo-com.svg";
   static const String lang = "$svgPath/language-translate-svgrepo-com.svg";
   static const String comment = "$svgPath/comment-2-svgrepo-com.svg";
+  static const String dollar = "$svgPath/dollar-minimalistic-svgrepo-com.svg";
+  static const String packageTest = "$svgPath/packages-box-svgrepo-com.svg";
 
 
 

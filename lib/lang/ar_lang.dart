@@ -74,6 +74,12 @@ class ArLang {
     "ejazat": "الشهادات",
     "languages": "اللغات",
     "comments": "التعليقات",
+    "showMore": "عرض المزيد",
+    "theBestTeachers": "أفضل المعلمين",
+    "packages": "الباقات",
+    "browsePackages": "تصفح الباقات",
+    "doNotHaveAnActivatedPackage": "ليس لديك باقة مفعلة",
+    "browseAvailablePackages": "تصفح الباقات المتاحة",
 
 
   };

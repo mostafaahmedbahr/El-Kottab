@@ -74,6 +74,13 @@ class EnLang {
     "ejazat": "Certifications",
     "languages": "Languages",
     "comments": "Comments",
+    "showMore": "Show More",
+    "theBestTeachers": "The Best Teachers",
+    "packages": "Packages",
+    "browsePackages": "Browse Packages",
+    "doNotHaveAnActivatedPackage": "You don't have an activated package",
+    "browseAvailablePackages": "Browse Available Packages",
+
 
   };
 }
