@@ -88,5 +88,10 @@ abstract class LangKeys
     static const customCodes = "customCodes";
     static const writePackageCode = "writePackageCode";
     static const apply = "apply";
+    static const editProfile = "editProfile";
+    static const balance = "balance";
+    static const privacyAndTerms = "privacyAndTerms";
+    static const aboutUs = "aboutUs";
+    static const contactUs = "contactUs";
 
 }

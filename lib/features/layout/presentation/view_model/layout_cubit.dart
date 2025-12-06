@@ -3,6 +3,7 @@ import 'package:el_kottab/features/home/presentation/views/home_view.dart';
 import 'package:el_kottab/features/teachers/presentation/views/teachers_view.dart';
 
 import '../../../../main_imports.dart';
+import '../../../profile/presentation/views/profile_view.dart';
 import '../../../sessions/presentation/views/sessions_view.dart';
 import 'layout_states.dart';
 
@@ -20,7 +21,7 @@ class LayoutCubit extends Cubit<LayoutStates> {
     HomeView(),
     TeachersView(),
     SessionsView(),
-    Text("1"),
+    ProfileView(),
 
   ];
 

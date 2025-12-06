@@ -82,5 +82,6 @@ class ArLang {
     "browseAvailablePackages": "تصفح الباقات المتاحة",
 
 
+
   };
 }

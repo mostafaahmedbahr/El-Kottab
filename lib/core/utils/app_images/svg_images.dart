@@ -28,6 +28,13 @@ class SvgImages
   static const String comment = "$svgPath/comment-2-svgrepo-com.svg";
   static const String dollar = "$svgPath/dollar-minimalistic-svgrepo-com.svg";
   static const String packageTest = "$svgPath/packages-box-svgrepo-com.svg";
+  static const String edit = "$svgPath/edit-3-svgrepo-com.svg";
+  static const String arrow = "$svgPath/arrow.svg";
+  static const String arrowLeft = "$svgPath/arrow-left-svgrepo-com.svg";
+  static const String arrowRight = "$svgPath/arrow-right-svgrepo-com.svg";
+  static const String terms = "$svgPath/terms.svg";
+  static const String warning = "$svgPath/warning-2.svg";
+  static const String callCalling = "$svgPath/call-calling.svg";
 
 
 
