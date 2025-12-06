@@ -75,4 +75,6 @@ abstract class LangKeys
     static const languages = "languages";
     static const comments = "comments";
 
+    static const showMore = "showMore";
+
 }
