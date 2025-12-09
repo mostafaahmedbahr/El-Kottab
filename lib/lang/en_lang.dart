@@ -101,6 +101,7 @@ class EnLang {
     "settings": "settings",
     "logout": "logout",
     "history": "history",
+    "chat": "Chat",
 
 
 

@@ -101,7 +101,6 @@ abstract class LangKeys
     static const settings = "settings";
     static const logout = "logout";
     static const history = "history";
-
     static const chat = "chat";
 
 

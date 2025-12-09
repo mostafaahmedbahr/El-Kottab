@@ -101,6 +101,7 @@ class ArLang {
     "settings": "الإعدادات",
     "logout": "تسجيل الخروج",
     "history": "السجل",
+    "chat": "محادثة",
 
 
 
