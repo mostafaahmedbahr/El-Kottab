@@ -7,7 +7,7 @@ class BestTeacherItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 8.h),
-      width: 200.w,
+      width: 220.w,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(12.r),
         color: AppColors.darkOlive.withValues(alpha: .1),
@@ -106,7 +106,7 @@ class BestTeacherItem extends StatelessWidget {
                         padding: EdgeInsets.all(8.r),
                       ),
                     ),
-                    Gap(8.w),
+                    Gap(4.w),
                     Container(
                       width: 36.w,
                       height: 36.h,
@@ -118,6 +118,28 @@ class BestTeacherItem extends StatelessWidget {
                         onPressed: () {},
                         icon: SvgPicture.asset(
                           SvgImages.video,
+                          width: 18.w,
+                          height: 18.h,
+                          colorFilter: ColorFilter.mode(
+                            AppColors.white,
+                            BlendMode.srcIn,
+                          ),
+                        ),
+                        padding: EdgeInsets.all(8.r),
+                      ),
+                    ),
+                    Gap(4.w),
+                    Container(
+                      width: 36.w,
+                      height: 36.h,
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: AppColors.darkOlive,
+                      ),
+                      child: IconButton(
+                        onPressed: () {},
+                        icon: SvgPicture.asset(
+                          SvgImages.chat,
                           width: 18.w,
                           height: 18.h,
                           colorFilter: ColorFilter.mode(

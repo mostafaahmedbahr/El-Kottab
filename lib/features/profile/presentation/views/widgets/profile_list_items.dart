@@ -30,11 +30,17 @@ class ProfileListItems extends StatelessWidget {
             onTap: (){},
           ),
           ProfileListItem(
+            title: LangKeys.settings,
+            svgImage: SvgImages.settings,
+            onTap: (){},
+          ),
+          ProfileListItem(
             isLast: true,
             title: LangKeys.privacyAndTerms,
             svgImage: SvgImages.terms,
             onTap: (){},
           ),
+
 
 
         ],

@@ -99,4 +99,9 @@ abstract class LangKeys
     static const thisInvitationIsSupportedBy = "thisInvitationIsSupportedBy";
     static const theCompanyName = "theCompanyName";
 
+
+    static const settings = "settings";
+    static const logout = "logout";
+
+
 }
