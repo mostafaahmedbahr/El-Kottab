@@ -13,7 +13,6 @@ class BrowsePackages extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Gap(16.h),
           Text(LangKeys.packages.tr(), style: AppStyles.black16SemiBold.copyWith(
             fontSize: 18.sp,
           ),),

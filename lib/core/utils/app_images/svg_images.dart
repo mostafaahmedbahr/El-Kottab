@@ -35,6 +35,7 @@ class SvgImages
   static const String terms = "$svgPath/terms.svg";
   static const String warning = "$svgPath/warning-2.svg";
   static const String callCalling = "$svgPath/call-calling.svg";
+  static const String teacher = "$svgPath/teacher-svgrepo-com.svg";
 
 
 

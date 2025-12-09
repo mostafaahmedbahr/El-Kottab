@@ -4,6 +4,7 @@ import 'package:el_kottab/features/home/presentation/view_model/home_cubit.dart'
 import 'package:el_kottab/features/home/presentation/views/widgets/best_teachers.dart';
 import 'package:el_kottab/features/home/presentation/views/widgets/browse_packages.dart';
 import 'package:el_kottab/features/home/presentation/views/widgets/home_slider_images.dart';
+import 'package:el_kottab/features/home/presentation/views/widgets/start_free_learning.dart';
 
 import '../../../../main_imports.dart';
 import '../../data/repos/home_repo_imple.dart';
@@ -20,7 +21,15 @@ class HomeView extends StatelessWidget {
           child: CustomScrollView(
             slivers: [
               SliverToBoxAdapter(
-                child: HomeSliderImages(),
+                child: Column(
+                  children: [
+                    HomeSliderImages(),
+                    Gap(12.h),
+                  ],
+                ),
+              ),
+              SliverToBoxAdapter(
+                child: const StartFreeLearning(),
               ),
               SliverToBoxAdapter(
                 child: const BrowsePackages(),
@@ -28,21 +37,7 @@ class HomeView extends StatelessWidget {
               SliverToBoxAdapter(
                 child: const BestTeachers(),
               ),
-              // SliverToBoxAdapter(
-              //   child: Column(
-              //     crossAxisAlignment: CrossAxisAlignment.start,
-              //     children: [
-              //       Gap(20.h),
-              //       const BestSellerUnits(),
-              //     ],
-              //   ),
-              // ),
-              // SliverToBoxAdapter(
-              //   child: const ExploreTheSites(),
-              // ),
-              // SliverToBoxAdapter(
-              //   child: const LatestArticles(),
-              // ),
+
             ],
           ),
         ),

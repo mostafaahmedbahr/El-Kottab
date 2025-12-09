@@ -93,5 +93,6 @@ abstract class LangKeys
     static const privacyAndTerms = "privacyAndTerms";
     static const aboutUs = "aboutUs";
     static const contactUs = "contactUs";
+    static const startLearningAlFatihahWithUsForFree = "startLearningAlFatihahWithUsForFree";
 
 }
