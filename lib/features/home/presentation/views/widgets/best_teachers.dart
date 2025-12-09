@@ -53,7 +53,7 @@ class BestTeachers extends StatelessWidget {
             child: ListView.separated(
               scrollDirection: Axis.horizontal,
               itemBuilder: (context, index) {
-                return BestTeacherItem();
+                return BestTeacherItem(teacherName: "Mostafa bahr",);
               },
               separatorBuilder: (context, index) {
                 return Gap(16.w);

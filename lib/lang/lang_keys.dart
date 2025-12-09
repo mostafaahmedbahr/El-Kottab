@@ -102,5 +102,7 @@ abstract class LangKeys
     static const logout = "logout";
     static const history = "history";
 
+    static const chat = "chat";
+
 
 }

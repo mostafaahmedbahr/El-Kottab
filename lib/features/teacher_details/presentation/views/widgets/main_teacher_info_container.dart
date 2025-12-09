@@ -9,7 +9,7 @@ class MainTeacherInfoContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 200.h,
+      height: 250.h,
       child: Stack(
         alignment: AlignmentDirectional.topCenter,
         children: [
