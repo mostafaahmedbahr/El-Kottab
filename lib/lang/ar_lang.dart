@@ -98,6 +98,10 @@ class ArLang {
     "thisInvitationHelpUsers": "تساعد هذه الدعوة المستخدمين على تعلم سورة الفاتحة، وهي جزء أساسي من الصلاة وأعظم سورة في القرآن الكريم",
     "thisInvitationIsSupportedBy": "هذه الدعوة مدعومة من",
     "theCompanyName": "اسم الشركة",
+    "settings": "الإعدادات",
+    "logout": "تسجيل الخروج",
+    "history": "السجل",
+
 
 
 

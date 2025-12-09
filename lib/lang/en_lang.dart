@@ -98,6 +98,10 @@ class EnLang {
     "thisInvitationHelpUsers": "this invitation helps users learn surah Al-Fatiha , a key part of the prayer and the greatest surah of the Quran",
     "thisInvitationIsSupportedBy": "this invitation is supported by",
     "theCompanyName": "the company name",
+    "settings": "settings",
+    "logout": "logout",
+    "history": "history",
+
 
 
 
