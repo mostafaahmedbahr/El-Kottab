@@ -1,3 +1,5 @@
+import 'package:el_kottab/core/utils/app_nav.dart';
+import 'package:el_kottab/features/balance/presentation/views/balance_view.dart';
 import 'package:el_kottab/features/profile/presentation/views/widgets/profile_list_item.dart';
 import '../../../../../main_imports.dart';
 
@@ -17,7 +19,9 @@ class ProfileListItems extends StatelessWidget {
           ProfileListItem(
             title: LangKeys.balance,
             svgImage: SvgImages.dollar,
-            onTap: (){},
+            onTap: (){
+              AppNav.customNavigator(context: context, screen: BalanceView());
+            },
           ),
           ProfileListItem(
             title: LangKeys.aboutUs,
