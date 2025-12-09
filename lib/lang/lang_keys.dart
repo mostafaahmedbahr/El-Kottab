@@ -80,7 +80,6 @@ abstract class LangKeys
     static const browsePackages = "browsePackages";
     static const doNotHaveAnActivatedPackage = "doNotHaveAnActivatedPackage";
     static const browseAvailablePackages = "browseAvailablePackages";
-
     static const validFor = "validFor";
     static const day = "day";
     static const minute = "minute";
@@ -94,5 +93,10 @@ abstract class LangKeys
     static const aboutUs = "aboutUs";
     static const contactUs = "contactUs";
     static const startLearningAlFatihahWithUsForFree = "startLearningAlFatihahWithUsForFree";
+    static const aLFatihahInitiative = "aLFatihahInitiative";
+    static const startFreeLearning = "startFreeLearning";
+    static const thisInvitationHelpUsers = "thisInvitationHelpUsers";
+    static const thisInvitationIsSupportedBy = "thisInvitationIsSupportedBy";
+    static const theCompanyName = "theCompanyName";
 
 }

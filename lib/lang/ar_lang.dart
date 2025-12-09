@@ -80,6 +80,25 @@ class ArLang {
     "browsePackages": "تصفح الباقات",
     "doNotHaveAnActivatedPackage": "ليس لديك باقة مفعلة",
     "browseAvailablePackages": "تصفح الباقات المتاحة",
+    "validFor": "صالح لـ",
+    "day": "يوم",
+    "minute": "دقيقة",
+    "discount": "خصم",
+    "customCodes": "رموز مخصصة",
+    "writePackageCode": "كتابة رمز الباقة",
+    "apply": "تطبيق",
+    "editProfile": "تعديل الملف الشخصي",
+    "balance": "الرصيد",
+    "privacyAndTerms": "الخصوصية والشروط",
+    "aboutUs": "من نحن",
+    "contactUs": "اتصل بنا",
+    "startLearningAlFatihahWithUsForFree": "ابدأ تعلم الفاتحة معنا مجانًا",
+    "aLFatihahInitiative": "مبادرة الفاتحة",
+    "startFreeLearning": "ابدأ التعلم المجاني",
+    "thisInvitationHelpUsers": "تساعد هذه الدعوة المستخدمين على تعلم سورة الفاتحة، وهي جزء أساسي من الصلاة وأعظم سورة في القرآن الكريم",
+    "thisInvitationIsSupportedBy": "هذه الدعوة مدعومة من",
+    "theCompanyName": "اسم الشركة",
+
 
 
 

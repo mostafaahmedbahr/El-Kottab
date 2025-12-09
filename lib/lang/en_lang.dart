@@ -80,6 +80,25 @@ class EnLang {
     "browsePackages": "Browse Packages",
     "doNotHaveAnActivatedPackage": "You don't have an activated package",
     "browseAvailablePackages": "Browse Available Packages",
+    "validFor": "valid for",
+    "day": "day",
+    "minute": "minute",
+    "discount": "discount",
+    "customCodes": "custom codes",
+    "writePackageCode": "write package code",
+    "apply": "apply",
+    "editProfile": "edit profile",
+    "balance": "balance",
+    "privacyAndTerms": "privacy and terms",
+    "aboutUs": "about us",
+    "contactUs": "contact us",
+    "startLearningAlFatihahWithUsForFree": "start learning Al-Fatihah with us for free",
+    "aLFatihahInitiative": "Al-Fatihah initiative",
+    "startFreeLearning": "start free learning",
+    "thisInvitationHelpUsers": "this invitation helps users learn surah Al-Fatiha , a key part of the prayer and the greatest surah of the Quran",
+    "thisInvitationIsSupportedBy": "this invitation is supported by",
+    "theCompanyName": "the company name",
+
 
 
   };
