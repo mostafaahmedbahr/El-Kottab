@@ -1,6 +1,8 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:el_kottab/main_imports.dart';
 
+import '../../../../chat/presentation/views/chat_view.dart';
+
 class CallsButtons extends StatelessWidget {
   const CallsButtons({super.key});
 
@@ -50,7 +52,9 @@ class CallsButtons extends StatelessWidget {
         CustomButton(
           width: 200.w,
           height: 40.h,
-          onPressed: (){},
+          onPressed: (){
+            AppNav.customNavigator(context: context, screen: ChatView());
+          },
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [

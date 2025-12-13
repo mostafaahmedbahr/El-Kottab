@@ -103,5 +103,7 @@ abstract class LangKeys
     static const history = "history";
     static const chat = "chat";
 
+    static const typeMessage = "typeMessage";
+
 
 }

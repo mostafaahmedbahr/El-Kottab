@@ -1,4 +1,5 @@
 import 'package:el_kottab/core/utils/app_nav.dart';
+import 'package:el_kottab/features/chat/presentation/views/chat_view.dart';
 import 'package:el_kottab/features/teacher_details/presentation/views/teacher_details_view.dart';
 import 'package:el_kottab/main_imports.dart';
 
@@ -143,7 +144,9 @@ class BestTeacherItem extends StatelessWidget {
                           color: AppColors.darkOlive,
                         ),
                         child: IconButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            AppNav.customNavigator(context: context, screen: ChatView());
+                          },
                           icon: SvgPicture.asset(
                             SvgImages.chat,
                             width: 18.w,
