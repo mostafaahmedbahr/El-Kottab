@@ -1,11 +1,14 @@
 
 import 'package:dio/dio.dart';
+import 'package:el_kottab/features/free_learning/data/repos/free_learning_repo_imple.dart';
 import 'package:get_it/get_it.dart';
- import '../../../features/complete_register/data/repos/complete_register_repos_imple.dart';
+ import '../../../features/balance/data/repos/balance_repo_imple.dart';
+import '../../../features/complete_register/data/repos/complete_register_repos_imple.dart';
 import '../../../features/home/data/repos/home_repo_imple.dart';
 import '../../../features/login/data/repos/login_repo_imple.dart';
 import '../../../features/notifications/data/repos/notifications_repo_imple.dart';
 import '../../../features/otp/data/repos/otp_repo_imple.dart';
+import '../../../features/packages/data/repos/packages_repo_imple.dart';
 import '../../../features/profile/data/repos/profile_repo_imple.dart';
 import '../../../features/register/data/repos/register_repos_imple.dart';
 import '../../../features/sessions/data/repos/sessions_repo_imple.dart';
@@ -48,4 +51,14 @@ void setup() {
   getIt.registerSingleton<ProfileRepoImpl>(ProfileRepoImpl(
     getIt.get<ApiService>(),
   ));
+  getIt.registerSingleton<BalanceRepoImpl>(BalanceRepoImpl(
+    getIt.get<ApiService>(),
+  ));
+  getIt.registerSingleton<FreeLearningRepoImpl>(FreeLearningRepoImpl(
+    getIt.get<ApiService>(),
+  ));
+  getIt.registerSingleton<PackagesRepoImpl>(PackagesRepoImpl(
+    getIt.get<ApiService>(),
+  ));
+
 }

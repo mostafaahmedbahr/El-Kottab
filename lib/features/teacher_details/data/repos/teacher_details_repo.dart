@@ -1,6 +1,3 @@
-
-
-
 abstract class TeacherDetailsRepo{
   // Future<Either<Failure , VerifyOtpModel>> verifyOtp({
   //   required String otpCode,
