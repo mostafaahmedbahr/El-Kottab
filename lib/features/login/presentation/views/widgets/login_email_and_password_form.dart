@@ -47,7 +47,7 @@ class LoginEmailAndPasswordForm extends StatelessWidget {
                 onPressed: loginCubit.changePasswordVisible,
               ),
               obscureText: loginCubit.isPasswordVisible,
-              validator: (String? value) => AppValidators.passwordValidator(value),
+              // validator: (String? value) => AppValidators.passwordValidator(value),
             ),
           ],
         );

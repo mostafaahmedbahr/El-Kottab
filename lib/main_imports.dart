@@ -26,6 +26,8 @@ export 'package:conditional_builder_null_safety/conditional_builder_null_safety.
 export 'package:el_kottab/core/shared_widgets/custom_button.dart';
 export 'package:el_kottab/core/shared_widgets/custom_cached_network_image.dart';
 export 'package:el_kottab/core/utils/app_nav.dart';
+export 'package:el_kottab/core/utils/toast/toast.dart';
+
 
 
 

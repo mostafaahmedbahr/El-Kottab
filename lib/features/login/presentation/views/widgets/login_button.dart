@@ -1,16 +1,11 @@
-import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
-import 'package:easy_localization/easy_localization.dart';
-import 'package:el_kottab/core/utils/app_nav.dart';
-import 'package:el_kottab/features/layout/presentation/views/layout_view.dart';
-import '../../../../../core/shared_widgets/custom_button.dart';
-import '../../../../../core/utils/toast/toast.dart';
-import '../../../../../main_imports.dart';
+ import 'package:easy_localization/easy_localization.dart';
+ import 'package:el_kottab/features/layout/presentation/views/layout_view.dart';
+ import '../../../../../main_imports.dart';
 import '../../view_model/login_cubit.dart';
 import '../../view_model/login_states.dart';
 
 class LoginButton extends StatelessWidget {
   const LoginButton({super.key, required this.formKey});
-
   final GlobalKey<FormState> formKey;
 
   @override
@@ -25,6 +20,7 @@ class LoginButton extends StatelessWidget {
         if (state is LoginErrorState) {
           Toast.showErrorToast(msg: state.error.toString(), context: context);
         } else if (state is LoginSuccessState) {
+          AppNav.customNavigator(context: context, screen: LayoutView(),finish: true);
           Toast.showSuccessToast(
             msg: state.loginModel.message.toString(),
             context: context,
@@ -41,11 +37,10 @@ class LoginButton extends StatelessWidget {
               btnText:  LangKeys.signIn.tr(),
               onPressed:  () {
                 if (formKey.currentState!.validate()) {
-                  AppNav.customNavigator(context: context, screen: LayoutView(),finish: true);
-                  // loginCubit.login(
-                  //   email: loginCubit.emailCon.text,
-                  //   password: loginCubit.passwordCon.text,
-                  // );
+                  loginCubit.login(
+                    email: loginCubit.emailCon.text,
+                    password: loginCubit.passwordCon.text,
+                  );
                 }
               } ,
 

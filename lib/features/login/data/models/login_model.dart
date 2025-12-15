@@ -1,4 +1,3 @@
-
 class LoginModel {
   String? message;
   int? status;

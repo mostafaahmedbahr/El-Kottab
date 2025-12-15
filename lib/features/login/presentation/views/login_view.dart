@@ -43,6 +43,7 @@ class LoginView extends StatelessWidget {
                   ForgetPassword(),
                   Gap(24.h),
                   DoNotHaveAccount(),
+
                 ],
               ),
             ),
