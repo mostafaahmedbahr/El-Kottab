@@ -1,6 +1,8 @@
 
 
 
+import 'package:el_kottab/features/register/data/models/categories_model.dart';
+
 import '../../data/models/register_model.dart';
 
 abstract class RegisterStates{}
@@ -24,3 +26,15 @@ class SignUpError  extends RegisterStates{
 
 class SelectGenderState extends RegisterStates{}
 
+class GetAllCategoriesLoadingState extends RegisterStates{}
+class GetAllCategoriesErrorState extends RegisterStates{
+  final String error;
+  GetAllCategoriesErrorState(this.error);
+
+}
+class GetAllCategoriesSuccessState extends RegisterStates{
+  final CategoriesModel categoriesModel;
+  GetAllCategoriesSuccessState(this.categoriesModel);
+}
+
+class CategorySelectedState extends RegisterStates{}

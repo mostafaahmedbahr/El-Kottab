@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'package:el_kottab/features/register/data/models/categories_model.dart';
 import 'package:el_kottab/features/register/presentation/view_model/register_states.dart';
 import '../../../../main_imports.dart';
 import '../../data/models/register_model.dart';
@@ -16,7 +17,8 @@ class RegisterCubit extends Cubit<RegisterStates> {
     isVisible = !isVisible;
     emit(ChangeSuffixIconState());
   }
-
+  String phoneNumber = '';
+  String countryCode = '';
   bool isVisible2 = true;
 
   void changeSuffixIcon2() {
@@ -42,8 +44,8 @@ class RegisterCubit extends Cubit<RegisterStates> {
     required String email,
     required String phone,
     required String gender,
-    required File? image,
-    required String categoryId,
+    // required File? image,
+    required int categoryId,
     required String password,
 
   }) async {
@@ -53,9 +55,9 @@ class RegisterCubit extends Cubit<RegisterStates> {
       "email": email,
       "phone": phone,
       "gender": gender,
-      "image": image != null
-          ? await MultipartFile.fromFile(image.path, filename: image.path.split('/').last)
-          : null,
+      // "image": image != null
+      //     ? await MultipartFile.fromFile(image.path, filename: image.path.split('/').last)
+      //     : null,
       "role": "user",
       "password": password,
       "category_id": categoryId,
@@ -107,6 +109,33 @@ class RegisterCubit extends Cubit<RegisterStates> {
     gender = newGender;
     emit(SelectGenderState());
   }
+
+
+  CategoriesModel? categoriesModel;
+  List<Data> categories = [];
+  Data? selectedCategory;
+  int? categoryId;
+  Future<void> getAllCategories() async {
+    emit(GetAllCategoriesLoadingState());
+    final result = await registerRepo!.getAllCategories();
+    result.fold(
+          (failure) {
+        emit(GetAllCategoriesErrorState(failure.errMessage));
+      },
+          (data) {
+        categoriesModel = data;
+        categories = data.data ?? [];
+        emit(GetAllCategoriesSuccessState(data));
+      },
+    );
+  }
+
+  void selectCategory(Data category) {
+    selectedCategory = category;
+    categoryId = category.id;
+    emit(CategorySelectedState());
+  }
+
 
 
 

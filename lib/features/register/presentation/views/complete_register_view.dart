@@ -1,7 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
-import 'package:el_kottab/features/complete_register/presentation/views/widgets/complete_register_button.dart';
-import 'package:el_kottab/features/complete_register/presentation/views/widgets/complete_register_form.dart';
-import 'package:el_kottab/main_imports.dart';
+ import 'package:el_kottab/features/register/presentation/views/widgets/complete_register_button.dart';
+import 'package:el_kottab/features/register/presentation/views/widgets/complete_register_form.dart';
+ import 'package:el_kottab/main_imports.dart';
 
 class CompleteRegisterView extends StatelessWidget {
   const CompleteRegisterView({super.key});
@@ -24,7 +24,7 @@ class CompleteRegisterView extends StatelessWidget {
               Text(LangKeys.enterTheFollowingInformationToSuccessfullyCreateAnAccount.tr(),style: AppStyles.gray14SemiBold,),
               Gap(20.h),
               CompleteRegisterForm(),
-              Gap(20.h),
+              Gap(32.h),
               CompleteRegisterButton(formKey: formKey,),
             ],
           ),

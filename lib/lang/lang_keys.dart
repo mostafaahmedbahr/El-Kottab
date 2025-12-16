@@ -104,6 +104,10 @@ abstract class LangKeys
     static const chat = "chat";
 
     static const typeMessage = "typeMessage";
+    static const phoneNumber = "phoneNumber";
+    static const category = "category";
+    static const selectCategory = "selectCategory";
+    static const pleaseSelectYourGender = "pleaseSelectYourGender";
 
 
 }

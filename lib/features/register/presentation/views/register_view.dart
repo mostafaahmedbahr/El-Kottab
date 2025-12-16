@@ -1,7 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:el_kottab/features/register/presentation/view_model/register_cubit.dart';
 import 'package:el_kottab/features/register/presentation/views/widgets/register_button.dart';
-import 'package:el_kottab/features/register/presentation/views/widgets/register_email_form.dart';
+import 'package:el_kottab/features/register/presentation/views/widgets/register_name_email_password_form.dart';
 import 'package:el_kottab/main_imports.dart';
 import '../../../../core/app_services/remote_services/service_locator.dart';
 import '../../data/repos/register_repos_imple.dart';
@@ -17,7 +17,7 @@ class RegisterView extends StatelessWidget {
         title: Text(LangKeys.signUp.tr()),
       ),
       body: BlocProvider(
-        create: (context)=>RegisterCubit(getIt.get<RegisterRepoImpl>()),
+        create: (context)=>RegisterCubit(getIt.get<RegisterRepoImpl>())..getAllCategories(),
         child: Padding(
           padding:   EdgeInsets.all(20.0.r),
           child: Form(
@@ -32,8 +32,8 @@ class RegisterView extends StatelessWidget {
                     }, child: Text(LangKeys.signIn.tr(),style: AppStyles.primary16SemiBold,)),
                   ],
                 ),
-                RegisterEmailForm(),
-                Gap(24.h),
+                RegisterNameEmailPasswordForm(),
+                Gap(32.h),
                 RegisterButton(formKey: formKey),
               ],
             ),

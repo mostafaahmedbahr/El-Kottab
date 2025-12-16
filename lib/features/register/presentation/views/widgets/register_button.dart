@@ -1,6 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
-import 'package:el_kottab/features/complete_register/presentation/views/complete_register_view.dart';
-import '../../../../../main_imports.dart';
+ import '../../../../../main_imports.dart';
+import '../../view_model/register_cubit.dart';
+import '../complete_register_view.dart';
 
 class RegisterButton extends StatelessWidget {
   const RegisterButton({super.key, required this.formKey});
@@ -11,10 +12,13 @@ class RegisterButton extends StatelessWidget {
       borderColor: AppColors.white,
       btnText: LangKeys.signUp.tr(),
       onPressed: (){
+        final registerCubit = context.read<RegisterCubit>();
         if (formKey.currentState!.validate()) {
           AppNav.customNavigator(
               context: context,
-              screen: CompleteRegisterView());
+              screen: BlocProvider.value(
+                  value: registerCubit,
+                  child: CompleteRegisterView()));
         }
       },
     );
