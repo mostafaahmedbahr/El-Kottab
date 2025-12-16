@@ -5,10 +5,10 @@ import '../models/verify_otp_model.dart';
 
 
 abstract class OtpRepo{
-  // Future<Either<Failure , VerifyOtpModel>> verifyOtp({
-  //   required String otpCode,
-  // });
-  //
+  Future<Either<Failure , VerifyOtpModel>> verifyOtp({
+    required String otpCode,
+  });
+
   // Future<Either<Failure , ResendOtpModel>> resendOtp({
   //   required String email,
   // });

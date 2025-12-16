@@ -14,31 +14,31 @@ class OtpCubit extends Cubit<OtpStates> {
   static OtpCubit get(context) => BlocProvider.of(context);
   OtpCubit(this.otpRepo) : super(OtpInitState());
 
-  // Future<void> verifyOtp({
-  //   required String otpCode,
-  // }) async {
-  //   emit(VerifyOtpLoadingState());
-  //   final result = await otpRepo!.verifyOtp(
-  //     otpCode: otpCode,
-  //   );
-  //   result.fold(
-  //         (failure){
-  //       emit(VerifyOtpErrorState(failure.errMessage));
-  //     },
-  //         (data) {
-  //       verifyOtpModel = data;
-  //       cacheUserInfo(
-  //         token: "${data.data!.token}",
-  //         phone: data.data!.phone.toString(),
-  //         id:  data.data!.id!,
-  //         email: "${data.data!.email}",
-  //       );
-  //       emit(VerifyOtpSuccessState(data));
-  //     },
-  //   );
-  // }
-  //
-  //
+  Future<void> verifyOtp({
+    required String otpCode,
+  }) async {
+    emit(VerifyOtpLoadingState());
+    final result = await otpRepo!.verifyOtp(
+      otpCode: otpCode,
+    );
+    result.fold(
+          (failure){
+        emit(VerifyOtpErrorState(failure.errMessage));
+      },
+          (data) {
+        verifyOtpModel = data;
+        cacheUserInfo(
+          token: "${data.data!.token}",
+          phone: data.data!.phone.toString(),
+          id:  data.data!.id!,
+          email: "${data.data!.email}",
+        );
+        emit(VerifyOtpSuccessState(data));
+      },
+    );
+  }
+
+
   // ResendOtpModel? resendOtpModel;
   //
   // Future<void> resendOtp({
@@ -78,7 +78,7 @@ class OtpCubit extends Cubit<OtpStates> {
   }
 
   void resetOtpTimer() {
-    startOtpTimer(); // Default 2 minutes
+    startOtpTimer();
   }
 
   void cancelOtpTimer() {

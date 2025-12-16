@@ -1,8 +1,7 @@
-
 import 'package:easy_localization/easy_localization.dart';
-
+import '../../../../../core/shared_cubits/auth_cubit/auth_cubit.dart';
 import '../../../../../main_imports.dart';
-import '../../../../register/presentation/views/complete_register_view.dart';
+import '../../../../layout/presentation/views/layout_view.dart';
 import '../../view_model/otp_cubit.dart';
 import '../../view_model/otp_states.dart';
 
@@ -15,24 +14,25 @@ class VerifyOtpButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocConsumer<OtpCubit, OtpStates>(
       listener: (context, state) {
-        // if (state is VerifyOtpSuccessState) {
-        //     // AppNav.customNavigator(
-        //     //   context: context,
-        //     //   screen:goToLayoutOrResetPassword=="Layout" ? const LayoutView() : ResetPasswordView(),
-        //     //   finish:goToLayoutOrResetPassword=="Layout" ? true : false,
-        //     // );
-        //   NewToast.showNewSuccessToast(
-        //     msg: state.verifyOtpModel.message.toString(),
-        //     context: context,
-        //   );
-        //     context.read<AuthCubit>().loginWithToken(state.verifyOtpModel.data!.token.toString());
-        // }
-        // if (state is VerifyOtpErrorState) {
-        //   NewToast.showNewErrorToast(
-        //     msg: state.error.toString(),
-        //     context: context,
-        //   );
-        // }
+        if (state is VerifyOtpSuccessState) {
+            AppNav.customNavigator(
+              context: context,
+              screen:  const LayoutView() ,
+              //screen:goToLayoutOrResetPassword=="Layout" ? const LayoutView() : ResetPasswordView(),
+              finish:goToLayoutOrResetPassword=="Layout" ? true : false,
+            );
+          Toast.showSuccessToast(
+            msg: state.verifyOtpModel.message.toString(),
+            context: context,
+          );
+            context.read<AuthCubit>().loginWithToken(state.verifyOtpModel.data!.token.toString());
+        }
+        if (state is VerifyOtpErrorState) {
+          Toast.showErrorToast(
+            msg: state.error.toString(),
+            context: context,
+          );
+        }
       },
       builder: (context, state) {
         return ConditionalBuilder(
@@ -46,10 +46,9 @@ class VerifyOtpButton extends StatelessWidget {
 
               onPressed: () {
                 if (controller.text.length == 6) {
-                  // context.read<OtpCubit>().verifyOtp(
-                  //   otpCode: controller.text,
-                  // );
-                  AppNav.customNavigator(context: context, screen: CompleteRegisterView());
+                  context.read<OtpCubit>().verifyOtp(
+                    otpCode: controller.text,
+                  );
                 } else {
                   ScaffoldMessenger.of(context).showSnackBar(
                       SnackBar(content: Text(LangKeys.pleaseEnterValidOtp.tr())),

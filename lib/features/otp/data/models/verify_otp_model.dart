@@ -28,21 +28,19 @@ class Data {
   String? name;
   String? email;
   String? phone;
+  String? gender;
   String? image;
-  String? country;
-  String? city;
   String? token;
 
-  Data({this.id, this.name, this.email, this.phone, this.image, this.country, this.city, this.token});
+  Data({this.id, this.name, this.email, this.phone, this.gender, this.image, this.token});
 
   Data.fromJson(Map<String, dynamic> json) {
     id = json["id"];
     name = json["name"];
     email = json["email"];
     phone = json["phone"];
+    gender = json["gender"];
     image = json["image"];
-    country = json["country"];
-    city = json["city"];
     token = json["token"];
   }
 
@@ -52,9 +50,8 @@ class Data {
     _data["name"] = name;
     _data["email"] = email;
     _data["phone"] = phone;
+    _data["gender"] = gender;
     _data["image"] = image;
-    _data["country"] = country;
-    _data["city"] = city;
     _data["token"] = token;
     return _data;
   }
