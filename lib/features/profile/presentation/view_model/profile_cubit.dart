@@ -1,4 +1,5 @@
 import 'package:el_kottab/features/profile/data/models/logout_model.dart';
+import 'package:el_kottab/features/profile/data/models/profile_model.dart';
 import 'package:el_kottab/features/profile/presentation/view_model/profile_states.dart';
 import '../../../../main_imports.dart';
 import '../../data/repos/profile_repo.dart';
@@ -21,6 +22,19 @@ class ProfileCubit extends Cubit<ProfileStates> {
     }, (data) async {
       logoutModel = data;
       emit(LogoutSuccessState(data));
+    });
+  }
+
+  ProfileModel? profileModel;
+  Future<void> getProfileData()
+  async {
+    emit(GetProfileDataLoadingState());
+    var result = await profileRepo!.getProfileData();
+    return result.fold((failure) {
+      emit(GetProfileDataErrorState(failure.errMessage));
+    }, (data) async {
+      profileModel = data;
+      emit(GetProfileDataSuccessState(data));
     });
   }
 

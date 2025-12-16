@@ -16,7 +16,7 @@ class HomeSliderImages extends StatelessWidget {
       builder:  (context,state){
         var homeCubit = context.read<HomeCubit>();
         return CarouselSlider(
-          items: homeCubit.sliderImagesList.map((slider) {
+          items: homeCubit.homeBannersModel!.data!.map((slider) {
             return Stack(
               alignment: Alignment.bottomLeft,
               children: [
@@ -25,7 +25,7 @@ class HomeSliderImages extends StatelessWidget {
                   child: CustomNetWorkImage(
                     height: 140.h,
                     width: MediaQuery.of(context).size.width,
-                    imageUrl: slider,
+                    imageUrl: slider.image.toString(),
                     raduis: 16,
                     fit: BoxFit.cover,
                   ),
@@ -36,7 +36,7 @@ class HomeSliderImages extends StatelessWidget {
                   right: 0,
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
-                    children: homeCubit.sliderImagesList.asMap().entries.map((entry) {
+                    children: homeCubit.homeBannersModel!.data!.asMap().entries.map((entry) {
                       return Container(
                         width: 8.0,
                         height: 8.0,

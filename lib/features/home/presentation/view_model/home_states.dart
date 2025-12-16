@@ -1,5 +1,7 @@
 
 
+import '../../data/models/home_banners_model.dart';
+
 abstract class HomeStates{}
 
 class HomeInitState extends HomeStates{}
@@ -12,7 +14,11 @@ class GetHomeSliderErrorState extends HomeStates{
   GetHomeSliderErrorState(this.error);
 
 }
-class GetHomeSliderSuccessState extends HomeStates{}
+class GetHomeSliderSuccessState extends HomeStates{
+  final HomeBannersModel homeBannersModel;
+  GetHomeSliderSuccessState(this.homeBannersModel);
+
+}
 
 class GetBestTeachersLoadingState extends HomeStates{}
 class GetBestTeachersErrorState extends HomeStates{

@@ -6,6 +6,8 @@ class EndPoints {
   static const String categories = 'categories';
   static const String verify = 'verify';
   static const String logout = 'logout';
+  static const String profile = 'profile';
+  static const String banners = 'banners';
 
 
 

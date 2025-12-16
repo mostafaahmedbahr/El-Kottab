@@ -16,7 +16,7 @@ class HomeView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: BlocProvider(
-        create: (context)=>HomeCubit(getIt.get<HomeRepoImpl>()),
+        create: (context)=>HomeCubit(getIt.get<HomeRepoImpl>())..getHomeBanners(),
         child: SafeArea(
           child: CustomScrollView(
             slivers: [

@@ -1,6 +1,7 @@
 
 
 import 'package:el_kottab/features/profile/data/models/logout_model.dart';
+import 'package:el_kottab/features/profile/data/models/profile_model.dart';
 
 abstract class ProfileStates{}
 
@@ -12,7 +13,11 @@ class GetProfileDataErrorState extends ProfileStates{
   GetProfileDataErrorState(this.error);
 
 }
-class GetProfileDataSuccessState extends ProfileStates{}
+class GetProfileDataSuccessState extends ProfileStates{
+  final ProfileModel profileModel;
+  GetProfileDataSuccessState(this.profileModel);
+
+}
 
 class LogoutLoadingState extends ProfileStates{}
 class LogoutSuccessState extends ProfileStates{

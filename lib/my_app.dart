@@ -29,7 +29,7 @@ class MyApp extends StatelessWidget {
                 BlocProvider(create: (context) => AuthCubit()..checkAuthStatus()),
                 BlocProvider(create: (context) => LanguageCubit()),
                 BlocProvider(create: (context) => LayoutCubit()),
-                BlocProvider(create: (context) => ProfileCubit(getIt.get<ProfileRepoImpl>())),
+                BlocProvider(create: (context) => ProfileCubit(getIt.get<ProfileRepoImpl>())..getProfileData()),
               ],
               child: BlocBuilder<LanguageCubit, Locale>(
                 builder: (context, locale) {
