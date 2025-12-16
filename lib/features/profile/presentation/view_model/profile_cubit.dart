@@ -1,7 +1,5 @@
-
-
+import 'package:el_kottab/features/profile/data/models/logout_model.dart';
 import 'package:el_kottab/features/profile/presentation/view_model/profile_states.dart';
-
 import '../../../../main_imports.dart';
 import '../../data/repos/profile_repo.dart';
 
@@ -13,7 +11,18 @@ class ProfileCubit extends Cubit<ProfileStates> {
 
 
 
-
+  LogoutModel? logoutModel;
+  Future<void> logout()
+  async {
+    emit(LogoutLoadingState());
+    var result = await profileRepo!.logout();
+    return result.fold((failure) {
+      emit(LogoutErrorState(failure.errMessage));
+    }, (data) async {
+      logoutModel = data;
+      emit(LogoutSuccessState(data));
+    });
+  }
 
 
 }

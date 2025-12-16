@@ -5,6 +5,7 @@ class EndPoints {
   static const String register = 'register';
   static const String categories = 'categories';
   static const String verify = 'verify';
+  static const String logout = 'logout';
 
 
 

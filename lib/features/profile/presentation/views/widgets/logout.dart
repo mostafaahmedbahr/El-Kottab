@@ -1,6 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 
 import '../../../../../main_imports.dart';
+import 'logout_dialog.dart';
 
 class Logout extends StatelessWidget {
   const Logout({super.key});
@@ -45,7 +46,7 @@ class Logout extends StatelessWidget {
             ],
           ),
           IconButton(onPressed: (){
-
+            showLogoutDialog(context);
           }, icon: SvgPicture.asset(
             isArabic? SvgImages.arrowLeft:
             SvgImages.arrowRight,colorFilter: ColorFilter.mode(AppColors.errorLight, BlendMode.srcIn),),),

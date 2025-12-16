@@ -108,6 +108,9 @@ abstract class LangKeys
     static const category = "category";
     static const selectCategory = "selectCategory";
     static const pleaseSelectYourGender = "pleaseSelectYourGender";
+    static const areYouSureLogout = "areYouSureLogout";
+    static const confirmLogout = "confirmLogout";
+    static const cancel = "cancel";
 
 
 }
