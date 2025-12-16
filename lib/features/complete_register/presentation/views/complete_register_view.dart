@@ -1,7 +1,4 @@
 import 'package:easy_localization/easy_localization.dart';
-import 'package:el_kottab/core/app_services/remote_services/service_locator.dart';
-import 'package:el_kottab/features/complete_register/data/repos/complete_register_repos_imple.dart';
-import 'package:el_kottab/features/complete_register/presentation/view_model/complete_register_cubit.dart';
 import 'package:el_kottab/features/complete_register/presentation/views/widgets/complete_register_button.dart';
 import 'package:el_kottab/features/complete_register/presentation/views/widgets/complete_register_form.dart';
 import 'package:el_kottab/main_imports.dart';

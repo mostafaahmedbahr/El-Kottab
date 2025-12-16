@@ -1,17 +1,16 @@
 import 'package:easy_localization/easy_localization.dart';
-import 'package:el_kottab/core/utils/app_nav.dart';
 import 'package:el_kottab/features/create_account_done/presentation/views/create_account_done_view.dart';
-import 'package:el_kottab/features/otp/presentation/views/otp_view.dart';
 import '../../../../../main_imports.dart';
-import '../../view_model/complete_register_cubit.dart';
-import '../../view_model/complete_register_states.dart';
+import '../../../../register/presentation/view_model/register_cubit.dart';
+import '../../../../register/presentation/view_model/register_states.dart';
+
 
 class CompleteRegisterButton extends StatelessWidget {
   const CompleteRegisterButton({super.key, required this.formKey});
   final GlobalKey<FormState> formKey;
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<CompleteRegisterCubit , CompleteRegisterStates>(
+    return BlocConsumer<RegisterCubit , RegisterStates>(
       listener: (context,state){
         // if(state is SignUpSuccess){
         //   NewToast.showNewSuccessToast(msg: state.registerModel.message.toString(),
@@ -24,7 +23,7 @@ class CompleteRegisterButton extends StatelessWidget {
         // }
       },
       builder: (context,state){
-        var completeRegisterCubit = context.read<CompleteRegisterCubit>();
+        var completeRegisterCubit = context.read<RegisterCubit>();
         return
           ConditionalBuilder(
             condition: true,

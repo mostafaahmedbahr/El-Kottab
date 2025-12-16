@@ -1,10 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
-import 'package:flashy_tab_bar2/flashy_tab_bar2.dart';
-
 import '../../../../../main_imports.dart';
 import '../../view_model/layout_cubit.dart';
 import '../../view_model/layout_states.dart';
-
 
 class BottomNavigationBarWidget extends StatelessWidget {
   const BottomNavigationBarWidget({super.key});
@@ -13,55 +10,63 @@ class BottomNavigationBarWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<LayoutCubit, LayoutStates>(
       builder: (context, state) {
-        return FlashyTabBar(
-          selectedIndex: LayoutCubit.pageIndex,
-          showElevation: true,
-          onItemSelected: (index) {
+        return BottomNavigationBar(
+          currentIndex: LayoutCubit.pageIndex,
+          onTap: (index) {
             context.read<LayoutCubit>().changeBottomNav(index, context);
           },
-          animationDuration: const Duration(milliseconds: 300),
-          animationCurve: Curves.easeInOut,
-          iconSize: 24,
+          type: BottomNavigationBarType.fixed,
+          elevation: 4.0,
+          showSelectedLabels: true,
+          showUnselectedLabels: true,
+          selectedItemColor: AppColors.darkOlive,
+          unselectedItemColor: AppColors.gray,
           backgroundColor: AppColors.white,
+          selectedLabelStyle:   TextStyle(
+            fontWeight: FontWeight.w500,
+            fontSize: 12.sp,
+          ),
+          unselectedLabelStyle:   TextStyle(
+            fontWeight: FontWeight.normal,
+            fontSize:12.sp,
+          ),
           items: [
             _buildTabItem(
               icon: SvgImages.home,
-              title: LangKeys.home ,
+              title: LangKeys.home,
               index: 0,
             ),
             _buildTabItem(
               icon: SvgImages.teachers,
-              title: LangKeys.teachers ,
+              title: LangKeys.teachers,
               index: 1,
             ),
             _buildTabItem(
               icon: SvgImages.sessions,
-              title: LangKeys.sessions ,
+              title: LangKeys.sessions,
               index: 2,
             ),
             _buildTabItem(
               icon: SvgImages.profile,
-              title: LangKeys.profile ,
+              title: LangKeys.profile,
               index: 3,
             ),
-
           ],
         );
       },
     );
   }
 
-  FlashyTabBarItem _buildTabItem({
+  BottomNavigationBarItem _buildTabItem({
     required String icon,
     required String title,
     required int index,
   }) {
-    return FlashyTabBarItem(
-      activeColor: AppColors.darkOlive,
+    return BottomNavigationBarItem(
       icon: SvgPicture.asset(
         icon,
-        width: 30,
-        height: 30,
+        width: 24.w,
+        height: 24.h,
         colorFilter: ColorFilter.mode(
           LayoutCubit.pageIndex == index
               ? AppColors.darkOlive
@@ -69,7 +74,16 @@ class BottomNavigationBarWidget extends StatelessWidget {
           BlendMode.srcIn,
         ),
       ),
-      title: Text(title.tr()),
+      activeIcon: SvgPicture.asset(
+        icon,
+        width: 24.w,
+        height: 24.h,
+        colorFilter: ColorFilter.mode(
+          AppColors.darkOlive,
+          BlendMode.srcIn,
+        ),
+      ),
+      label: title.tr(),
     );
   }
 }

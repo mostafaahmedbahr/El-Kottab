@@ -1,16 +1,17 @@
 import 'package:easy_localization/easy_localization.dart';
-import 'package:el_kottab/features/complete_register/presentation/view_model/complete_register_cubit.dart';
-import 'package:el_kottab/features/complete_register/presentation/view_model/complete_register_states.dart';
 import 'package:el_kottab/main_imports.dart';
+
+import '../../../../register/presentation/view_model/register_cubit.dart';
+import '../../../../register/presentation/view_model/register_states.dart';
 
 class CompleteRegisterForm extends StatelessWidget {
   const CompleteRegisterForm({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<CompleteRegisterCubit , CompleteRegisterStates>(
+    return BlocBuilder<RegisterCubit , RegisterStates>(
       builder: (context,state){
-        var completeRegisterCubit = context.read<CompleteRegisterCubit>();
+        var registerCubit = context.read<RegisterCubit>();
         return Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -37,15 +38,15 @@ class CompleteRegisterForm extends StatelessWidget {
                     padding: EdgeInsets.all(8.r),
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(16.r),
-                        color: completeRegisterCubit.gender=="female"  ?  AppColors.darkOlive.withValues(alpha: 0.2):AppColors.white,
+                        color: registerCubit.gender=="female"  ?  AppColors.darkOlive.withValues(alpha: 0.2):AppColors.white,
                         border: Border.all(
-                            color:completeRegisterCubit.gender=="female"  ?  AppColors.darkOlive.withValues(alpha: 0.2): AppColors.gray
+                            color:registerCubit.gender=="female"  ?  AppColors.darkOlive.withValues(alpha: 0.2): AppColors.gray
                         )
                     ),
                     child: InkWell(
                       onTap: (){
-                        completeRegisterCubit.selectGender("female");
-                        print(completeRegisterCubit.gender);
+                        registerCubit.selectGender("female");
+                        print(registerCubit.gender);
                       },
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -65,15 +66,15 @@ class CompleteRegisterForm extends StatelessWidget {
                     padding: EdgeInsets.all(8.r),
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(16.r),
-                        color:completeRegisterCubit.gender=="male"  ?  AppColors.darkOlive.withValues(alpha: 0.2): AppColors.white,
+                        color:registerCubit.gender=="male"  ?  AppColors.darkOlive.withValues(alpha: 0.2): AppColors.white,
                         border: Border.all(
-                            color:completeRegisterCubit.gender=="male"  ?  AppColors.darkOlive.withValues(alpha: 0.2): AppColors.gray
+                            color:registerCubit.gender=="male"  ?  AppColors.darkOlive.withValues(alpha: 0.2): AppColors.gray
                         )
                     ),
                     child: InkWell(
                       onTap: (){
-                        completeRegisterCubit.selectGender("male");
-                        print(completeRegisterCubit.gender);
+                        registerCubit.selectGender("male");
+                        print(registerCubit.gender);
                       },
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -92,7 +93,7 @@ class CompleteRegisterForm extends StatelessWidget {
             Text(LangKeys.password.tr(),style: AppStyles.black14Medium,),
             Gap(8.h),
             CustomTextFormField(
-              controller: completeRegisterCubit.passwordCon,
+              controller: registerCubit.passCon,
               keyboardType: TextInputType.visiblePassword,
               hintText: LangKeys.password.tr(),
               prefixIcon: Padding(
@@ -101,18 +102,18 @@ class CompleteRegisterForm extends StatelessWidget {
               ),
               suffixIcon: IconButton(
                 color: AppColors.gray,
-                icon: SvgPicture.asset(completeRegisterCubit.isPasswordVisible ?
+                icon: SvgPicture.asset(registerCubit.isVisible ?
                 SvgImages.eye : SvgImages.openEye ,colorFilter: ColorFilter.mode(AppColors.black, BlendMode.srcIn),),
-                onPressed: completeRegisterCubit.changePasswordVisible,
+                onPressed: registerCubit.changeSuffixIcon,
               ),
-              obscureText: completeRegisterCubit.isPasswordVisible,
+              obscureText: registerCubit.isVisible,
               validator: (String? value) => AppValidators.passwordValidator(value),
             ),
             Gap(20.h),
             Text(LangKeys.confirmPassword.tr(),style: AppStyles.black14Medium,),
             Gap(8.h),
             CustomTextFormField(
-              controller: completeRegisterCubit.passwordCon,
+              controller: registerCubit.confirmPassCon,
               keyboardType: TextInputType.visiblePassword,
               hintText: LangKeys.confirmPassword.tr(),
               prefixIcon: Padding(
@@ -121,11 +122,11 @@ class CompleteRegisterForm extends StatelessWidget {
               ),
               suffixIcon: IconButton(
                 color: AppColors.gray,
-                icon: SvgPicture.asset(completeRegisterCubit.isPasswordVisible ?
+                icon: SvgPicture.asset(registerCubit.isVisible2 ?
                 SvgImages.eye : SvgImages.openEye ,colorFilter: ColorFilter.mode(AppColors.black, BlendMode.srcIn),),
-                onPressed: completeRegisterCubit.changePasswordVisible,
+                onPressed: registerCubit.changeSuffixIcon2,
               ),
-              obscureText: completeRegisterCubit.isPasswordVisible,
+              obscureText: registerCubit.isVisible2,
               validator: (String? value) => AppValidators.passwordValidator(value),
             ),
           ],

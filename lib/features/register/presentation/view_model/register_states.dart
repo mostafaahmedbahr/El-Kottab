@@ -22,5 +22,5 @@ class SignUpError  extends RegisterStates{
 }
 
 
-
+class SelectGenderState extends RegisterStates{}
 

@@ -100,6 +100,14 @@ class RegisterCubit extends Cubit<RegisterStates> {
   }
 
 
+  String? gender;
+
+  void selectGender(String newGender)
+  {
+    gender = newGender;
+    emit(SelectGenderState());
+  }
+
 
 
 
