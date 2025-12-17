@@ -1,5 +1,7 @@
 
 
+import 'package:el_kottab/features/home/data/models/best_teachers_model.dart';
+
 import '../../../../main_imports.dart';
 import '../../data/models/home_banners_model.dart';
 import '../../data/repos/home_repo.dart';
@@ -38,5 +40,16 @@ class HomeCubit extends Cubit<HomeStates> {
 
 
 
-
+  BestTeachersModel? bestTeachersModel;
+  Future<void> getBestTeachers()
+  async {
+    emit(GetBestTeachersLoadingState());
+    var result = await homeRepo!.getBestTeachers();
+    return result.fold((failure) {
+      emit(GetBestTeachersErrorState(failure.errMessage));
+    }, (data) async {
+      bestTeachersModel = data;
+      emit(GetBestTeachersSuccessState(data));
+    });
+  }
 }

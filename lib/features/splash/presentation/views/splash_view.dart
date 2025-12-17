@@ -2,6 +2,7 @@
 import 'package:el_kottab/features/login/presentation/views/login_view.dart';
 
  import '../../../../main_imports.dart';
+import '../../../layout/presentation/views/layout_view.dart';
 
 class SplashView extends StatefulWidget {
   const SplashView({super.key});
@@ -26,12 +27,20 @@ class SplashViewState extends State<SplashView>
     _animation = CurvedAnimation(parent: _controller, curve: Curves.bounceOut);
 
     _controller.forward();
-
     _controller.addStatusListener((status) {
       if (status == AnimationStatus.completed) {
-        Navigator.of(context).pushReplacement(
-          MaterialPageRoute(builder: (context) => const LoginView()),
-        );
+        final String? userToken = CacheTokenManger.userToken;
+        if ( userToken != null && userToken.isNotEmpty) {
+          AppNav.customNavigator(
+            context: context,
+            screen: const LayoutView(),
+          );
+        } else {
+          AppNav.customNavigator(
+            context: context,
+            screen: const LoginView(),
+          );
+        }
       }
     });
   }

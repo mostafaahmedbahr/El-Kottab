@@ -25,7 +25,7 @@ class ProfileNameAndNotificationIcon extends StatelessWidget {
               children: [
                 CustomNetWorkImage(
                   raduis: 50,
-                  imageUrl: "${profileCubit.profileModel!.data!.image}",
+                  imageUrl: "${profileCubit.profileModel?.data?.image ?? ""}",
                   width: 40,
                   height: 40,
                   fit: BoxFit.cover,

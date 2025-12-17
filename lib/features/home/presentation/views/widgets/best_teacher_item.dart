@@ -4,8 +4,10 @@ import 'package:el_kottab/features/teacher_details/presentation/views/teacher_de
 import 'package:el_kottab/main_imports.dart';
 
 class BestTeacherItem extends StatelessWidget {
-  const BestTeacherItem({super.key, required this.teacherName});
+  const BestTeacherItem({super.key, required this.teacherName, required this.teacherRate, required this.teacherNumber});
   final String teacherName;
+  final String teacherRate;
+  final String teacherNumber;
   @override
   Widget build(BuildContext context) {
     return InkWell(

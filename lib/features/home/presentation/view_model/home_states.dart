@@ -1,5 +1,7 @@
 
 
+import 'package:el_kottab/features/home/data/models/best_teachers_model.dart';
+
 import '../../data/models/home_banners_model.dart';
 
 abstract class HomeStates{}
@@ -26,7 +28,11 @@ class GetBestTeachersErrorState extends HomeStates{
   GetBestTeachersErrorState(this.error);
 
 }
-class GetBestTeachersSuccessState extends HomeStates{}
+class GetBestTeachersSuccessState extends HomeStates{
+  final BestTeachersModel bestTeachersModel;
+  GetBestTeachersSuccessState(this.bestTeachersModel);
+
+}
 
 
 

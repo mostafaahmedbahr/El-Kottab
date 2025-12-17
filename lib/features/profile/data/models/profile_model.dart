@@ -29,15 +29,16 @@ class Data {
   String? email;
   String? phone;
   String? gender;
-  String? image;
+  dynamic image;
   dynamic description;
   String? type;
   dynamic avaliable;
   String? role;
   String? categoryId;
   dynamic attachments;
+  dynamic language;
 
-  Data({this.id, this.name, this.email, this.phone, this.gender, this.image, this.description, this.type, this.avaliable, this.role, this.categoryId, this.attachments});
+  Data({this.id, this.name, this.email, this.phone, this.gender, this.image, this.description, this.type, this.avaliable, this.role, this.categoryId, this.attachments,this.language});
 
   Data.fromJson(Map<String, dynamic> json) {
     id = json["id"];
@@ -52,6 +53,7 @@ class Data {
     role = json["role"];
     categoryId = json["category_id"];
     attachments = json["attachments"];
+    language = json["language"];
   }
 
   Map<String, dynamic> toJson() {
@@ -68,6 +70,7 @@ class Data {
     _data["role"] = role;
     _data["category_id"] = categoryId;
     _data["attachments"] = attachments;
+    _data["language"] = language;
     return _data;
   }
 }
