@@ -10,13 +10,15 @@ import '../../../../core/app_services/remote_services/service_locator.dart';
 import '../../../../main_imports.dart';
 
 import '../../../login/presentation/views/widgets/logo_widget.dart';
+import '../../../register/presentation/view_model/register_cubit.dart';
 import '../../data/repos/otp_repo_imple.dart';
 import '../view_model/otp_cubit.dart';
 import '../view_model/otp_states.dart';
 
 class OtpView extends StatefulWidget {
-  const OtpView({super.key, required this.goToLayoutOrResetPassword});
+  const OtpView({super.key, required this.goToLayoutOrResetPassword, required this.email});
   final String goToLayoutOrResetPassword;
+  final String email;
   @override
   State<OtpView> createState() => _OtpViewState();
 }
@@ -58,12 +60,12 @@ class _OtpViewState extends State<OtpView> {
                          Gap(50.h),
                         PinCodeFieldsWidget(controller: _otpController),
                         Gap(20.h),
-                         const ResendCodeWidget(),
+                         // const ResendCodeWidget(),
                       ],
                     ),
                     Column(
                       children: [
-                        VerifyOtpButton(controller: _otpController,goToLayoutOrResetPassword: widget.goToLayoutOrResetPassword,),
+                        VerifyOtpButton(controller: _otpController,goToLayoutOrResetPassword: widget.goToLayoutOrResetPassword,email:widget.email ,),
                         SizedBox(
                           height: 80.h + MediaQuery.of(context).viewInsets.bottom,
                         ),

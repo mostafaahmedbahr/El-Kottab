@@ -16,27 +16,24 @@ class RegisterView extends StatelessWidget {
       appBar: AppBar(
         title: Text(LangKeys.signUp.tr()),
       ),
-      body: BlocProvider(
-        create: (context)=>RegisterCubit(getIt.get<RegisterRepoImpl>())..getAllCategories(),
-        child: Padding(
-          padding:   EdgeInsets.all(20.0.r),
-          child: Form(
-            key: formKey,
-            child: Column(
-              children: [
-                Row(
-                  children: [
-                    Text(LangKeys.signUpMsg.tr()),
-                    TextButton(onPressed: (){
-                      Navigator.pop(context);
-                    }, child: Text(LangKeys.signIn.tr(),style: AppStyles.primary16SemiBold,)),
-                  ],
-                ),
-                RegisterNameEmailPasswordForm(),
-                Gap(32.h),
-                RegisterButton(formKey: formKey),
-              ],
-            ),
+      body: Padding(
+        padding:   EdgeInsets.all(20.0.r),
+        child: Form(
+          key: formKey,
+          child: Column(
+            children: [
+              Row(
+                children: [
+                  Text(LangKeys.signUpMsg.tr()),
+                  TextButton(onPressed: (){
+                    Navigator.pop(context);
+                  }, child: Text(LangKeys.signIn.tr(),style: AppStyles.primary16SemiBold,)),
+                ],
+              ),
+              RegisterNameEmailPasswordForm(),
+              Gap(32.h),
+              RegisterButton(formKey: formKey),
+            ],
           ),
         ),
       ),

@@ -16,10 +16,12 @@ class OtpCubit extends Cubit<OtpStates> {
 
   Future<void> verifyOtp({
     required String otpCode,
+    required String email,
   }) async {
     emit(VerifyOtpLoadingState());
     final result = await otpRepo!.verifyOtp(
       otpCode: otpCode,
+      email: CacheHelper.getData(key: "userEmail"),
     );
     result.fold(
           (failure){

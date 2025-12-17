@@ -7,23 +7,27 @@ class OtpTexts extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print(CacheHelper.getData(key: "userEmail"));
     return Column(
       children: [
         Text(  LangKeys.confirmYourEmail.tr(),
           style: AppStyles.black24SemiBold,
         ),
-        Text(  LangKeys.sendVerificationCode.tr(),
-          style: AppStyles.gray14SemiBold,
-        ),
+        Gap(12.h),
         Builder(
             builder: (context) {
               return Text(  "${CacheHelper.getData(key: "userEmail")}",
                 style: AppStyles.gray14SemiBold.copyWith(
-                    color: AppColors.white
+                    color: AppColors.black
                 ),
               );
             }
         ),
+        Gap(12.h),
+        Text(  LangKeys.sendVerificationCode.tr(),
+          style: AppStyles.gray14SemiBold,
+        ),
+
       ],
     );
   }

@@ -1,6 +1,5 @@
 import 'package:dio/dio.dart';
 
-
 abstract class Failure {
   final String errMessage;
   Failure(this.errMessage);
@@ -13,49 +12,70 @@ class ServerFailure extends Failure {
     switch (dioException.type) {
       case DioExceptionType.connectionTimeout:
         return ServerFailure("connectionTimeOut");
+
       case DioExceptionType.sendTimeout:
         return ServerFailure("sendTimeOut");
+
       case DioExceptionType.receiveTimeout:
         return ServerFailure("receiveTimeOut");
+
       case DioExceptionType.badResponse:
         return ServerFailure.fromResponse(
-            dioException.response!.statusCode!, dioException.response!.data);
+          dioException.response?.statusCode ?? 0,
+          dioException.response?.data,
+        );
+
       case DioExceptionType.cancel:
         return ServerFailure("requestCanceled");
+
       case DioExceptionType.unknown:
-        if (dioException.error!.toString().contains("SocketException")) {
+        if (dioException.error.toString().contains("SocketException")) {
           return ServerFailure("noInternet");
-        }else
-        {
-          return ServerFailure("unexpectedError");
         }
+        return ServerFailure("unexpectedError");
 
       default:
-        return ServerFailure("Something went Error Try Again");
+        return ServerFailure("Something went wrong. Try again");
     }
   }
 
   factory ServerFailure.fromResponse(int statusCode, dynamic response) {
     String errorMessage = "Something went wrong. Please try again";
 
-    // Handle different response types
     if (response is Map<String, dynamic>) {
-      // JSON response
+
+      // ✅ Validation Errors (422)
+      if (statusCode == 422 && response["data"] is Map<String, dynamic>) {
+        final Map<String, dynamic> errors =
+        response["data"] as Map<String, dynamic>;
+
+        if (errors.isNotEmpty) {
+          final String firstKey = errors.keys.first;
+          final dynamic firstError = errors[firstKey];
+
+          if (firstError is List && firstError.isNotEmpty) {
+            errorMessage = firstError.first.toString();
+          }
+        }
+
+        return ServerFailure(errorMessage);
+      }
+
+      // الرسالة العامة
       errorMessage = response["message"]?.toString() ?? errorMessage;
-    } else if (response is String) {
-      // Plain text response (common for 500 errors)
-      errorMessage = response.isNotEmpty ? response : errorMessage;
+    } else if (response is String && response.isNotEmpty) {
+      errorMessage = response;
     }
 
-    // Handle specific status codes
-    if (statusCode == 400 || statusCode == 401 || statusCode == 403 || statusCode == 422) {
-      return ServerFailure(errorMessage);
-    } else if (statusCode == 500) {
-      return ServerFailure(errorMessage.isEmpty ? "Internal server error" : errorMessage);
-    } else if (statusCode == 404) {
-      return ServerFailure("Request not found");
-    } else {
+    // حالات status code مختلفة
+    if (statusCode == 400 ||
+        statusCode == 401 ||
+        statusCode == 403 ||
+        statusCode == 404 ||
+        statusCode == 500) {
       return ServerFailure(errorMessage);
     }
+
+    return ServerFailure(errorMessage);
   }
 }

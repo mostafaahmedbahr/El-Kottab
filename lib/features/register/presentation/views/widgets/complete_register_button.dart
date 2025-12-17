@@ -15,7 +15,7 @@ class CompleteRegisterButton extends StatelessWidget {
         if(state is SignUpSuccess){
           Toast.showSuccessToast(msg: state.registerModel.message.toString(),
               context: context);
-          AppNav.customNavigator(context: context, screen: OtpView(goToLayoutOrResetPassword: "Layout",));
+          AppNav.customNavigator(context: context, screen: OtpView(goToLayoutOrResetPassword: "Layout",email: context.read<RegisterCubit>().emailCon.text,));
         }
         else if(state is SignUpError){
           Toast.showErrorToast(msg: state.message.toString(),
@@ -42,6 +42,7 @@ class CompleteRegisterButton extends StatelessWidget {
                       email: registerCubit.emailCon.text,
                       phone: registerCubit.phoneNumber,
                       password:  registerCubit.passCon.text,
+                      confirmPassword:  registerCubit.confirmPassCon.text,
                       categoryId: registerCubit.categoryId!,
                       gender: registerCubit.gender!,
 

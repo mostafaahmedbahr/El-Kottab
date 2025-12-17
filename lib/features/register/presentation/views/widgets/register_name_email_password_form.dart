@@ -47,6 +47,9 @@ class RegisterNameEmailPasswordForm extends StatelessWidget {
                 child: SvgPicture.asset(SvgImages.email,colorFilter: ColorFilter.mode(AppColors.black, BlendMode.srcIn),),
               ),
               validator: (value)=> AppValidators.emailValidator(value),
+              onChanged: (v){
+                 CacheHelper.saveData(key: "userEmail", value: v);
+              },
             ),
             Gap(20.h),
 

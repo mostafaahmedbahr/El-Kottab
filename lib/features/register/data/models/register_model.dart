@@ -8,7 +8,7 @@ class RegisterModel {
 
   RegisterModel.fromJson(Map<String, dynamic> json) {
     message = json["message"];
-    status = (json["status"] as num).toInt();
+    status = json["status"];
     data = json["data"];
   }
 

@@ -47,6 +47,7 @@ class RegisterCubit extends Cubit<RegisterStates> {
     // required File? image,
     required int categoryId,
     required String password,
+    required String confirmPassword,
 
   }) async {
     emit(SignUpLoading());
@@ -60,6 +61,7 @@ class RegisterCubit extends Cubit<RegisterStates> {
       //     : null,
       "role": "user",
       "password": password,
+      "password_confirmation": password,
       "category_id": categoryId,
     });
     final result = await registerRepo!.register(data: formData);
@@ -68,12 +70,12 @@ class RegisterCubit extends Cubit<RegisterStates> {
     }, (data) async {
       registerModel = data;
       emit(SignUpSuccess(data));
-      cacheUserInfo(
-        token: "${data.data!.token}",
-        phone: data.data!.phone.toString(),
-        id:  data.data!.id!,
-        email: "${data.data!.email}",
-      );
+      // cacheUserInfo(
+      //   token: "${data.data!.token}",
+      //   phone: data.data!.phone.toString(),
+      //   id:  data.data!.id!,
+      //   email: "${data.data!.email}",
+      // );
      // clearProfileImage();
       clearControllers();
     });

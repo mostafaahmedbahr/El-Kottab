@@ -14,10 +14,12 @@ class OtpRepoImpl implements OtpRepo {
   @override
   Future<Either<Failure, VerifyOtpModel>> verifyOtp({
     required String otpCode,
+    required String email,
   }) async{
     try {
       var formData = FormData.fromMap({
         'code': otpCode,
+        'email': email,
       });
       var response = await apiService!.postData(
         endPoint: EndPoints.verify,
