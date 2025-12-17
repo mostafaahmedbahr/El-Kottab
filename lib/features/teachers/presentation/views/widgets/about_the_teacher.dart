@@ -2,8 +2,8 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:el_kottab/main_imports.dart';
 
 class AboutTheTeacher extends StatelessWidget {
-  const AboutTheTeacher({super.key});
-
+  const AboutTheTeacher({super.key, required this.des});
+  final String des;
   @override
   Widget build(BuildContext context) {
     return Row(

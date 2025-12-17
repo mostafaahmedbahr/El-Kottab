@@ -1,8 +1,6 @@
-import 'package:easy_localization/easy_localization.dart';
 import 'package:el_kottab/features/profile/presentation/views/widgets/logout.dart';
 import 'package:el_kottab/features/profile/presentation/views/widgets/profile_info_data.dart';
 import 'package:el_kottab/features/profile/presentation/views/widgets/profile_list_items.dart';
-
 import '../../../../main_imports.dart';
 
 class ProfileView extends StatelessWidget {

@@ -1,19 +1,18 @@
-import 'package:el_kottab/core/utils/app_nav.dart';
+import 'package:el_kottab/features/teachers/data/models/all_teachers_model.dart';
 import 'package:el_kottab/features/teachers/presentation/views/widgets/teacher_main_info_data.dart';
 import 'package:el_kottab/main_imports.dart';
-
 import '../../../../teacher_details/presentation/views/teacher_details_view.dart';
 import 'about_the_teacher.dart';
 import 'calls_buttons.dart';
 
 class TeachersListItem extends StatelessWidget {
-  const TeachersListItem({super.key});
-
+  const TeachersListItem({super.key, required this.teacher});
+  final Data teacher;
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: (){
-        AppNav.customNavigator(context: context, screen: TeacherDetailsView(teacherName: "Mostafa Bahr",
+        AppNav.customNavigator(context: context, screen: TeacherDetailsView(teacherName:teacher.name.toString(),
         ));
       },
       child: Container(
@@ -28,9 +27,9 @@ class TeachersListItem extends StatelessWidget {
         ),
         child: Column(
           children: [
-            TeacherMainInfoData(),
+            TeacherMainInfoData(name: teacher.name??"", rate: teacher.rate??0, languages: teacher.languages??[],image: teacher.image.toString(),),
             Gap(6.h),
-            AboutTheTeacher(),
+            AboutTheTeacher(des: teacher.category.toString()),
             Gap(6.h),
             CallsButtons(),
 

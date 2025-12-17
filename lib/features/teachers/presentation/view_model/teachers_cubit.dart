@@ -1,4 +1,5 @@
 
+import 'package:el_kottab/features/teachers/data/models/all_teachers_model.dart';
 import 'package:el_kottab/features/teachers/presentation/view_model/teachers_states.dart';
 
 import '../../../../main_imports.dart';
@@ -29,6 +30,20 @@ class TeachersCubit extends Cubit<TeachersStates> {
   void onPageChanged(int index) {
     buttonValue = index;
     emit(TeachersButtonChangedState());
+  }
+
+
+  AllTeachersModel? allTeachersModel;
+  Future<void> getAllTeachers()
+  async {
+    emit(GetAllTeachersLoadingState());
+    var result = await teachersRepo!.getAllTeachers();
+    return result.fold((failure) {
+      emit(GetAllTeachersErrorState(failure.errMessage));
+    }, (data) async {
+      allTeachersModel = data;
+      emit(GetAllTeachersSuccessState(data));
+    });
   }
 
 }

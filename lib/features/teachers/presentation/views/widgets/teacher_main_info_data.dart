@@ -2,13 +2,16 @@ import 'package:el_kottab/features/teachers/presentation/views/widgets/profile_i
 import 'package:el_kottab/main_imports.dart';
 
 class TeacherMainInfoData extends StatelessWidget {
-  const TeacherMainInfoData({super.key});
-
+  const TeacherMainInfoData({super.key, required this.name, required this.rate,required this.languages, required this.image});
+  final String name;
+  final String image;
+  final int rate;
+  final   List<String> languages;
   @override
   Widget build(BuildContext context) {
     return Row(
       children: [
-        ProfileImage(),
+        ProfileImage(image: image,),
         Gap(12.w),
         Expanded(
           child: Column(
@@ -18,7 +21,7 @@ class TeacherMainInfoData extends StatelessWidget {
                 children: [
                   Expanded(
                     child: Text(
-                      "Mostafa Bahr" * 10,
+                     name,
                       style: AppStyles.black16SemiBold,
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
@@ -81,27 +84,27 @@ class TeacherMainInfoData extends StatelessWidget {
                         ),
                       ),
                       Gap(4.w),
-                      Text("4.6"),
+                      Text("$rate"),
                     ],
                   ),
                   Gap(8.w),
-                  Container(
-                    padding: EdgeInsets.symmetric(vertical: 4.h,horizontal: 8.h),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(8.r),
-                      color: AppColors.gold
-                    ),
-                    child: Text("Arabic",style: AppStyles.white12SemiBold,),
-                  ),
-                  Gap(8.w),
-                  Container(
-                    padding: EdgeInsets.symmetric(vertical: 4.h,horizontal: 8.h),
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(8.r),
-                        color: AppColors.gold
-                    ),
-                    child: Text("Arabic",style: AppStyles.white12SemiBold,),
-                  ),
+                  if (languages != null && languages!.isNotEmpty)
+                    ...languages!.map((language) {
+                      return Padding(
+                        padding: EdgeInsets.only(right: 8.w),
+                        child: Container(
+                          padding: EdgeInsets.symmetric(vertical: 4.h, horizontal: 8.h),
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(8.r),
+                            color: AppColors.gold,
+                          ),
+                          child: Text(
+                            language,
+                            style: AppStyles.white12SemiBold,
+                          ),
+                        ),
+                      );
+                    }),
                 ],
               ),
             ],

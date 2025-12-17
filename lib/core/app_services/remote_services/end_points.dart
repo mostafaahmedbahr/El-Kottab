@@ -9,6 +9,7 @@ class EndPoints {
   static const String profile = 'profile';
   static const String banners = 'banners';
   static const String bestTeachers = 'get-latest-online';
+  static const String allTeachers = 'teachers';
 
 
 

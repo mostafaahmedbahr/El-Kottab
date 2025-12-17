@@ -60,5 +60,3 @@ class TeachersListBody extends StatelessWidget {
     );
   }
 }
-
-/// يارب التاسكات تموووووت

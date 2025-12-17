@@ -13,7 +13,7 @@ class TeachersView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: BlocProvider(
-        create: (context)=>TeachersCubit(getIt.get<TeachersRepoImpl>()),
+        create: (context)=>TeachersCubit(getIt.get<TeachersRepoImpl>())..getAllTeachers(),
         child: Padding(
           padding:   EdgeInsets.symmetric(horizontal: 12.w,vertical: 20.h),
           child: Column(

@@ -1,3 +1,5 @@
+import 'package:el_kottab/features/teachers/data/models/all_teachers_model.dart';
+
 abstract class TeachersStates{}
 
 class TeachersInitState extends TeachersStates{}
@@ -11,7 +13,10 @@ class GetAllTeachersErrorState extends TeachersStates {
   GetAllTeachersErrorState(this.error);
 
 }
-class GetAllTeachersSuccessState extends TeachersStates {}
+class GetAllTeachersSuccessState extends TeachersStates {
+  final AllTeachersModel allTeachersModel;
+  GetAllTeachersSuccessState(this.allTeachersModel);
+}
 
 
 
