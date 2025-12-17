@@ -12,7 +12,7 @@ class TeachersListItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: (){
-        AppNav.customNavigator(context: context, screen: TeacherDetailsView(teacherName:teacher.name.toString(),
+        AppNav.customNavigator(context: context, screen: TeacherDetailsView(teacherName:teacher.name.toString(),teacherId: teacher.id!,
         ));
       },
       child: Container(

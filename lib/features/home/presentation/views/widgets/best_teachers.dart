@@ -11,11 +11,13 @@ class BestTeachers extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<HomeCubit , HomeStates>(
+    return BlocBuilder<HomeCubit, HomeStates>(
       buildWhen: (previous, current) {
-        return current is GetBestTeachersSuccessState || current is GetBestTeachersErrorState || current is GetBestTeachersLoadingState;
+        return current is GetBestTeachersSuccessState ||
+            current is GetBestTeachersErrorState ||
+            current is GetBestTeachersLoadingState;
       },
-      builder:  (context,state){
+      builder: (context, state) {
         var homeCubit = context.read<HomeCubit>();
         return Padding(
           padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 12.h),
@@ -27,9 +29,7 @@ class BestTeachers extends StatelessWidget {
                 children: [
                   Text(
                     LangKeys.theBestTeachers.tr(),
-                    style: AppStyles.black16SemiBold.copyWith(
-                      fontSize: 18.sp,
-                    ),
+                    style: AppStyles.black16SemiBold.copyWith(fontSize: 18.sp),
                   ),
                   TextButton(
                     onPressed: () {
@@ -59,24 +59,33 @@ class BestTeachers extends StatelessWidget {
               ),
               SizedBox(
                 height: 140.h,
-                child:state is GetBestTeachersLoadingState || homeCubit.bestTeachersModel==null  ? BestTeachersLoading(): ListView.separated(
-                  scrollDirection: Axis.horizontal,
-                  itemBuilder: (context, index) {
-                    var teacher = homeCubit.bestTeachersModel!.data![index];
-                    return BestTeacherItem(teacherName: teacher.name.toString(), teacherRate: teacher.rate.toString(), teacherNumber: "01110690299");
-                  },
-                  separatorBuilder: (context, index) {
-                    return Gap(16.w);
-                  },
-                  itemCount: homeCubit.bestTeachersModel!.data!.length,
-                  padding: EdgeInsets.symmetric(vertical: 8.h),
-                ),
+                child:
+                    state is GetBestTeachersLoadingState ||
+                        homeCubit.bestTeachersModel == null
+                    ? BestTeachersLoading()
+                    : ListView.separated(
+                        scrollDirection: Axis.horizontal,
+                        itemBuilder: (context, index) {
+                          var teacher =
+                              homeCubit.bestTeachersModel!.data![index];
+                          return BestTeacherItem(
+                            teacherName: teacher.name.toString(),
+                            teacherRate: teacher.rate.toString(),
+                            teacherId: teacher.id!,
+                            teacherNumber: "01110690299",
+                          );
+                        },
+                        separatorBuilder: (context, index) {
+                          return Gap(16.w);
+                        },
+                        itemCount: homeCubit.bestTeachersModel!.data!.length,
+                        padding: EdgeInsets.symmetric(vertical: 8.h),
+                      ),
               ),
             ],
           ),
         );
       },
-
     );
   }
 }

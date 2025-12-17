@@ -9,7 +9,7 @@ class AboutTheTeacher extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Text("Simple Description"),
+        Text(des),
         IconButton(
           onPressed: () {},
           icon: Row(

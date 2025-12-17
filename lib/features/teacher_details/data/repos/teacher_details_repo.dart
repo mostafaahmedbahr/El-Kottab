@@ -1,11 +1,12 @@
+import 'package:dartz/dartz.dart';
+
+import '../../../../core/errors/failure.dart';
+import '../models/teacher_details_model.dart';
+
 abstract class TeacherDetailsRepo{
-  // Future<Either<Failure , VerifyOtpModel>> verifyOtp({
-  //   required String otpCode,
-  // });
-  //
-  // Future<Either<Failure , ResendOtpModel>> resendOtp({
-  //   required String email,
-  // });
+  Future<Either<Failure , TeachersDetailsModel>> getTeachersDetails({
+    required int teacherId,
+  });
 
 
 

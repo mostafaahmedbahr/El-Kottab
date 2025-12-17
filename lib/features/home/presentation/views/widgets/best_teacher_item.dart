@@ -4,15 +4,16 @@ import 'package:el_kottab/features/teacher_details/presentation/views/teacher_de
 import 'package:el_kottab/main_imports.dart';
 
 class BestTeacherItem extends StatelessWidget {
-  const BestTeacherItem({super.key, required this.teacherName, required this.teacherRate, required this.teacherNumber});
+  const BestTeacherItem({super.key, required this.teacherName, required this.teacherRate, required this.teacherNumber, required this.teacherId});
   final String teacherName;
   final String teacherRate;
   final String teacherNumber;
+  final int teacherId;
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: (){
-        AppNav.customNavigator(context: context, screen: TeacherDetailsView(teacherName: teacherName));
+        AppNav.customNavigator(context: context, screen: TeacherDetailsView(teacherName: teacherName,teacherId: teacherId,));
       },
       child: Container(
         padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 8.h),

@@ -4,8 +4,9 @@ import 'package:el_kottab/main_imports.dart';
 import '../../../../teachers/presentation/views/widgets/profile_image.dart';
 
 class MainTeacherInfoContainer extends StatelessWidget {
-  const MainTeacherInfoContainer({super.key});
-
+  const MainTeacherInfoContainer({super.key, required this.name, required this.email});
+  final String name;
+  final String email;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -16,8 +17,6 @@ class MainTeacherInfoContainer extends StatelessWidget {
           Column(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
-
-
                   Container(
                     padding: EdgeInsets.all(12.r),
                     width: double.infinity,
@@ -45,7 +44,7 @@ class MainTeacherInfoContainer extends StatelessWidget {
                         ),
                         Gap(8.h),
                         Text(
-                          "Mostafa Bahr" ,
+                          name ,
                           style: AppStyles.black16SemiBold,
                           maxLines: 1,
                           overflow: TextOverflow.ellipsis,
@@ -54,15 +53,15 @@ class MainTeacherInfoContainer extends StatelessWidget {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            SvgPicture.asset(
-                              SvgImages.star,
-                              colorFilter: ColorFilter.mode(
-                                AppColors.warningDark,
-                                BlendMode.srcIn,
-                              ),
-                            ),
-                            Gap(4.w),
-                            Text("4.6"),
+                            // SvgPicture.asset(
+                            //   SvgImages.star,
+                            //   colorFilter: ColorFilter.mode(
+                            //     AppColors.warningDark,
+                            //     BlendMode.srcIn,
+                            //   ),
+                            // ),
+                            // Gap(4.w),
+                            Text(email),
                           ],
                         ),
                         Gap(12.h),

@@ -1,4 +1,5 @@
 
+import 'package:el_kottab/features/teacher_details/data/models/teacher_details_model.dart';
 import 'package:el_kottab/features/teacher_details/data/repos/teacher_details_repo.dart';
 import 'package:el_kottab/features/teacher_details/presentation/view_model/teacher_details_states.dart';
 
@@ -12,5 +13,17 @@ class TeacherDetailsCubit extends Cubit<TeacherDetailsStates> {
 
 
 
+  TeachersDetailsModel? teachersDetailsModel;
+  Future<void> getTeachersDetails({ required int teacherId,})
+  async {
+    emit(GetTeacherDetailsLoadingState());
+    var result = await teacherDetailsRepo!.getTeachersDetails(teacherId: teacherId);
+    return result.fold((failure) {
+      emit(GetTeacherDetailsErrorState(failure.errMessage));
+    }, (data) async {
+      teachersDetailsModel = data;
+      emit(GetTeacherDetailsSuccessState(data));
+    });
+  }
 
 }
