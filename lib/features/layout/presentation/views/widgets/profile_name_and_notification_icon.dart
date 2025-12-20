@@ -5,8 +5,6 @@ import 'package:el_kottab/core/utils/app_nav.dart';
 import 'package:el_kottab/features/notifications/presentation/views/notifications_view.dart';
 import 'package:el_kottab/features/profile/presentation/view_model/profile_cubit.dart';
 import 'package:el_kottab/features/profile/presentation/view_model/profile_states.dart';
-
-import '../../../../../core/shared_widgets/custom_cached_network_image.dart';
 import '../../../../../main_imports.dart';
 
 class ProfileNameAndNotificationIcon extends StatelessWidget {

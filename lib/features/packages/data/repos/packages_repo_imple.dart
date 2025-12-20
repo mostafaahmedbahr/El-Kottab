@@ -1,7 +1,7 @@
-
+import 'package:dartz/dartz.dart';
 import 'package:el_kottab/features/packages/data/repos/packages_repo.dart';
-
-import '../../../../core/app_services/remote_services/api_service.dart';
+import '../../../../main_imports.dart';
+import '../models/packages_model.dart';
 
 
 class PackagesRepoImpl implements PackagesRepo {
@@ -10,19 +10,18 @@ class PackagesRepoImpl implements PackagesRepo {
 
 
 
-
-// @override
-// Future<Either<Failure, TryThisProductsModel>> getTryThisProductsData() async{
-//   try {
-//     var response = await apiService!.getData(
-//       endPoint: EndPoints.mostSellingProducts,
-//     );
-//     TryThisProductsModel result = TryThisProductsModel.fromJson(response.data);
-//     return right(result);
-//   } catch (e) {
-//     return left(handleError(e));
-//   }
-// }
+@override
+Future<Either<Failure, PackagesModel>> getAllPackages() async{
+  try {
+    var response = await apiService!.getData(
+      endPoint: EndPoints.plans,
+    );
+    PackagesModel result = PackagesModel.fromJson(response.data);
+    return right(result);
+  } catch (e) {
+    return left(handleError(e));
+  }
+}
 
 
 

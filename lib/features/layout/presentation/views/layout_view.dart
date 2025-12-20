@@ -21,7 +21,7 @@ class LayoutView extends StatelessWidget {
             appBar: AppBar(
               automaticallyImplyLeading: false,
               elevation: 0,
-              // title: const ProfileNameAndNotificationIcon(),
+               title: const ProfileNameAndNotificationIcon(),
             ),
             body: layoutCubit.screens[LayoutCubit.pageIndex],
             bottomNavigationBar: const BottomNavigationBarWidget(),

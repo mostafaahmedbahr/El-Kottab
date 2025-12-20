@@ -158,13 +158,13 @@ class CompleteRegisterForm extends StatelessWidget {
             Gap(10.h),
 
             /// Category Id
-            Text(LangKeys.category.tr(), style: AppStyles.black14Medium),
+            Text(LangKeys.educationalPath.tr(), style: AppStyles.black14Medium),
             Gap(8.h),
 
             CustomDropdown<Data>(
               value: registerCubit.selectedCategory,
               items: registerCubit.categories,
-              hint: LangKeys.selectCategory.tr(),
+              hint: LangKeys.educationalPath.tr(),
               itemDisplayBuilder: (item) => item.name ?? '',
               onChanged: (value) {
                 if (value != null) {

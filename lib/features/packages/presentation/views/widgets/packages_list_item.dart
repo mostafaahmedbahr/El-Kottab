@@ -1,9 +1,10 @@
 import 'package:easy_localization/easy_localization.dart';
+import 'package:el_kottab/features/packages/data/models/packages_model.dart';
 import 'package:el_kottab/main_imports.dart';
 
 class PackagesListItem extends StatelessWidget {
-  const PackagesListItem({super.key});
-
+  const PackagesListItem({super.key, required this.package});
+  final Data package;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -21,7 +22,7 @@ class PackagesListItem extends StatelessWidget {
             children: [
               Row(
                 children: [
-                  Text("400",style: AppStyles.black20Bold,),
+                  Text("${package.minutes}",style: AppStyles.black20Bold,),
                   Gap(6.w),
                   Text(LangKeys.minute.tr()),
                 ],
@@ -31,7 +32,7 @@ class PackagesListItem extends StatelessWidget {
                 children: [
                   Text(LangKeys.validFor.tr()),
                   Gap(4.w),
-                  Text("60",style: AppStyles.black16SemiBold,),
+                  Text("${package.validDays}",style: AppStyles.black16SemiBold,),
                   Gap(4.w),
                   Text(LangKeys.day.tr()),
                 ],
@@ -58,14 +59,14 @@ class PackagesListItem extends StatelessWidget {
                             children: [
                               Row(
                                 children: [
-                                  Text("248.00" , style: AppStyles.white12SemiBold,),
+                                  Text("${package.price}" , style: AppStyles.white12SemiBold,),
                                   Gap(4.w),
                                   Text("SAR",style: AppStyles.white8SemiBold,)
                                 ],
                               ),
                               Row(
                                 children: [
-                                  Text("248.00" , style: AppStyles.white12SemiBold,),
+                                  Text("${package.price}" , style: AppStyles.white12SemiBold,),
                                   Gap(4.w),
                                   Text("SAR",style: AppStyles.white8SemiBold,)
                                 ],

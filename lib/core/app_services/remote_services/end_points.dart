@@ -11,6 +11,7 @@ class EndPoints {
   static const String bestTeachers = 'get-latest-online';
   static const String allTeachers = 'teachers';
   static const String teacher = 'teacher';
+  static const String plans = 'plans';
 
 
 
