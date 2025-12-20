@@ -20,11 +20,28 @@ class LoginCubit extends Cubit<LoginStates> {
       emit(LoginErrorState(failure.errMessage));
     }, (data) async {
         loginModel = data;
+        cacheUserInfo(
+          token: "${data.data!.token}",
+          phone: data.data!.phone.toString(),
+          id:  data.data!.id!,
+          email: "${data.data!.email}",
+        );
         emit(LoginSuccessState(data));
     });
   }
 
 
+  cacheUserInfo({required String token ,
+    required String phone ,
+    required int id ,
+    required String email,
+  })
+  async {
+    await CacheTokenManger.saveUserToken(token);
+    CacheHelper.saveData(key: "userPhone", value: phone);
+    CacheHelper.saveData(key: "userId", value: id);
+    CacheHelper.saveData(key: "userEmail", value: email);
+  }
   var emailCon = TextEditingController();
   var passwordCon = TextEditingController();
   bool isPasswordVisible = true;

@@ -35,7 +35,7 @@ class ProfileNameAndNotificationIcon extends StatelessWidget {
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 10),
                       child: Text(
-                        isArabic ? "اهلا مصطفي بحر":   "Hi, Mostafa Bahr",
+                        profileCubit.profileModel!.data!.name.toString(),
                         style: AppStyles.black16SemiBold,
                       ),
                     ),
