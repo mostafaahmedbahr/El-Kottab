@@ -1,7 +1,7 @@
 import '../../../../../main_imports.dart';
 
 class ProfileImage extends StatelessWidget {
-  const ProfileImage({super.key,   this.image});
+  const ProfileImage({super.key,    this.image});
   final String? image;
   @override
   Widget build(BuildContext context) {
@@ -25,7 +25,7 @@ class ProfileImage extends StatelessWidget {
         ),
         child: ClipOval(
           child: CustomNetWorkImage(
-            imageUrl: image ?? "https://wallpapers.com/images/featured-full/cool-profile-picture-87h46gcobjl5e4xu.jpg",
+            imageUrl: image??"" ,
             height: 70.h,
             width: 70.w,
             fit: BoxFit.cover,
