@@ -32,7 +32,7 @@ class _EditProfileNameEmailPhoneFormState
         var editProfileInfoCubit = EditProfileInfoCubit.get(context);
         return Column(
           children: [
-            Gap(20.h),
+            Gap(30.h),
             CustomTextFormField(
               controller: editProfileInfoCubit.nameCon,
               keyboardType: TextInputType.text,
@@ -82,7 +82,7 @@ class _EditProfileNameEmailPhoneFormState
                   color: Color.fromRGBO(150, 150, 150, 1),
                 ),
                 suffixIcon: Padding(
-                  padding: const EdgeInsets.all(10.0),
+                  padding:   EdgeInsets.all(10.0.r),
                   child: SvgPicture.asset(
                     SvgImages.mobile,
                     colorFilter: ColorFilter.mode(
@@ -92,16 +92,16 @@ class _EditProfileNameEmailPhoneFormState
                   ),
                 ),
                 border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(16.r),
-                  borderSide: const BorderSide(color: AppColors.white),
+                  borderRadius: BorderRadius.circular(8.r),
+                  borderSide: const BorderSide(color: AppColors.grayLight),
                 ),
                 enabledBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(16.r),
-                  borderSide: const BorderSide(color: AppColors.white),
+                  borderRadius: BorderRadius.circular(8.r),
+                  borderSide: const BorderSide(color: AppColors.grayLight),
                 ),
                 focusedBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(16.r),
-                  borderSide: const BorderSide(color: AppColors.white),
+                  borderRadius: BorderRadius.circular(8.r),
+                  borderSide: const BorderSide(color: AppColors.grayLight),
                 ),
               ),
               initialCountryCode: 'EG',

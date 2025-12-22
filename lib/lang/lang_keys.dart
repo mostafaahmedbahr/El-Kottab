@@ -120,5 +120,11 @@ abstract class LangKeys
 
 
 
+    static const profilePhoto = "profilePhoto";
+    static const change = "change";
+    static const delete = "delete";
+
+
+
 
 }

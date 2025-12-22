@@ -22,3 +22,13 @@ class ClearImageSuccessState  extends EditProfileInfoStates{}
 
 
 class SelectCategoryState  extends EditProfileInfoStates{}
+class EditProfileImageLoadingState extends EditProfileInfoStates{}
+class EditProfileImageSuccessState extends EditProfileInfoStates{
+  final EditProfileInfoModel editProfileInfoModel;
+  EditProfileImageSuccessState(this.editProfileInfoModel);
+
+}
+class EditProfileImageErrorState extends EditProfileInfoStates{
+  final String error;
+  EditProfileImageErrorState(this.error);
+}

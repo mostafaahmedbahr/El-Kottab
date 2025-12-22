@@ -1,5 +1,4 @@
- import 'package:easy_localization/easy_localization.dart';
-
+import 'package:easy_localization/easy_localization.dart';
 import '../../../../../main_imports.dart';
 import '../../../../layout/presentation/views/layout_view.dart';
 import '../../../../profile/presentation/view_model/profile_cubit.dart';
@@ -11,57 +10,78 @@ class EditProfileButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<EditProfileInfoCubit,EditProfileInfoStates>(
-      buildWhen: (previous, current){
-        return current is EditProfileInfoErrorState || current is EditProfileInfoSuccessState || current is EditProfileInfoLoadingState;
+    return BlocConsumer<EditProfileInfoCubit, EditProfileInfoStates>(
+      buildWhen: (previous, current) {
+        return current is EditProfileInfoLoadingState ||
+            current is EditProfileInfoErrorState ||
+            current is EditProfileInfoSuccessState;
       },
-      listener: (context,state){
+      listener: (context, state) {
         if (state is EditProfileInfoErrorState) {
-          Toast.showErrorToast(msg: state.error.toString(), context: context);
+          Toast.showErrorToast(
+              msg: state.error.toString(),
+              context: context
+          );
         }
-        if (state is EditProfileInfoSuccessState){
+        if (state is EditProfileInfoSuccessState) {
+          // تحديث بيانات الملف الشخصي
           context.read<ProfileCubit>().getProfileData();
-          AppNav.customNavigator(context: context,
+
+          // العودة للشاشة الرئيسية
+          AppNav.customNavigator(
+            context: context,
             screen: const LayoutView(),
             finish: true,
           );
-          Toast.showSuccessToast(msg: state.editProfileInfoModel.message.toString(), context: context);
 
+          // عرض رسالة النجاح
+          Toast.showSuccessToast(
+            msg: state.editProfileInfoModel.message?.toString() ?? "تم التعديل بنجاح",
+            context: context,
+          );
         }
       },
-      builder: (context,state){
-        var editProfileInfoCubit = context.read<EditProfileInfoCubit>();
-        return ConditionalBuilder(
-          condition: state is ! EditProfileInfoLoadingState,
-          fallback: (context)=>const CustomLoading(),
-          builder: (context){
-            return CustomButton(
-              btnText: LangKeys.save.tr(),
-              onPressed: (){
-                // editProfileInfoCubit.editProfileInfoData(
-                //   email: editProfileInfoCubit.emailCon.text.isNotEmpty
-                //       ? editProfileInfoCubit.emailCon.text
-                //       : null,
-                //   name: editProfileInfoCubit.nameCon.text.isNotEmpty
-                //       ? editProfileInfoCubit.nameCon.text
-                //       : null,
-                //   phoneNumber: editProfileInfoCubit.phoneNumber.isNotEmpty
-                //       ? editProfileInfoCubit.phoneNumber
-                //       : null,
-                //    image: ,
-                //    gender: ,
-                //    categoryId: editProfileInfoCubit.categoryController.text,
-                //
-                // );
+      builder: (context, state) {
+        final editProfileInfoCubit = context.read<EditProfileInfoCubit>();
+        final isLoading = state is EditProfileInfoLoadingState;
 
+        return isLoading
+            ? const Center(child: CustomLoading())
+            : CustomButton(
+          btnText: LangKeys.save.tr(),
+          onPressed: () {
+            // جمع رقم الهاتف الكامل (مع رمز الدولة)
+            String fullPhoneNumber = '';
+            if (editProfileInfoCubit.phoneCon.text.isNotEmpty) {
+              // إذا كان رقم الهاتف يبدأ بـ 0، أضف رمز الدولة
+              if (editProfileInfoCubit.phoneCon.text.startsWith('0')) {
+                fullPhoneNumber = '+20${editProfileInfoCubit.phoneCon.text}';
+              } else {
+                fullPhoneNumber = editProfileInfoCubit.phoneCon.text;
+              }
+            }
 
-              },
-            );
+            // استدعاء دالة التعديل
+            // editProfileInfoCubit.editProfileInfoData(
+            //   name: editProfileInfoCubit.nameCon.text.isNotEmpty
+            //       ? editProfileInfoCubit.nameCon.text
+            //       : null,
+            //   email: editProfileInfoCubit.emailCon.text.isNotEmpty
+            //       ? editProfileInfoCubit.emailCon.text
+            //       : null,
+            //   phoneNumber: fullPhoneNumber.isNotEmpty
+            //       ? fullPhoneNumber
+            //       : null,
+            //   gender: editProfileInfoCubit.g,
+            //   image: editProfileInfoCubit.profileImage,
+            //   description: editProfileInfoCubit.descriptionCon.text.isNotEmpty
+            //       ? editProfileInfoCubit.descriptionCon.text
+            //       : null,
+            //   categoryId: editProfileInfoCubit.selectedCategoryId,
+            // );
           },
-
         );
       },
-
     );
   }
 }
