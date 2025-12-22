@@ -1,4 +1,5 @@
  import 'package:easy_localization/easy_localization.dart';
+import 'package:el_kottab/features/edit_profile/presentation/views/edit_profile_info_view.dart';
 import 'package:el_kottab/features/profile/presentation/view_model/profile_cubit.dart';
 import 'package:el_kottab/features/profile/presentation/view_model/profile_states.dart';
 import '../../../../../main_imports.dart';
@@ -53,7 +54,7 @@ class ProfileInfoData extends StatelessWidget {
                 children: [
                   InkWell(
                     onTap: (){
-
+                      AppNav.customNavigator(context: context, screen: EditProfileInfoView());
                     },
                     child: Row(
                       children: [

@@ -114,6 +114,8 @@ abstract class LangKeys
     static const educationalPath = "educationalPath";
     static const accountMustBeVerified = "accountMustBeVerified";
     static const loading = "loading";
+    static const editProfileInfo = "editProfileInfo";
+
 
 
 

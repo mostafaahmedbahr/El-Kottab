@@ -41,7 +41,7 @@ class OtpRepoImpl implements OtpRepo {
     required String email,
   }) async {
     try {
-      var response = await apiService!.getData(
+      var response = await apiService!.postData(
         endPoint: "${EndPoints.resendOtp}/$email",
       );
       ResendOtpModel result = ResendOtpModel.fromJson(response.data);

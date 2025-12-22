@@ -4,7 +4,8 @@ import 'package:el_kottab/features/free_learning/data/repos/free_learning_repo_i
 import 'package:get_it/get_it.dart';
  import '../../../features/balance/data/repos/balance_repo_imple.dart';
 import '../../../features/chat/data/repos/chat_repo_imple.dart';
- import '../../../features/home/data/repos/home_repo_imple.dart';
+ import '../../../features/edit_profile/data/repos/edit_profile_repo_imple.dart';
+import '../../../features/home/data/repos/home_repo_imple.dart';
 import '../../../features/login/data/repos/login_repo_imple.dart';
 import '../../../features/notifications/data/repos/notifications_repo_imple.dart';
 import '../../../features/otp/data/repos/otp_repo_imple.dart';
@@ -60,5 +61,7 @@ void setup() {
   getIt.registerSingleton<ChatRepoImpl>(ChatRepoImpl(
     getIt.get<ApiService>(),
   ));
-
+  getIt.registerSingleton<EditProfileInfoRepoImpl>(EditProfileInfoRepoImpl(
+    getIt.get<ApiService>(),
+  ));
 }
