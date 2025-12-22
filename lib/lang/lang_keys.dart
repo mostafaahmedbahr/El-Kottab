@@ -115,6 +115,9 @@ abstract class LangKeys
     static const accountMustBeVerified = "accountMustBeVerified";
     static const loading = "loading";
     static const editProfileInfo = "editProfileInfo";
+    static const changePassword = "changePassword";
+    static const oldPassword = "oldPassword";
+    static const newPassword = "newPassword";
 
 
 

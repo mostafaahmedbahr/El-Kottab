@@ -25,12 +25,12 @@ class ProfileInfoData extends StatelessWidget {
             children: [
               Row(
                 children: [
-                  ProfileImage(image: profileCubit.profileModel!.data!.image,),
+                  ProfileImage(image: profileCubit.profileModel?.data?.image??"",),
                   Gap(20.w),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(profileCubit.profileModel!.data!.name!,style: AppStyles.black16SemiBold,),
+                      Text(profileCubit.profileModel?.data?.name??"",style: AppStyles.black16SemiBold,),
                       Gap(8.h),
                       // Row(
                       //   children: [
