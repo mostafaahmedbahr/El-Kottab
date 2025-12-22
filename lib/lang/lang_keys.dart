@@ -112,6 +112,8 @@ abstract class LangKeys
     static const confirmLogout = "confirmLogout";
     static const cancel = "cancel";
     static const educationalPath = "educationalPath";
+    static const accountMustBeVerified = "accountMustBeVerified";
+    static const loading = "loading";
 
 
 }

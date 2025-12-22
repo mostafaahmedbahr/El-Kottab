@@ -8,24 +8,35 @@ import '../../view_model/otp_states.dart';
 class VerifyOtpButton extends StatelessWidget {
   final TextEditingController controller;
   final String goToLayoutOrResetPassword;
-  const VerifyOtpButton({super.key, required this.controller, required this.goToLayoutOrResetPassword, required this.email});
   final String email;
+
+  const VerifyOtpButton({
+    super.key,
+    required this.controller,
+    required this.goToLayoutOrResetPassword,
+    required this.email
+  });
+
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<OtpCubit, OtpStates>(
+      listenWhen: (previous, current) {
+        // استمع فقط للحالات المطلوبة
+        return current is VerifyOtpSuccessState ||
+            current is VerifyOtpErrorState;
+      },
       listener: (context, state) {
         if (state is VerifyOtpSuccessState) {
-            AppNav.customNavigator(
-              context: context,
-              screen:  const LayoutView() ,
-              //screen:goToLayoutOrResetPassword=="Layout" ? const LayoutView() : ResetPasswordView(),
-              finish:goToLayoutOrResetPassword=="Layout" ? true : false,
-            );
+          AppNav.customNavigator(
+            context: context,
+            screen: const LayoutView(),
+            finish: goToLayoutOrResetPassword == "Layout",
+          );
           Toast.showSuccessToast(
-            msg: state.verifyOtpModel.message.toString(),
+            msg: state.verifyOtpModel.message?.toString() ?? "",
             context: context,
           );
-            context.read<AuthCubit>().loginWithToken(state.verifyOtpModel.data!.token.toString());
+          context.read<AuthCubit>().loginWithToken(state.verifyOtpModel.data!.token.toString());
         }
         if (state is VerifyOtpErrorState) {
           Toast.showErrorToast(
@@ -34,29 +45,30 @@ class VerifyOtpButton extends StatelessWidget {
           );
         }
       },
+      buildWhen: (previous, current) {
+        // اعمل build فقط للحالات المتعلقة بـ verify
+        return current is VerifyOtpLoadingState ||
+            current is! VerifyOtpLoadingState;
+      },
       builder: (context, state) {
-        return ConditionalBuilder(
-          condition: state is! VerifyOtpLoadingState,
-          fallback: (context) => const CustomLoading(),
-          builder: (context) {
-            return CustomButton(
-              borderColor: AppColors.white,
-              btnText:
-                LangKeys.continuee.tr(),
+        final isLoading = state is VerifyOtpLoadingState;
 
-              onPressed: () {
-                if (controller.text.length == 6) {
-                  context.read<OtpCubit>().verifyOtp(
-                    otpCode: controller.text,
-                    email: email,
-                  );
-                } else {
-                  ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(content: Text(LangKeys.pleaseEnterValidOtp.tr())),
-                  );
-                }
-              },
-            );
+        return isLoading
+            ? const CustomLoading()
+            : CustomButton(
+          borderColor: AppColors.white,
+          btnText: LangKeys.continuee.tr(),
+          onPressed: () {
+            if (controller.text.length == 6) {
+              context.read<OtpCubit>().verifyOtp(
+                otpCode: controller.text,
+                email: email,
+              );
+            } else {
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(content: Text(LangKeys.pleaseEnterValidOtp.tr())),
+              );
+            }
           },
         );
       },
