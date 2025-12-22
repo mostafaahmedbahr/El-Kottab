@@ -29,9 +29,10 @@ class Data {
   String? image;
   List<String>? languages;
   String? category;
+  String? phone;
   int? rate;
 
-  Data({this.id, this.name, this.image, this.languages, this.category, this.rate});
+  Data({this.id, this.name, this.image, this.languages, this.category, this.phone, this.rate});
 
   Data.fromJson(Map<String, dynamic> json) {
     id = json["id"];
@@ -39,6 +40,7 @@ class Data {
     image = json["image"];
     languages = json["languages"] == null ? null : List<String>.from(json["languages"]);
     category = json["category"];
+    phone = json["phone"];
     rate = json["rate"];
   }
 
@@ -51,6 +53,7 @@ class Data {
       _data["languages"] = languages;
     }
     _data["category"] = category;
+    _data["phone"] = phone;
     _data["rate"] = rate;
     return _data;
   }
