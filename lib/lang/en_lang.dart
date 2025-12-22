@@ -111,6 +111,12 @@ class EnLang {
     "confirmLogout": "Confirm Logout",
     "cancel": "Cancel",
     "educationalPath": "Educational Path",
+    "accountMustBeVerified": "Account must be verified",
+    "loading": "Loading...",
+    "editProfileInfo": "Edit profile information",
+    "changePassword": "Change password",
+    "oldPassword": "Old password",
+    "newPassword": "New password"
 
 
 

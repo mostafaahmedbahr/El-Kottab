@@ -111,6 +111,13 @@ class ArLang {
     "confirmLogout": "تأكيد تسجيل الخروج",
     "cancel": "إلغاء",
     "educationalPath": "المسار التعليمي",
+    "accountMustBeVerified": "يجب التحقق من الحساب",
+    "loading": "جاري التحميل...",
+    "editProfileInfo": "تعديل معلومات الملف الشخصي",
+    "changePassword": "تغيير كلمة المرور",
+    "oldPassword": "كلمة المرور القديمة",
+    "newPassword": "كلمة المرور الجديدة",
+
 
 
 

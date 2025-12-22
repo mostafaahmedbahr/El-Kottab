@@ -102,7 +102,6 @@ abstract class LangKeys
     static const logout = "logout";
     static const history = "history";
     static const chat = "chat";
-
     static const typeMessage = "typeMessage";
     static const phoneNumber = "phoneNumber";
     static const category = "category";
