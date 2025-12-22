@@ -45,6 +45,7 @@ class CompleteRegisterButton extends StatelessWidget {
                       confirmPassword:  registerCubit.confirmPassCon.text,
                       categoryId: registerCubit.categoryId!,
                       gender: registerCubit.gender!,
+                      country: registerCubit.countryName,
 
                     );
                     }

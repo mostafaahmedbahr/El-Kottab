@@ -102,6 +102,16 @@ class ArLang {
     "logout": "تسجيل الخروج",
     "history": "السجل",
     "chat": "محادثة",
+    "typeMessage": "اكتب رسالة",
+    "phoneNumber": "رقم الهاتف",
+    "category": "الفئة",
+    "selectCategory": "اختر الفئة",
+    "pleaseSelectYourGender": "الرجاء تحديد جنسك",
+    "areYouSureLogout": "هل أنت متأكد من تسجيل الخروج؟",
+    "confirmLogout": "تأكيد تسجيل الخروج",
+    "cancel": "إلغاء",
+    "educationalPath": "المسار التعليمي",
+
 
 
 

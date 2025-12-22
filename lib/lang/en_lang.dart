@@ -102,6 +102,15 @@ class EnLang {
     "logout": "logout",
     "history": "history",
     "chat": "Chat",
+    "typeMessage": "Type a message",
+    "phoneNumber": "Phone Number",
+    "category": "Category",
+    "selectCategory": "Select Category",
+    "pleaseSelectYourGender": "Please select your gender",
+    "areYouSureLogout": "Are you sure you want to logout?",
+    "confirmLogout": "Confirm Logout",
+    "cancel": "Cancel",
+    "educationalPath": "Educational Path",
 
 
 

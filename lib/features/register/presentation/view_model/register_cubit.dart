@@ -19,6 +19,7 @@ class RegisterCubit extends Cubit<RegisterStates> {
   }
   String phoneNumber = '';
   String countryCode = '';
+  String countryName = 'Egypt';
   bool isVisible2 = true;
 
   void changeSuffixIcon2() {
@@ -48,6 +49,7 @@ class RegisterCubit extends Cubit<RegisterStates> {
     required int categoryId,
     required String password,
     required String confirmPassword,
+    required String country,
 
   }) async {
     emit(SignUpLoading());
@@ -56,6 +58,7 @@ class RegisterCubit extends Cubit<RegisterStates> {
       "email": email,
       "phone": phone,
       "gender": gender,
+      "country": country,
       // "image": image != null
       //     ? await MultipartFile.fromFile(image.path, filename: image.path.split('/').last)
       //     : null,
