@@ -62,23 +62,26 @@ class EditProfileButton extends StatelessWidget {
             }
 
             // استدعاء دالة التعديل
-            // editProfileInfoCubit.editProfileInfoData(
-            //   name: editProfileInfoCubit.nameCon.text.isNotEmpty
-            //       ? editProfileInfoCubit.nameCon.text
-            //       : null,
-            //   email: editProfileInfoCubit.emailCon.text.isNotEmpty
-            //       ? editProfileInfoCubit.emailCon.text
-            //       : null,
-            //   phoneNumber: fullPhoneNumber.isNotEmpty
-            //       ? fullPhoneNumber
-            //       : null,
-            //   gender: editProfileInfoCubit.g,
-            //   image: editProfileInfoCubit.profileImage,
-            //   description: editProfileInfoCubit.descriptionCon.text.isNotEmpty
-            //       ? editProfileInfoCubit.descriptionCon.text
-            //       : null,
-            //   categoryId: editProfileInfoCubit.selectedCategoryId,
-            // );
+          // Uncomment and update the editProfileInfoData call in the onPressed callback
+editProfileInfoCubit.editProfileInfoData(
+  name: editProfileInfoCubit.nameCon.text.isNotEmpty
+      ? editProfileInfoCubit.nameCon.text
+      : null,
+  email: editProfileInfoCubit.emailCon.text.isNotEmpty
+      ? editProfileInfoCubit.emailCon.text
+      : null,
+  phoneNumber: fullPhoneNumber.isNotEmpty
+      ? fullPhoneNumber
+      : null,
+  gender: editProfileInfoCubit.gender,
+  image: editProfileInfoCubit.profileImage,
+  description: editProfileInfoCubit.descriptionCon.text.isNotEmpty
+      ? editProfileInfoCubit.descriptionCon.text
+      : null,
+  // categoryId: editProfileInfoCubit.categoryController.text.isNotEmpty
+  //     ? editProfileInfoCubit.categoryController.text
+  //     : null,
+);
           },
         );
       },

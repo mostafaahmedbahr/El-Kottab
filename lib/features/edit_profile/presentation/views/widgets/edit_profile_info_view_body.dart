@@ -25,7 +25,7 @@ class EditProfileInfoViewBody extends StatelessWidget {
               children: [
                  EditProfileImage(),
                 EditProfileNameEmailPhoneForm(),
-                 EditProfileCategoryForm(),
+                 // EditProfileCategoryForm(),
                 Gap(40.h),
                 EditProfileButton(),
               ],
