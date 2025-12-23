@@ -2,6 +2,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:el_kottab/core/shared_widgets/custom_drop_down.dart';
 import 'package:el_kottab/features/register/data/models/categories_model.dart';
 import 'package:el_kottab/main_imports.dart';
+import 'package:intl_phone_field/countries.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
 import 'package:intl_phone_field/phone_number.dart';
 
@@ -14,10 +15,11 @@ class CompleteRegisterForm extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<RegisterCubit, RegisterStates>(
+
       builder: (context, state) {
         var registerCubit = context.read<RegisterCubit>();
-        print(registerCubit.categories);
-        print(registerCubit.categoriesModel);
+        print(registerCubit.countryName);
+        print("object");
         return Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -149,6 +151,9 @@ class CompleteRegisterForm extends StatelessWidget {
               onChanged: (PhoneNumber phone) {
                 registerCubit.phoneNumber = phone.completeNumber;
                 registerCubit.countryCode = phone.countryCode;
+              },
+              onCountryChanged: (Country country){
+                registerCubit.countryName = country.name;
               },
               validator: (value) => AppValidators.phoneValidator(
                 value.toString(),

@@ -36,20 +36,20 @@ class OtpRepoImpl implements OtpRepo {
   }
 
 
-  // @override
-  // Future<Either<Failure, ResendOtpModel>> resendOtp({
-  //   required String email,
-  // }) async {
-  //   try {
-  //     var response = await apiService!.getData(
-  //       endPoint: "${EndPoints.resendOtp}/$email",
-  //     );
-  //     ResendOtpModel result = ResendOtpModel.fromJson(response.data);
-  //     return right(result);
-  //   } catch (e) {
-  //     return left(handleError(e));
-  //   }
-  // }
+  @override
+  Future<Either<Failure, ResendOtpModel>> resendOtp({
+    required String email,
+  }) async {
+    try {
+      var response = await apiService!.postData(
+        endPoint: "${EndPoints.resendOtp}/$email",
+      );
+      ResendOtpModel result = ResendOtpModel.fromJson(response.data);
+      return right(result);
+    } catch (e) {
+      return left(handleError(e));
+    }
+  }
 
 
 }

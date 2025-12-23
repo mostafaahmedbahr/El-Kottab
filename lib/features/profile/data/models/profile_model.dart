@@ -37,8 +37,9 @@ class Data {
   String? categoryId;
   dynamic attachments;
   dynamic language;
+  String? country;
 
-  Data({this.id, this.name, this.email, this.phone, this.gender, this.image, this.description, this.type, this.avaliable, this.role, this.categoryId, this.attachments,this.language});
+  Data({this.id, this.name, this.email, this.phone, this.gender, this.image, this.description, this.type, this.avaliable, this.role, this.categoryId, this.attachments,this.language,this.country});
 
   Data.fromJson(Map<String, dynamic> json) {
     id = json["id"];
@@ -54,6 +55,7 @@ class Data {
     categoryId = json["category_id"];
     attachments = json["attachments"];
     language = json["language"];
+    country = json["country"];
   }
 
   Map<String, dynamic> toJson() {
@@ -71,6 +73,7 @@ class Data {
     _data["category_id"] = categoryId;
     _data["attachments"] = attachments;
     _data["language"] = language;
+    _data["country"] = country;
     return _data;
   }
 }

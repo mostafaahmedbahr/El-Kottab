@@ -102,6 +102,23 @@ class ArLang {
     "logout": "تسجيل الخروج",
     "history": "السجل",
     "chat": "محادثة",
+    "typeMessage": "اكتب رسالة",
+    "phoneNumber": "رقم الهاتف",
+    "category": "الفئة",
+    "selectCategory": "اختر الفئة",
+    "pleaseSelectYourGender": "الرجاء تحديد جنسك",
+    "areYouSureLogout": "هل أنت متأكد من تسجيل الخروج؟",
+    "confirmLogout": "تأكيد تسجيل الخروج",
+    "cancel": "إلغاء",
+    "educationalPath": "المسار التعليمي",
+    "accountMustBeVerified": "يجب التحقق من الحساب",
+    "loading": "جاري التحميل...",
+    "editProfileInfo": "تعديل معلومات الملف الشخصي",
+    "changePassword": "تغيير كلمة المرور",
+    "oldPassword": "كلمة المرور القديمة",
+    "newPassword": "كلمة المرور الجديدة",
+
+
 
 
 

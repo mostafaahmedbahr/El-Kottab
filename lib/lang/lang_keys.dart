@@ -102,7 +102,6 @@ abstract class LangKeys
     static const logout = "logout";
     static const history = "history";
     static const chat = "chat";
-
     static const typeMessage = "typeMessage";
     static const phoneNumber = "phoneNumber";
     static const category = "category";
@@ -112,6 +111,20 @@ abstract class LangKeys
     static const confirmLogout = "confirmLogout";
     static const cancel = "cancel";
     static const educationalPath = "educationalPath";
+    static const accountMustBeVerified = "accountMustBeVerified";
+    static const loading = "loading";
+    static const editProfileInfo = "editProfileInfo";
+    static const changePassword = "changePassword";
+    static const oldPassword = "oldPassword";
+    static const newPassword = "newPassword";
+
+
+
+    static const profilePhoto = "profilePhoto";
+    static const change = "change";
+    static const delete = "delete";
+
+
 
 
 }

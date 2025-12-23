@@ -10,9 +10,9 @@ abstract class OtpRepo{
     required String email,
   });
 
-  // Future<Either<Failure , ResendOtpModel>> resendOtp({
-  //   required String email,
-  // });
+  Future<Either<Failure , ResendOtpModel>> resendOtp({
+    required String email,
+  });
 
 
 

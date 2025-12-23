@@ -12,6 +12,9 @@ class EndPoints {
   static const String allTeachers = 'teachers';
   static const String teacher = 'teacher';
   static const String plans = 'plans';
+  static const String changePassword = 'password/change';
+  static const String resendOtp = 'resend-otp';
+
 
 
 

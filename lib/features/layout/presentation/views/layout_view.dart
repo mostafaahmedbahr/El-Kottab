@@ -12,6 +12,7 @@ class LayoutView extends StatelessWidget {
     return BlocBuilder<LayoutCubit, LayoutStates>(
       builder: (context, state) {
         var layoutCubit = LayoutCubit.get(context);
+        print(CacheTokenManger.userToken);
         return PopScope(
           canPop: false,
           onPopInvokedWithResult: (didPop, result) async {

@@ -15,6 +15,7 @@ void main() async {
   Bloc.observer = MyBlocObserver();
   runApp(EasyLocalization(
     startLocale: const Locale('en',""),
+
     supportedLocales: const [
       Locale('ar',""),
       Locale('en',""),
