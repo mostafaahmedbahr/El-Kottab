@@ -8,7 +8,7 @@ class PackagesModel {
 
   PackagesModel.fromJson(Map<String, dynamic> json) {
     message = json["message"];
-    status = (json["status"] as num).toInt();
+    status = json["status"];
     data = json["data"] == null ? null : (json["data"] as List).map((e) => Data.fromJson(e)).toList();
   }
 
@@ -26,18 +26,28 @@ class PackagesModel {
 class Data {
   int? id;
   String? name;
-  int? minutes;
-  String? validDays;
-  String? price;
+  dynamic minutes;
+  dynamic validDays;
+  dynamic priceInDolar;
+  dynamic priceInEgp;
+  bool? hasDiscount;
+  dynamic discount;
+  dynamic discountPriceDolar;
+  dynamic discountPriceEgp;
 
-  Data({this.id, this.name, this.minutes, this.validDays, this.price});
+  Data({this.id, this.name, this.minutes, this.validDays, this.priceInDolar, this.priceInEgp, this.hasDiscount, this.discount, this.discountPriceDolar, this.discountPriceEgp});
 
   Data.fromJson(Map<String, dynamic> json) {
-    id = (json["id"] as num).toInt();
+    id = json["id"];
     name = json["name"];
-    minutes = (json["minutes"] as num).toInt();
+    minutes = json["minutes"];
     validDays = json["valid_days"];
-    price = json["price"];
+    priceInDolar = json["price_in_dolar"];
+    priceInEgp = json["price_in_egp"];
+    hasDiscount = json["has_discount"];
+    discount = json["discount"];
+    discountPriceDolar = json["discount_price_dolar"];
+    discountPriceEgp = json["discount_price_egp"];
   }
 
   Map<String, dynamic> toJson() {
@@ -46,7 +56,12 @@ class Data {
     _data["name"] = name;
     _data["minutes"] = minutes;
     _data["valid_days"] = validDays;
-    _data["price"] = price;
+    _data["price_in_dolar"] = priceInDolar;
+    _data["price_in_egp"] = priceInEgp;
+    _data["has_discount"] = hasDiscount;
+    _data["discount"] = discount;
+    _data["discount_price_dolar"] = discountPriceDolar;
+    _data["discount_price_egp"] = discountPriceEgp;
     return _data;
   }
 }

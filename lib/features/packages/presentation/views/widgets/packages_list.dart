@@ -20,7 +20,7 @@ class PackagesList extends StatelessWidget {
             child: ListView.separated(
               itemBuilder: (context,index){
                 return PackagesListItem(
-                  package: packagesCubit.packagesModel!.data![index],
+                  package:  packagesCubit.packagesModel?.data?[index],
                 );
               },
               separatorBuilder: (context,index){

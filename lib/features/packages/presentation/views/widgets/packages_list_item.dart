@@ -3,8 +3,8 @@ import 'package:el_kottab/features/packages/data/models/packages_model.dart';
 import 'package:el_kottab/main_imports.dart';
 
 class PackagesListItem extends StatelessWidget {
-  const PackagesListItem({super.key, required this.package});
-  final Data package;
+  const PackagesListItem({super.key,   this.package});
+  final Data? package;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -22,7 +22,7 @@ class PackagesListItem extends StatelessWidget {
             children: [
               Row(
                 children: [
-                  Text("${package.minutes}",style: AppStyles.black20Bold,),
+                  Text("${package?.minutes}",style: AppStyles.black20Bold,),
                   Gap(6.w),
                   Text(LangKeys.minute.tr()),
                 ],
@@ -32,7 +32,7 @@ class PackagesListItem extends StatelessWidget {
                 children: [
                   Text(LangKeys.validFor.tr()),
                   Gap(4.w),
-                  Text("${package.validDays}",style: AppStyles.black16SemiBold,),
+                  Text("${package?.validDays}",style: AppStyles.black16SemiBold,),
                   Gap(4.w),
                   Text(LangKeys.day.tr()),
                 ],
@@ -59,14 +59,14 @@ class PackagesListItem extends StatelessWidget {
                             children: [
                               Row(
                                 children: [
-                                  Text("${package.price}" , style: AppStyles.white12SemiBold,),
+                                  Text("${package?.priceInDolar}" , style: AppStyles.white12SemiBold,),
                                   Gap(4.w),
                                   Text("SAR",style: AppStyles.white8SemiBold,)
                                 ],
                               ),
                               Row(
                                 children: [
-                                  Text("${package.price}" , style: AppStyles.white12SemiBold,),
+                                  Text("${package?.priceInDolar}" , style: AppStyles.white12SemiBold,),
                                   Gap(4.w),
                                   Text("SAR",style: AppStyles.white8SemiBold,)
                                 ],
