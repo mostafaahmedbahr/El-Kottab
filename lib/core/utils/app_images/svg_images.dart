@@ -39,6 +39,7 @@ class SvgImages
   static const String chat = "$svgPath/chat-line-svgrepo-com.svg";
   static const String settings = "$svgPath/settings-svgrepo-com.svg";
   static const String logout = "$svgPath/logout-3-svgrepo-com.svg";
+  static const String egp = "$svgPath/logout-3-svgrepo-com.svg";
 
 
 

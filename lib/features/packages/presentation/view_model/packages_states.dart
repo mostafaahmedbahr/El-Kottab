@@ -1,5 +1,7 @@
 import 'package:el_kottab/features/packages/data/models/packages_model.dart';
 
+import '../../../../core/utils/enums.dart';
+
 abstract class PackagesStates{}
 
 class PackagesInitState extends PackagesStates{}
@@ -23,3 +25,8 @@ class SubscribePackageErrorState extends PackagesStates{
 
 }
 class SubscribePackageSuccessState extends PackagesStates{}
+
+class CurrencyChangedState extends PackagesStates {
+  final Currency currency;
+  CurrencyChangedState(this.currency);
+}

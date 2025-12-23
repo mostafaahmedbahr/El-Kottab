@@ -1,7 +1,3 @@
-
-
-
-import 'package:el_kottab/core/utils/app_nav.dart';
 import 'package:el_kottab/features/notifications/presentation/views/notifications_view.dart';
 import 'package:el_kottab/features/profile/presentation/view_model/profile_cubit.dart';
 import 'package:el_kottab/features/profile/presentation/view_model/profile_states.dart';
@@ -12,7 +8,6 @@ class ProfileNameAndNotificationIcon extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final bool isArabic = Localizations.localeOf(context).languageCode == 'ar';
     return BlocBuilder<ProfileCubit , ProfileStates>(
       builder: (context,state){
         var profileCubit = context.read<ProfileCubit>();

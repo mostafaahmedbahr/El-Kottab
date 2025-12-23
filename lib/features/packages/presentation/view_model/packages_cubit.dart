@@ -2,6 +2,7 @@ import 'package:el_kottab/features/packages/data/models/packages_model.dart';
 import 'package:el_kottab/features/packages/data/repos/packages_repo.dart';
 import 'package:el_kottab/features/packages/presentation/view_model/packages_states.dart';
 
+import '../../../../core/utils/enums.dart';
 import '../../../../main_imports.dart';
 
 class PackagesCubit extends Cubit<PackagesStates> {
@@ -24,4 +25,11 @@ class PackagesCubit extends Cubit<PackagesStates> {
     });
   }
 
+
+  Currency selectedCurrency = Currency.egp; // ✅ default
+
+  void changeCurrency(Currency currency) {
+    selectedCurrency = currency;
+    emit(CurrencyChangedState(currency));
+  }
 }
