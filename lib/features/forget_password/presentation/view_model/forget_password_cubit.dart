@@ -13,10 +13,10 @@ class ForgetPasswordCubit extends Cubit<ForgetPasswordStates> {
   final ForgetPasswordRepo? resetPasswordRepo;
   ForgotPasswordByEmailModel? forgotPasswordByEmailModel;
 
-  Future<void> forgetPassword({required String email}) async {
+  Future<void> forgetPassword() async {
     emit(ForgetPasswordLoadingState());
     final result = await resetPasswordRepo!.forgotPasswordByEmail(
-        email: email,
+        email: emailCon.text,
     );
     result.fold(
           (failure){
@@ -30,6 +30,7 @@ class ForgetPasswordCubit extends Cubit<ForgetPasswordStates> {
   }
 
 
+  var emailCon = TextEditingController();
   var newPassCon = TextEditingController();
   var newPassConfirmationCon = TextEditingController();
   bool isVisible = true;

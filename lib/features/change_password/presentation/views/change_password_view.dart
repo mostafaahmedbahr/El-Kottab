@@ -8,8 +8,8 @@ import 'package:el_kottab/features/change_password/presentation/views/widgets/ch
 import '../../../../main_imports.dart';
 
 class ChangePasswordView extends StatelessWidget {
-  const ChangePasswordView({super.key});
-
+  const ChangePasswordView({super.key, required this.screenName});
+  final String screenName;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,7 +18,7 @@ class ChangePasswordView extends StatelessWidget {
       ),
      body: BlocProvider(
          create: (context)=>ChangePasswordCubit(getIt.get<ChangePasswordRepoImpl>()),
-         child: const ChangePasswordViewBody()),
+         child:   ChangePasswordViewBody(screenName: screenName,)),
     );
   }
 }

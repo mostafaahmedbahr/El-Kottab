@@ -5,7 +5,8 @@ import '../../view_model/change_password_cubit.dart';
 import '../../view_model/change_password_states.dart';
 
 class ChangePasswordForm extends StatelessWidget {
-  const ChangePasswordForm({super.key});
+  const ChangePasswordForm({super.key, required this.screenName});
+  final String screenName;
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<ChangePasswordCubit,ChangePasswordStates>(
@@ -16,6 +17,7 @@ class ChangePasswordForm extends StatelessWidget {
         var changePasswordCubit = context.read<ChangePasswordCubit>();
         return Column(
           children: [
+            if(screenName!="ForgetPasswordView")
             CustomTextFormField(
            controller:  changePasswordCubit.oldPasswordCon,
               keyboardType: TextInputType.visiblePassword,

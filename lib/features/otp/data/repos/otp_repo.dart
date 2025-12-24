@@ -8,6 +8,7 @@ abstract class OtpRepo{
   Future<Either<Failure , VerifyOtpModel>> verifyOtp({
     required String otpCode,
     required String email,
+    required String screenName,
   });
 
   Future<Either<Failure , ResendOtpModel>> resendOtp({

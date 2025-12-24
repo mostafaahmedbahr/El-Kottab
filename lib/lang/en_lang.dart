@@ -116,7 +116,14 @@ class EnLang {
     "editProfileInfo": "Edit profile information",
     "changePassword": "Change password",
     "oldPassword": "Old password",
-    "newPassword": "New password"
+    "newPassword": "New password",
+    "profilePhoto": "Profile Photo",
+    "change": "Change",
+    "delete": "Delete",
+    "resetPassword": "Reset Password",
+    "enterEmailToReceiveResetCode": "Enter your email to receive a reset code",
+    "enterYourEmailToResetPassword": "Enter your email to reset password",
+
 
 
 

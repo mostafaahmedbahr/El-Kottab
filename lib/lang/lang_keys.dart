@@ -117,13 +117,12 @@ abstract class LangKeys
     static const changePassword = "changePassword";
     static const oldPassword = "oldPassword";
     static const newPassword = "newPassword";
-
-
-
     static const profilePhoto = "profilePhoto";
     static const change = "change";
     static const delete = "delete";
     static const resetPassword = "resetPassword";
+    static const enterEmailToReceiveResetCode = "enterEmailToReceiveResetCode";
+    static const enterYourEmailToResetPassword = "resetPassword";
 
 
 

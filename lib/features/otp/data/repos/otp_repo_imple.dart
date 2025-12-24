@@ -15,16 +15,21 @@ class OtpRepoImpl implements OtpRepo {
   Future<Either<Failure, VerifyOtpModel>> verifyOtp({
     required String otpCode,
     required String email,
+    required String screenName,
   }) async{
     try {
       var formData = FormData.fromMap({
         'code': otpCode,
         'email': email,
       });
+      var data =  FormData.fromMap({
+        'otp': otpCode,
+        'email': email,
+      });
       var response = await apiService!.postData(
-        endPoint: EndPoints.verify,
+        endPoint:  screenName!="ForgetPasswordView" ? EndPoints.verify : EndPoints.verifyResetOtp,
         isMultipart: true,
-        data: formData,
+        data:screenName!="ForgetPasswordView" ? formData :data,
 
       );
       VerifyOtpModel result = VerifyOtpModel.fromJson(response.data);

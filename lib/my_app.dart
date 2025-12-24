@@ -7,6 +7,8 @@ import 'package:el_kottab/features/splash/presentation/views/splash_view.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 import 'core/shared_cubits/auth_cubit/auth_cubit.dart';
 import 'core/shared_cubits/lang_cubit/lang_cubit.dart';
+import 'features/forget_password/data/repos/forget_password_repo_impl.dart';
+import 'features/forget_password/presentation/view_model/forget_password_cubit.dart';
 import 'features/layout/presentation/view_model/layout_cubit.dart';
 import 'features/register/data/repos/register_repos_imple.dart';
 import 'main_imports.dart';
@@ -33,6 +35,7 @@ class MyApp extends StatelessWidget {
                 BlocProvider(create: (context) => LayoutCubit()),
                 BlocProvider(create: (context) => ProfileCubit(getIt.get<ProfileRepoImpl>())..getProfileData()),
                 BlocProvider(create: (context) => RegisterCubit(getIt.get<RegisterRepoImpl>())..getAllCategories()),
+                BlocProvider(create: (context) => ForgetPasswordCubit(getIt.get<ForgetPasswordRepoImpl>()) ),
               ],
               child: BlocBuilder<LanguageCubit, Locale>(
                 builder: (context, locale) {

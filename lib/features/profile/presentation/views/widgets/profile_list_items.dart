@@ -28,7 +28,7 @@ class ProfileListItems extends StatelessWidget {
             title: LangKeys.changePassword,
             svgImage: SvgImages.lock,
             onTap: (){
-              AppNav.customNavigator(context: context, screen: ChangePasswordView());
+              AppNav.customNavigator(context: context, screen: ChangePasswordView(screenName: "",));
             },
           ),
           ProfileListItem(

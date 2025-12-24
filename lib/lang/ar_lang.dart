@@ -117,6 +117,13 @@ class ArLang {
     "changePassword": "تغيير كلمة المرور",
     "oldPassword": "كلمة المرور القديمة",
     "newPassword": "كلمة المرور الجديدة",
+    "profilePhoto": "صورة الملف الشخصي",
+    "change": "تغيير",
+    "delete": "حذف",
+    "resetPassword": "إعادة تعيين كلمة المرور",
+    "enterEmailToReceiveResetCode": "أدخل بريدك الإلكتروني لتلقي رمز إعادة التعيين",
+    "enterYourEmailToResetPassword": "أدخل بريدك الإلكتروني لإعادة تعيين كلمة المرور",
+
 
 
 

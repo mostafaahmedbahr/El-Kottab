@@ -15,7 +15,7 @@ class CompleteRegisterButton extends StatelessWidget {
         if(state is SignUpSuccess){
           Toast.showSuccessToast(msg: state.registerModel.message.toString(),
               context: context);
-          AppNav.customNavigator(context: context, screen: OtpView(goToLayoutOrResetPassword: "Layout",email: context.read<RegisterCubit>().emailCon.text,));
+          AppNav.customNavigator(context: context, screen: OtpView(goToLayoutOrResetPassword: "Layout",email: context.read<RegisterCubit>().emailCon.text,screenName: "CompleteRegisterView",));
         }
         else if(state is SignUpError){
           Toast.showErrorToast(msg: state.message.toString(),

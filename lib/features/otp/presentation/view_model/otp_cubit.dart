@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import '../../../../main_imports.dart';
+import '../../../forget_password/data/models/verify_reset_otp_model.dart';
 import '../../data/models/resend_otp_model.dart';
 import '../../data/models/verify_otp_model.dart';
 import '../../data/repos/otp_repo.dart';
@@ -8,7 +9,8 @@ import 'otp_states.dart';
 
 class OtpCubit extends Cubit<OtpStates> {
   final OtpRepo? otpRepo;
-  VerifyOtpModel? verifyOtpModel;
+  dynamic verifyOtpModel;
+  dynamic verifyResetOtpModel;
   static OtpCubit get(context) => BlocProvider.of(context);
 
   OtpCubit(this.otpRepo) : super(OtpInitState()) {
@@ -21,25 +23,33 @@ class OtpCubit extends Cubit<OtpStates> {
   Future<void> verifyOtp({
     required String otpCode,
     required String email,
+    required String screenName,
   }) async {
     emit(VerifyOtpLoadingState());
     final result = await otpRepo!.verifyOtp(
       otpCode: otpCode,
-      email: email, // استخدم الـ email الممرر مباشرة
+      email: email,
+      screenName:screenName
     );
     result.fold(
           (failure) {
         emit(VerifyOtpErrorState(failure.errMessage));
       },
           (data) {
-        verifyOtpModel = data;
-        cacheUserInfo(
-          token: "${data.data!.token}",
-          phone: data.data!.phone.toString(),
-          id: data.data!.id!,
-          email: "${data.data!.email}",
-        );
-        emit(VerifyOtpSuccessState(data));
+            if(screenName=="ForgetPasswordView"){
+              verifyResetOtpModel = data ;
+            }else{
+              verifyOtpModel = data;
+              cacheUserInfo(
+                token: "${data.data!.token}",
+                phone: data.data!.phone.toString(),
+                id: data.data!.id!,
+                email: "${data.data!.email}",
+              );
+
+            }
+            emit(VerifyOtpSuccessState(data));
+
       },
     );
   }

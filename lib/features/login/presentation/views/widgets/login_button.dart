@@ -49,6 +49,7 @@ class LoginButton extends StatelessWidget {
               screen: OtpView(
                 goToLayoutOrResetPassword: "Layout",
                 email: state.loginModel.data!.email.toString(),
+                screenName: "LoginView",
               ),
               finish: false,
             );
