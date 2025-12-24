@@ -6,8 +6,8 @@ import '../../view_model/notifications_states.dart';
 import 'notification_item.dart';
 
 class NotificationList extends StatelessWidget {
-  const NotificationList({super.key, required this.scrollController});
-  final ScrollController scrollController;
+  const NotificationList({super.key,  });
+
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +34,6 @@ class NotificationList extends StatelessWidget {
           children: [
             Expanded(
               child: ListView.separated(
-                controller: scrollController,
                 padding: EdgeInsets.all(16),
                // itemCount: notifications.length + (cubit.hasMore ? 1 : 0),
                 itemCount:  10,
