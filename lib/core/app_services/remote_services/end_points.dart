@@ -17,6 +17,9 @@ class EndPoints {
   static const String forgotPassword = 'forgot-password';
   static const String verifyResetOtp = 'verify-reset-otp';
   static const String resetPassword = 'reset-password';
+  static const String notifications = 'notifications';
+  static const String countUnreadNotification = 'count-unread-notification';
+
 
 
 
