@@ -4,6 +4,7 @@ import 'package:el_kottab/features/free_learning/presentation/view_model/free_le
 import 'package:el_kottab/features/free_learning/presentation/view_model/free_learning_states.dart';
 import 'package:el_kottab/features/free_learning/presentation/views/widgets/invitation_supported.dart';
 import 'package:el_kottab/features/free_learning/presentation/views/widgets/main_info.dart';
+import 'package:el_kottab/features/free_learning/presentation/views/widgets/random_teacher_info.dart';
 import 'package:el_kottab/main_imports.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 
@@ -29,12 +30,14 @@ class FreeLearningView extends StatelessWidget {
               enabled: isLoading,
               child: Padding(
                 padding:   EdgeInsets.all(20.0.r),
-                child: Column(
+                child: ListView(
                   children: [
                     MainInfo(),
                     Gap(24.h),
                     InvitationSupported(),
-                    Spacer(),
+                    Gap(24.h),
+                    RandomTeacherInfo(),
+                    Gap(24.h),
                     CustomButton(
                         btnText: LangKeys.startFreeLearning.tr(),
                         onPressed: (){}),
