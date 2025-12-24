@@ -10,7 +10,7 @@ class GetRandomTeacherErrorState extends FreeLearningStates{
   GetRandomTeacherErrorState(this.error);
 
 }
-class GetRandomTeacherState extends FreeLearningStates{
+class GetRandomTeacherSuccessState extends FreeLearningStates{
   final RandomTeacherModel randomTeacherModel;
-  GetRandomTeacherState(this.randomTeacherModel);
+  GetRandomTeacherSuccessState(this.randomTeacherModel);
 }
