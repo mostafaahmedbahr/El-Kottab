@@ -20,6 +20,7 @@ class EndPoints {
   static const String notifications = 'notifications';
   static const String countUnreadNotification = 'count-unread-notification';
   static const String randomTeacher = 'random/teacher';
+  static const String contactUs = 'contact-us';
 
 
 

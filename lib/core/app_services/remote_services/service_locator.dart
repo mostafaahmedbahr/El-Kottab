@@ -5,7 +5,8 @@ import 'package:get_it/get_it.dart';
  import '../../../features/balance/data/repos/balance_repo_imple.dart';
 import '../../../features/change_password/data/repos/change_password_repo_imple.dart';
 import '../../../features/chat/data/repos/chat_repo_imple.dart';
- import '../../../features/edit_profile/data/repos/edit_profile_repo_imple.dart';
+ import '../../../features/contact_us/data/repos/contact_us_repo_impl.dart';
+import '../../../features/edit_profile/data/repos/edit_profile_repo_imple.dart';
 import '../../../features/forget_password/data/repos/forget_password_repo_impl.dart';
 import '../../../features/home/data/repos/home_repo_imple.dart';
 import '../../../features/login/data/repos/login_repo_imple.dart';
@@ -70,6 +71,9 @@ void setup() {
     getIt.get<ApiService>(),
   ));
   getIt.registerSingleton<ForgetPasswordRepoImpl>(ForgetPasswordRepoImpl(
+    getIt.get<ApiService>(),
+  ));
+  getIt.registerSingleton<ContactUsRepoImpl>(ContactUsRepoImpl(
     getIt.get<ApiService>(),
   ));
 }
