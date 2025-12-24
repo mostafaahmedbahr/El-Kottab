@@ -5,7 +5,7 @@ import '../models/forgot_password_by_email_model.dart';
 import '../models/reset_password_model.dart';
 import '../models/verify_reset_otp_model.dart';
 
-abstract class ResetPasswordRepo {
+abstract class ForgetPasswordRepo {
   Future<Either<Failure, ForgotPasswordByEmailModel>> forgotPasswordByEmail({
     required String email,
   });

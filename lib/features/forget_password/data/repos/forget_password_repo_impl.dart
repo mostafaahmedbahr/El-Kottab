@@ -5,10 +5,10 @@ import '../models/reset_password_model.dart';
 import '../models/verify_reset_otp_model.dart';
 import 'forget_password_repo.dart';
 
-class ResetPasswordRepoImpl implements ResetPasswordRepo {
+class ForgetPasswordRepoImpl implements ForgetPasswordRepo {
   final ApiService? apiService;
 
-  ResetPasswordRepoImpl(this.apiService);
+  ForgetPasswordRepoImpl(this.apiService);
 
   @override
   Future<Either<Failure, ForgotPasswordByEmailModel>> forgotPasswordByEmail({
