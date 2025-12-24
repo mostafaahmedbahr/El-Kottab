@@ -14,6 +14,9 @@ class EndPoints {
   static const String plans = 'plans';
   static const String changePassword = 'password/change';
   static const String resendOtp = 'resend-otp';
+  static const String forgotPassword = 'forgot-password';
+  static const String verifyResetOtp = 'verify-reset-otp';
+  static const String resetPassword = 'reset-password';
 
 
 
