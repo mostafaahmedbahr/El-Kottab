@@ -23,3 +23,5 @@ class SubscribePackageErrorState extends PackagesStates{
 
 }
 class SubscribePackageSuccessState extends PackagesStates{}
+
+class ChangeCurrencyState extends PackagesStates{}

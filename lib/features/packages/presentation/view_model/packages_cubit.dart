@@ -24,4 +24,9 @@ class PackagesCubit extends Cubit<PackagesStates> {
     });
   }
 
+  String selectedCurrency = "EGP"; // القيمة الافتراضية
+  void changeCurrency(String currency) {
+    selectedCurrency = currency;
+    emit(ChangeCurrencyState());
+  }
 }

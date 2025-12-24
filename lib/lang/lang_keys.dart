@@ -122,7 +122,12 @@ abstract class LangKeys
     static const delete = "delete";
     static const resetPassword = "resetPassword";
     static const enterEmailToReceiveResetCode = "enterEmailToReceiveResetCode";
-    static const enterYourEmailToResetPassword = "resetPassword";
+    static const enterYourEmailToResetPassword = "enterYourEmailToResetPassword";
+    static const eGP = "eGP";
+    static const uSD = "uSD";
+    static const chooseYourCurrency = "chooseYourCurrency";
+    static const egyptianPound = "egyptianPound";
+    static const uSDollar = "uSDollar";
 
 
 

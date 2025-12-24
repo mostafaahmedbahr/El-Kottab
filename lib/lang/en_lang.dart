@@ -123,6 +123,11 @@ class EnLang {
     "resetPassword": "Reset Password",
     "enterEmailToReceiveResetCode": "Enter your email to receive a reset code",
     "enterYourEmailToResetPassword": "Enter your email to reset password",
+    "eGP": "EGP",
+    "uSD": "USD",
+    "chooseYourCurrency": "Choose Your Currency",
+    "egyptianPound": "Egyptian Pound",
+    "uSDollar": "US Dollar",
 
 
 

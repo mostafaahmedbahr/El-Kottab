@@ -123,6 +123,12 @@ class ArLang {
     "resetPassword": "إعادة تعيين كلمة المرور",
     "enterEmailToReceiveResetCode": "أدخل بريدك الإلكتروني لتلقي رمز إعادة التعيين",
     "enterYourEmailToResetPassword": "أدخل بريدك الإلكتروني لإعادة تعيين كلمة المرور",
+    "eGP": "ج.م",
+    "uSD": "دولار",
+    "chooseYourCurrency": "اختر عملتك",
+    "egyptianPound": "الجنيه المصري",
+    "uSDollar": "الدولار الأمريكي",
+
 
 
 
