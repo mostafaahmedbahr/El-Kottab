@@ -21,6 +21,7 @@ class EndPoints {
   static const String countUnreadNotification = 'count-unread-notification';
   static const String randomTeacher = 'random/teacher';
   static const String contactUs = 'contact-us';
+  static const String  termsAndConditions = 'settings/terms_and_conditions';
 
 
 

@@ -1,5 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:el_kottab/core/app_services/remote_services/service_locator.dart';
+import 'package:el_kottab/features/layout/presentation/views/layout_view.dart';
 import 'package:el_kottab/features/profile/data/repos/profile_repo_imple.dart';
 import 'package:el_kottab/features/profile/presentation/view_model/profile_cubit.dart';
 import 'package:el_kottab/features/register/presentation/view_model/register_cubit.dart';
@@ -62,7 +63,7 @@ class MyApp extends StatelessWidget {
                         backgroundColor: AppColors.white,
                       ),
                     ),
-                    home: SplashView(),
+                    home: LayoutView(),
                     builder: (context, child) {
                       SystemChrome.setSystemUIOverlayStyle(
                         const SystemUiOverlayStyle(
