@@ -1,4 +1,5 @@
 import 'package:el_kottab/features/settings/data/models/terms_and_conditions_model.dart';
+import 'package:el_kottab/features/settings/data/models/who_we_are_model.dart';
 import 'package:el_kottab/features/settings/presentation/view_model/settings_states.dart';
 
 import '../../../../main_imports.dart';
@@ -26,5 +27,17 @@ class SettingsCubit extends Cubit<SettingsStates> {
     });
   }
 
+  WhoWeAreModel? whoWeAreModel;
+  Future<void> getWhoWeAre()
+  async {
+    emit(GetWhoWeAreDataLoadingState());
+    var result = await settingsRepo!.getWhoWeAre();
+    return result.fold((failure) {
+      emit(GetWhoWeAreDataErrorState(failure.errMessage));
+    }, (data) async {
+      whoWeAreModel = data;
+      emit(GetWhoWeAreDataSuccessState(data));
+    });
+  }
 
 }

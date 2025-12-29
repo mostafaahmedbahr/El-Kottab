@@ -2,6 +2,7 @@ import 'package:el_kottab/features/profile/data/models/logout_model.dart';
 import 'package:el_kottab/features/profile/data/models/profile_model.dart';
 
 import '../../data/models/terms_and_conditions_model.dart';
+import '../../data/models/who_we_are_model.dart';
 
 abstract class SettingsStates{}
 
@@ -19,17 +20,18 @@ class GetTermsAndConditionsDataSuccessState extends SettingsStates{
 
 }
 
-class LogoutLoadingState extends SettingsStates{}
-class LogoutSuccessState extends SettingsStates{
-  final LogoutModel logoutModel;
-  LogoutSuccessState(this.logoutModel);
-}
-class LogoutErrorState extends SettingsStates{
+
+class GetWhoWeAreDataLoadingState extends SettingsStates{}
+class GetWhoWeAreDataErrorState extends SettingsStates{
   final String error;
-  LogoutErrorState(this.error);
+  GetWhoWeAreDataErrorState(this.error);
 
 }
+class GetWhoWeAreDataSuccessState extends SettingsStates{
+  final WhoWeAreModel whoWeAreModel;
+  GetWhoWeAreDataSuccessState(this.whoWeAreModel);
 
+}
 
 
 

@@ -22,6 +22,7 @@ class EndPoints {
   static const String randomTeacher = 'random/teacher';
   static const String contactUs = 'contact-us';
   static const String  termsAndConditions = 'settings/terms_and_conditions';
+  static const String  whoWeAre = 'settings/who_we_are';
 
 
 
