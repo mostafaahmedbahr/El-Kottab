@@ -26,16 +26,19 @@ class PackagesModel {
 class Data {
   int? id;
   String? name;
-  dynamic minutes;
-  dynamic validDays;
+  int? minutes;
+  int? validDays;
   dynamic priceInDolar;
   dynamic priceInEgp;
   bool? hasDiscount;
   dynamic discount;
   dynamic discountPriceDolar;
   dynamic discountPriceEgp;
+  List<Categories>? categories;
+  String? createdAt;
+  String? updatedAt;
 
-  Data({this.id, this.name, this.minutes, this.validDays, this.priceInDolar, this.priceInEgp, this.hasDiscount, this.discount, this.discountPriceDolar, this.discountPriceEgp});
+  Data({this.id, this.name, this.minutes, this.validDays, this.priceInDolar, this.priceInEgp, this.hasDiscount, this.discount, this.discountPriceDolar, this.discountPriceEgp, this.categories, this.createdAt, this.updatedAt});
 
   Data.fromJson(Map<String, dynamic> json) {
     id = json["id"];
@@ -48,6 +51,9 @@ class Data {
     discount = json["discount"];
     discountPriceDolar = json["discount_price_dolar"];
     discountPriceEgp = json["discount_price_egp"];
+    categories = json["categories"] == null ? null : (json["categories"] as List).map((e) => Categories.fromJson(e)).toList();
+    createdAt = json["created_at"];
+    updatedAt = json["updated_at"];
   }
 
   Map<String, dynamic> toJson() {
@@ -62,6 +68,33 @@ class Data {
     _data["discount"] = discount;
     _data["discount_price_dolar"] = discountPriceDolar;
     _data["discount_price_egp"] = discountPriceEgp;
+    if(categories != null) {
+      _data["categories"] = categories?.map((e) => e.toJson()).toList();
+    }
+    _data["created_at"] = createdAt;
+    _data["updated_at"] = updatedAt;
+    return _data;
+  }
+}
+
+class Categories {
+  int? id;
+  String? nameAr;
+  String? nameEn;
+
+  Categories({this.id, this.nameAr, this.nameEn});
+
+  Categories.fromJson(Map<String, dynamic> json) {
+    id = json["id"];
+    nameAr = json["name_ar"];
+    nameEn = json["name_en"];
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> _data = <String, dynamic>{};
+    _data["id"] = id;
+    _data["name_ar"] = nameAr;
+    _data["name_en"] = nameEn;
     return _data;
   }
 }
