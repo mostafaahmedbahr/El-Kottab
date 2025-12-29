@@ -32,10 +32,11 @@ class _OtpViewState extends State<OtpView> {
 
   @override
   void initState() {
+
     super.initState();
     // حفظ الإيميل في الـ cache عند فتح الشاشة
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      CacheHelper.saveData(key: "userEmail", value: widget.email);
+      // CacheHelper.saveData(key: "userEmail", value: widget.email);
     });
   }
 

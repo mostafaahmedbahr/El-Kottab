@@ -14,7 +14,7 @@ class ChangePasswordViewBody extends StatelessWidget {
       padding: const EdgeInsets.all(20.0),
       child: Form(
         key: formKey,
-        child: Column(
+        child: ListView(
           children: [
               ChangePasswordForm(screenName: screenName,),
             Gap(30.h),

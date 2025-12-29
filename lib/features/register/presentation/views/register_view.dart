@@ -20,7 +20,7 @@ class RegisterView extends StatelessWidget {
         padding:   EdgeInsets.all(20.0.r),
         child: Form(
           key: formKey,
-          child: Column(
+          child: ListView(
             children: [
               Row(
                 children: [

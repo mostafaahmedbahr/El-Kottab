@@ -72,7 +72,7 @@ class VerifyOtpButton extends StatelessWidget {
             if (controller.text.length == 6) {
               context.read<OtpCubit>().verifyOtp(
                 otpCode: controller.text,
-                email: email,
+                email: CacheHelper.getData(key: "userEmail"),
                 screenName: screenName,
               );
             } else {
