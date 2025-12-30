@@ -20,7 +20,7 @@ Future<Either<Failure, ContactUsModel>> contactUs({
   required String country,
 }) async{
   try {
-    var response = await apiService!.getData(
+    var response = await apiService!.postData(
       endPoint: EndPoints.contactUs,
     );
     ContactUsModel result = ContactUsModel.fromJson(response.data);

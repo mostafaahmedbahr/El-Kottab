@@ -12,20 +12,14 @@ class ContactUsCubit extends Cubit<ContactUsStates> {
 
   ContactUsModel? contactUsModel;
 
-  Future<void> contactUs({
-    required String email,
-    required String phone,
-    required String title,
-    required String message,
-    required String country,
-  }) async {
+  Future<void> contactUs() async {
     emit(ContactUsLoadingState());
     var result = await contactUsRepo!.contactUs(
-      email: email,
-      phone: phone,
-      title: title,
-      message: message,
-      country: country,
+      email: emailCon.text,
+      phone: phoneNumber,
+      title: titleCon.text,
+      message: messageCon.text,
+      country: countryName,
     );
     return result.fold(
       (failure) {

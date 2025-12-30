@@ -131,6 +131,8 @@ abstract class LangKeys
 
 
     static const title = "title";
+    static const send = "send";
+    static const message = "message";
 
 
 

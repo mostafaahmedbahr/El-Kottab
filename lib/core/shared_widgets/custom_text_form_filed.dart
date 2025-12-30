@@ -1,4 +1,4 @@
-   import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -9,7 +9,7 @@ class CustomTextFormField extends StatelessWidget {
   final String? labelText;
   final TextStyle? labelStyle;
   final String? hintText;
-  final String ? initialValue;
+  final String? initialValue;
   final String? helperText;
   final String? errorText;
   final bool? obscureText;
@@ -44,7 +44,6 @@ class CustomTextFormField extends StatelessWidget {
   final double? borderRadius;
   final Color? backgroundColor;
   final Color? borderColor;
-
   final double? borderWidth;
   final double? height;
   final double? width;
@@ -119,64 +118,64 @@ class CustomTextFormField extends StatelessWidget {
       keyboardType: keyboardType,
       textInputAction: textInputAction,
       onChanged: onChanged,
-      validator: validator ,
+      validator: validator,
       onSaved: onSaved,
       inputFormatters: inputFormatters,
       textAlignVertical: textAlignVertical ?? TextAlignVertical.top,
+
+      // 🟢 هنا التعديل المهم
+      expands: expands ?? false,
+      maxLines: (expands == true) ? null : maxLines ?? 1,
+      minLines: (expands == true) ? null : minLines,
+
       decoration: InputDecoration(
         alignLabelWithHint: true,
         border: OutlineInputBorder(
-          borderRadius:
-          BorderRadius.circular(borderRadius ?? 8.r),
+          borderRadius: BorderRadius.circular(borderRadius ?? 8.r),
           borderSide: BorderSide.none,
         ),
         focusedBorder: OutlineInputBorder(
-          borderRadius:
-          BorderRadius.circular(borderRadius ?? 8.r),
+          borderRadius: BorderRadius.circular(borderRadius ?? 8.r),
           borderSide: BorderSide(
             color: borderColor ?? AppColors.grayLight,
             width: borderWidth ?? 1.sp,
           ),
         ),
         errorBorder: OutlineInputBorder(
-          borderRadius:
-          BorderRadius.circular(borderRadius ?? 8.r),
+          borderRadius: BorderRadius.circular(borderRadius ?? 8.r),
           borderSide: BorderSide(
             color: borderColor ?? AppColors.errorLight,
             width: borderWidth ?? 1.sp,
           ),
         ),
         disabledBorder: OutlineInputBorder(
-          borderRadius:
-          BorderRadius.circular(borderRadius ?? 8.r),
+          borderRadius: BorderRadius.circular(borderRadius ?? 8.r),
           borderSide: BorderSide(
             color: Colors.red,
             width: borderWidth ?? 1.sp,
           ),
         ),
         focusedErrorBorder: OutlineInputBorder(
-          borderRadius:
-          BorderRadius.circular(borderRadius ?? 8.r),
+          borderRadius: BorderRadius.circular(borderRadius ?? 8.r),
           borderSide: BorderSide(
             color: Colors.red,
             width: borderWidth ?? 1.sp,
           ),
         ),
         enabledBorder: OutlineInputBorder(
-          borderRadius:
-          BorderRadius.circular(borderRadius ?? 8.r),
+          borderRadius: BorderRadius.circular(borderRadius ?? 8.r),
           borderSide: BorderSide(
             color: borderColor ?? AppColors.grayLight,
             width: borderWidth ?? 1.sp,
           ),
         ),
         labelText: labelText,
-        labelStyle: labelStyle ?? TextStyle(
-          color: AppColors.gray,
-          fontWeight: FontWeight.w500,
-          fontSize: 14.sp,
-        ),
-
+        labelStyle: labelStyle ??
+            TextStyle(
+              color: AppColors.gray,
+              fontWeight: FontWeight.w500,
+              fontSize: 14.sp,
+            ),
         hintStyle: hintStyle ??
             TextStyle(
               color: AppColors.gray,
@@ -197,8 +196,7 @@ class CustomTextFormField extends StatelessWidget {
                 horizontal: width ?? 15.w, vertical: height ?? 15.h),
         fillColor: backgroundColor ?? AppColors.white,
       ),
-      maxLines: isChat ? null : 1,
-      minLines: isChat ? null : minLines,
+
       onFieldSubmitted: onFieldSubmitted,
       scrollPhysics: scrollPhysics,
       onTap: onTap,

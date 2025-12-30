@@ -41,6 +41,7 @@ class SvgImages
   static const String logout = "$svgPath/logout-3-svgrepo-com.svg";
   static const String changePassword = "$svgPath/My password-amico 1.svg";
   static const String camera = "$svgPath/camera.svg";
+  static const String title = "$svgPath/title-svgrepo-com.svg";
 
 
 
