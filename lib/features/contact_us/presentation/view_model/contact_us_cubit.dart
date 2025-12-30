@@ -37,4 +37,13 @@ class ContactUsCubit extends Cubit<ContactUsStates> {
       },
     );
   }
+
+  var emailCon = TextEditingController();
+  var phoneCon = TextEditingController();
+  var titleCon = TextEditingController();
+  var messageCon = TextEditingController();
+  String phoneNumber = '';
+  String countryCode = '';
+  String countryName = 'Egypt';
+
 }

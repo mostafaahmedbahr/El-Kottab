@@ -130,6 +130,9 @@ abstract class LangKeys
     static const uSDollar = "uSDollar";
 
 
+    static const title = "title";
+
+
 
 
 }
