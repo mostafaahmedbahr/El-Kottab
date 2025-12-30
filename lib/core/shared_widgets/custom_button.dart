@@ -11,7 +11,7 @@ class CustomButton extends StatelessWidget {
     required this.onPressed,
     this.borderColor,
     this.radius,
-    this.padding,
+    this.padding, this.style,
   }) : assert(btnText != null || child != null, 'يجب توفير btnText أو child');
 
   final double? height;
@@ -21,6 +21,7 @@ class CustomButton extends StatelessWidget {
   final double? radius;
   final String? btnText;
   final Widget? child;
+  final TextStyle? style;
   final void Function()? onPressed;
   final EdgeInsetsGeometry? padding;
 
@@ -32,7 +33,7 @@ class CustomButton extends StatelessWidget {
       } else {
         return Text(
           btnText!,
-          style: AppStyles.white16SemiBold,
+          style:style?? AppStyles.white16SemiBold,
         );
       }
     }

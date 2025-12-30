@@ -40,28 +40,28 @@ class PackagesView extends StatelessWidget {
 
               ],),
             body: PackagesList(),
-            bottomNavigationBar: Container(
-              height: 130.h,
-              padding: EdgeInsets.all(12.r),
-              color: AppColors.grayLightest.withValues(alpha: .5),
-              child: Column(
-                children: [
-                  Text(
-                    LangKeys.customCodes.tr(),
-                    style: AppStyles.black16SemiBold,
-                  ),
-                  Gap(12.h),
-                  CustomCodeFormField(
-                    controller: TextEditingController(),
-                    onAdd: (value) {
-                      print('Added code: $value');
-
-                    },
-                    hintText: LangKeys.writePackageCode.tr(),
-                  ),
-                ],
-              ),
-            ),
+            // bottomNavigationBar: Container(
+            //   height: 130.h,
+            //   padding: EdgeInsets.all(12.r),
+            //   color: AppColors.grayLightest.withValues(alpha: .5),
+            //   child: Column(
+            //     children: [
+            //       Text(
+            //         LangKeys.customCodes.tr(),
+            //         style: AppStyles.black16SemiBold,
+            //       ),
+            //       Gap(12.h),
+            //       CustomCodeFormField(
+            //         controller: TextEditingController(),
+            //         onAdd: (value) {
+            //           print('Added code: $value');
+            //
+            //         },
+            //         hintText: LangKeys.writePackageCode.tr(),
+            //       ),
+            //     ],
+            //   ),
+            // ),
           );
         },
       ),

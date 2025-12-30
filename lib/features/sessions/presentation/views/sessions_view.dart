@@ -1,6 +1,9 @@
 import 'package:el_kottab/features/sessions/presentation/views/widgets/session_item.dart';
 import 'package:el_kottab/main_imports.dart';
 
+import '../../../../core/shared_cubits/auth_cubit/auth_cubit.dart';
+import '../../../../core/shared_widgets/click_here_to_register.dart';
+
 class SessionsView extends StatelessWidget {
   const SessionsView({super.key});
 
@@ -8,8 +11,10 @@ class SessionsView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(child: Padding(
-        padding:   EdgeInsets.all(20.0.r),
-        child: Column(
+        padding:   EdgeInsets.all(12.0.r),
+        child:
+        context.read<AuthCubit>().isGuest? GoToLogin():
+        Column(
           children: [
             Expanded(
               child: ListView.separated(

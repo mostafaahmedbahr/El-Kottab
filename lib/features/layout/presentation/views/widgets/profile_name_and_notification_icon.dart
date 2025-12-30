@@ -1,9 +1,10 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:el_kottab/features/notifications/presentation/views/notifications_view.dart';
 import 'package:el_kottab/features/profile/presentation/view_model/profile_cubit.dart';
 import 'package:el_kottab/features/profile/presentation/view_model/profile_states.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 import '../../../../../core/shared_cubits/auth_cubit/auth_cubit.dart';
-import '../../../../../core/utils/app_consts/storage_keys.dart';
+import '../../../../../core/shared_widgets/click_here_to_register.dart';
 import '../../../../../main_imports.dart';
 import '../../../../notifications/presentation/view_model/notifications_cubit.dart';
 import '../../../../notifications/presentation/view_model/notifications_states.dart';
@@ -24,6 +25,7 @@ class _ProfileNameAndNotificationIconState extends State<ProfileNameAndNotificat
         context.read<ProfileCubit>().getProfileData();
       }
       context.read<NotificationsCubit>().getNotificationsCount();
+      context.read<NotificationsCubit>().getAllNotifications();
     }
 
     super.initState();
@@ -35,7 +37,9 @@ class _ProfileNameAndNotificationIconState extends State<ProfileNameAndNotificat
         final profileCubit = context.read<ProfileCubit>();
         final profile = profileCubit.profileModel;
 
-        return Skeletonizer(
+        return
+          context.read<AuthCubit>().isGuest? ClickHereToRegister():
+          Skeletonizer(
           enabled: profile == null || state is GetProfileDataLoadingState,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,

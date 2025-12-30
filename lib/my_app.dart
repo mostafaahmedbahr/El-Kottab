@@ -38,10 +38,10 @@ class MyApp extends StatelessWidget {
                 BlocProvider(create: (context) => AuthCubit()..checkAuthStatus()),
                 BlocProvider(create: (context) => LanguageCubit()),
                 BlocProvider(create: (context) => LayoutCubit()),
-                BlocProvider(create: (context) => ProfileCubit(getIt.get<ProfileRepoImpl>())..getProfileData()),
+                BlocProvider(create: (context) => ProfileCubit(getIt.get<ProfileRepoImpl>())),
                 BlocProvider(create: (context) => RegisterCubit(getIt.get<RegisterRepoImpl>())..getAllCategories()),
                 BlocProvider(create: (context) => ForgetPasswordCubit(getIt.get<ForgetPasswordRepoImpl>()) ),
-                BlocProvider(create: (context)=> NotificationsCubit(getIt.get<NotificationsRepoImpl>())..getAllNotifications()..getNotificationsCount()),
+                BlocProvider(create: (context)=> NotificationsCubit(getIt.get<NotificationsRepoImpl>())),
                 BlocProvider(create: (context)=> SettingsCubit(getIt.get<SettingsRepoImpl>())..getWhoWeAre()..getTermsAndConditions()),
               ],
               child: BlocBuilder<LanguageCubit, Locale>(

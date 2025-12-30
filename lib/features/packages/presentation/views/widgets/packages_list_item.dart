@@ -22,7 +22,22 @@ class PackagesListItem extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              SvgPicture.asset(SvgImages.packageTest,height: 60.h,width: 60.w,),
+              Column(
+                children: [
+                  // Padding(
+                  //   padding: const EdgeInsets.all(8.0),
+                  //   child: Container(
+                  //     height: 30.h,
+                  //     decoration: BoxDecoration(
+                  //       color: AppColors.white,
+                  //       borderRadius: BorderRadius.circular(12.r),
+                  //     ),
+                  //     child: Text(package!.categories![0].nameEn.toString()),
+                  //   ),
+                  // ),
+                  SvgPicture.asset(SvgImages.packageTest,height: 60.h,width: 60.w,),
+                ],
+              ),
               Column(
                 children: [
                   Row(

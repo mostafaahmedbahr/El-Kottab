@@ -134,6 +134,8 @@ abstract class LangKeys
     static const send = "send";
     static const message = "message";
     static const noNotifications = "noNotifications";
+    static const exploreElKottab = "exploreElKottab";
+    static const toRegisterClickHere = "toRegisterClickHere";
 
 
 
