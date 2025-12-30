@@ -128,6 +128,12 @@ class ArLang {
     "chooseYourCurrency": "اختر عملتك",
     "egyptianPound": "الجنيه المصري",
     "uSDollar": "الدولار الأمريكي",
+    "title": "العنوان",
+    "send": "إرسال",
+    "message": "الرسالة",
+    "noNotifications": "لا توجد إشعارات",
+    "exploreElKottab": "استكشف الكتّاب",
+    "toRegisterClickHere": "للتسجيل اضغط هنا"
 
 
 

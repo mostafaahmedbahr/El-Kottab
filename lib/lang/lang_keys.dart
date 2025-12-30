@@ -128,8 +128,6 @@ abstract class LangKeys
     static const chooseYourCurrency = "chooseYourCurrency";
     static const egyptianPound = "egyptianPound";
     static const uSDollar = "uSDollar";
-
-
     static const title = "title";
     static const send = "send";
     static const message = "message";

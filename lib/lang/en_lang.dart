@@ -128,6 +128,12 @@ class EnLang {
     "chooseYourCurrency": "Choose Your Currency",
     "egyptianPound": "Egyptian Pound",
     "uSDollar": "US Dollar",
+    "title": "Title",
+    "send": "Send",
+    "message": "Message",
+    "noNotifications": "No Notifications",
+    "exploreElKottab": "Explore El Kottab",
+    "toRegisterClickHere": "To Register Click Here"
 
 
 
