@@ -16,7 +16,7 @@ class NotificationItem extends StatelessWidget {
     required this.onTap,
   });
 
-  final String id;
+  final int id;
   final String title;
   final String message;
   final String time;

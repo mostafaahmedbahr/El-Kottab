@@ -65,9 +65,9 @@ class LoginButton extends StatelessWidget {
             return CustomButton(
               btnText: LangKeys.signIn.tr(),
               onPressed: () {
-             //    loginCubit.emailCon.text = "mo9808474@gmail.com";
-                // loginCubit.emailCon.text = "mohamedmagdymohamed982@gmail.com";
-              //    loginCubit.passwordCon.text = "123456789";
+                 loginCubit.emailCon.text = "mustafa.bahr12323@gmail.com";
+             //   loginCubit.emailCon.text = "mohamedmagdymohamed982@gmail.com";
+                  loginCubit.passwordCon.text = "Mm@123456";
                 if (formKey.currentState!.validate()) {
                   loginCubit.login(
                     email: loginCubit.emailCon.text,

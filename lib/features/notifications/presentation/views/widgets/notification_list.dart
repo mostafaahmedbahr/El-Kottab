@@ -1,5 +1,7 @@
 
 
+import 'package:easy_localization/easy_localization.dart';
+
 import '../../../../../main_imports.dart';
 import '../../view_model/notifications_cubit.dart';
 import '../../view_model/notifications_states.dart';
@@ -14,47 +16,36 @@ class NotificationList extends StatelessWidget {
     return BlocBuilder<NotificationsCubit, NotificationsStates>(
       builder: (context, state) {
         final cubit = context.read<NotificationsCubit>();
-       // final notifications = cubit.notificationsModel?.data ?? [];
+        final notifications = cubit.notificationsModel?.data ?? [];
 
-        // if (notifications.isEmpty &&
-        //     state is! GetAllNotificationsLoadingState &&
-        //     state is! GetAllNotificationsLoadingMoreState) {
-        //   return Center(
-        //     child: Text(
-        //       LangKeys.noNotifications.tr(),
-        //       style: TextStyle(
-        //         fontSize: 16,
-        //         color: Colors.grey[600],
-        //       ),
-        //     ),
-        //   );
-        // }
+        if (notifications.isEmpty &&
+            state is! GetAllNotificationsLoadingState &&
+            state is! GetAllNotificationsLoadingMoreState) {
+          return Center(
+            child: Text(
+              LangKeys.noNotifications.tr(),
+              style: TextStyle(
+                fontSize: 16,
+                color: Colors.grey[600],
+              ),
+            ),
+          );
+        }
 
         return Column(
           children: [
             Expanded(
               child: ListView.separated(
                 padding: EdgeInsets.all(16),
-               // itemCount: notifications.length + (cubit.hasMore ? 1 : 0),
-                itemCount:  10,
+               itemCount: notifications.length  ,
                 separatorBuilder: (context, index) => Gap(12.h),
                 itemBuilder: (context, index) {
-                  // if (index == notifications.length && cubit.hasMore) {
-                  //   return Center(
-                  //     child: Padding(
-                  //       padding: EdgeInsets.all(16),
-                  //       child: CustomLoading(),
-                  //     ),
-                  //   );
-                  // }
-
-
-                //  final notify = notifications[index];
+                  final notify = notifications[index];
                   return NotificationItem(
-                    id: "1",
-                    title: "notify.title",
-                    message: "notify.message",
-                    time: "notify.createdAt",
+                    id: notify.id!,
+                    title: notify.title!,
+                    message: notify.body!,
+                    time: notify.createdAt!,
                     icon: Icons.rice_bowl,
                     onTap: () {
                       // Handle notification tap

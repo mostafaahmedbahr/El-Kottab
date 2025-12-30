@@ -9,9 +9,19 @@ import '../../data/repos/notifications_repo_imple.dart';
 import '../view_model/notifications_cubit.dart';
 import '../view_model/notifications_states.dart';
 
-class NotificationView extends StatelessWidget {
+class NotificationView extends StatefulWidget {
   const NotificationView({super.key});
 
+  @override
+  State<NotificationView> createState() => _NotificationViewState();
+}
+
+class _NotificationViewState extends State<NotificationView> {
+  @override
+  void initState() {
+    context.read<NotificationsCubit>().getAllNotifications();
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<NotificationsCubit , NotificationsStates>(
