@@ -4,6 +4,7 @@ import 'package:el_kottab/features/change_password/presentation/views/change_pas
 import 'package:el_kottab/features/profile/presentation/views/widgets/profile_list_item.dart';
 import '../../../../../main_imports.dart';
 import '../../../../contact_us/presentation/views/contact_us_view.dart';
+import '../../../../settings/presentation/views/terms_view.dart';
 
 class ProfileListItems extends StatelessWidget {
   const ProfileListItems({super.key});
@@ -53,7 +54,9 @@ class ProfileListItems extends StatelessWidget {
             isLast: true,
             title: LangKeys.privacyAndTerms,
             svgImage: SvgImages.terms,
-            onTap: (){},
+            onTap: (){
+              AppNav.customNavigator(context: context, screen: TermsView());
+            },
           ),
 
 
