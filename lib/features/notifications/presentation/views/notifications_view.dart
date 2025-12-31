@@ -1,11 +1,6 @@
-
-
 import 'package:easy_localization/easy_localization.dart';
 import 'package:el_kottab/features/notifications/presentation/views/widgets/notification_list.dart';
-
-import '../../../../core/app_services/remote_services/service_locator.dart';
 import '../../../../main_imports.dart';
-import '../../data/repos/notifications_repo_imple.dart';
 import '../view_model/notifications_cubit.dart';
 import '../view_model/notifications_states.dart';
 
@@ -22,30 +17,47 @@ class _NotificationViewState extends State<NotificationView> {
     context.read<NotificationsCubit>().getAllNotifications();
     super.initState();
   }
+
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<NotificationsCubit , NotificationsStates>(
-      listener: (context,state){},
-      builder:  (context,state){
+    return BlocConsumer<NotificationsCubit, NotificationsStates>(
+      listener: (context, state) {
+        if (state is DeleteNotificationsSuccessState) {
+          Toast.showSuccessToast(
+            msg: state.deleteNotificationModel.message.toString(),
+            context: context,
+          );
+          context.read<NotificationsCubit>().getAllNotifications();
+        } else if (state is DeleteNotificationsErrorState) {
+          Toast.showErrorToast(msg: state.error.toString(), context: context);
+        }
+      },
+      builder: (context, state) {
         return Scaffold(
           appBar: AppBar(
             title: Text(LangKeys.notifications.tr()),
             actions: [
-             if(context.read<NotificationsCubit>().notificationsModel!=null && context.read<NotificationsCubit>().notificationsModel!.data!.isNotEmpty)
-              TextButton(
-                onPressed: (){
-                 // context.read<NotificationsCubit>().deleteNotification(notifyId: "all");
-                },
-                  child: Text(LangKeys.deleteAll.tr(),style: TextStyle(
-                    color: AppColors.errorDark,
-                  ),),
-              ),
+              if (context.read<NotificationsCubit>().notificationsModel !=
+                      null &&
+                  context
+                      .read<NotificationsCubit>()
+                      .notificationsModel!
+                      .data!
+                      .isNotEmpty)
+                TextButton(
+                  onPressed: () {
+                    context.read<NotificationsCubit>().deleteNotification();
+                  },
+                  child: Text(
+                    LangKeys.deleteAll.tr(),
+                    style: TextStyle(color: AppColors.errorDark),
+                  ),
+                ),
             ],
           ),
-          body:  NotificationList( ),
+          body: NotificationList(),
         );
       },
-
     );
   }
 }

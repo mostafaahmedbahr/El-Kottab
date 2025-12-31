@@ -1,4 +1,3 @@
-import 'package:easy_localization/easy_localization.dart';
 import 'package:el_kottab/features/notifications/presentation/views/notifications_view.dart';
 import 'package:el_kottab/features/profile/presentation/view_model/profile_cubit.dart';
 import 'package:el_kottab/features/profile/presentation/view_model/profile_states.dart';
@@ -70,9 +69,7 @@ class _ProfileNameAndNotificationIconState extends State<ProfileNameAndNotificat
                       || current is NotificationsCountErrorState;
                 },
                builder: (context,state){
-                 final int count = int.tryParse(
-                   context.read<NotificationsCubit>().notificationsCountModel?.data?.toString() ?? "0",
-                 ) ?? 0;
+                 final int count = context.read<NotificationsCubit>().notificationsCountModel?.data?.count ?? 0;
                   return InkWell(
                     onTap: () {
                       AppNav.customNavigator(

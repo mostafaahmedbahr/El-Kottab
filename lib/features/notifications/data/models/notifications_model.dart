@@ -28,7 +28,7 @@ class Data {
   String? title;
   String? body;
   bool? isRead;
-  String? createdAt;
+  dynamic createdAt;
 
   Data({this.id, this.title, this.body, this.isRead, this.createdAt});
 

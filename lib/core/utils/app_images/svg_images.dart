@@ -43,6 +43,7 @@ class SvgImages
   static const String camera = "$svgPath/camera.svg";
   static const String title = "$svgPath/title-svgrepo-com.svg";
   static const String login = "$svgPath/login.svg";
+  static const String serverErrorImage = "$svgPath/server_error.svg";
 
 
 

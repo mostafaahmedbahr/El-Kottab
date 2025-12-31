@@ -24,6 +24,8 @@ class EndPoints {
   static const String  termsAndConditions = 'settings/terms_and_conditions';
   static const String  whoWeAre = 'settings/who_we_are';
   static const String  deleteAccount = 'delete-account';
+  static const String  notificationsMarkAllAsRead = 'notifications/mark-all-as-read';
+  static const String  notificationsDeleteAll = 'notifications/delete-all';
 
 
 
