@@ -140,6 +140,7 @@ abstract class LangKeys
 
 
     static const noTeachersFound = "noTeachersFound";
+    static const followUsOnSocialMedia = "followUsOnSocialMedia";
 
 
 

@@ -44,6 +44,13 @@ class SvgImages
   static const String title = "$svgPath/title-svgrepo-com.svg";
   static const String login = "$svgPath/login.svg";
   static const String serverErrorImage = "$svgPath/server_error.svg";
+  static const String facebook = '$svgPath/facebook-1-svgrepo-com.svg';
+  static const String twitter = '$svgPath/twitter-svgrepo-com.svg';
+  static const String instagram = '$svgPath/instagram-svgrepo-com.svg';
+  static const String youtube = '$svgPath/youtube-svgrepo-com.svg';
+  static const String whatsapp = '$svgPath/whatsapp-svgrepo-com.svg';
+
+
 
 
 

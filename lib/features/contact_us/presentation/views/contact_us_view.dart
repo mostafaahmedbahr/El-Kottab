@@ -3,6 +3,7 @@ import 'package:el_kottab/features/contact_us/data/repos/contact_us_repo_impl.da
 import 'package:el_kottab/features/contact_us/presentation/view_model/contact_us_cubit.dart';
 import 'package:el_kottab/features/contact_us/presentation/view_model/contact_us_states.dart';
 import 'package:el_kottab/features/contact_us/presentation/views/widgets/contact_us_button.dart';
+import 'package:el_kottab/features/contact_us/presentation/views/widgets/social_media_icons.dart';
 import 'package:el_kottab/main_imports.dart';
 import 'package:intl_phone_field/countries.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
@@ -126,6 +127,7 @@ class ContactUsView extends StatelessWidget {
 
         ),
       ),
+      bottomNavigationBar:SocialMediaIcons() ,
     );
   }
 }
