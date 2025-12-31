@@ -5,6 +5,7 @@ import 'package:el_kottab/features/profile/presentation/views/widgets/profile_li
 import 'package:el_kottab/features/settings/presentation/views/who_we_are_view.dart';
 import '../../../../../main_imports.dart';
 import '../../../../contact_us/presentation/views/contact_us_view.dart';
+import '../../../../settings/presentation/views/settings_view.dart';
 import '../../../../settings/presentation/views/terms_view.dart';
 
 class ProfileListItems extends StatelessWidget {
@@ -51,7 +52,9 @@ class ProfileListItems extends StatelessWidget {
           ProfileListItem(
             title: LangKeys.settings,
             svgImage: SvgImages.settings,
-            onTap: (){},
+            onTap: (){
+              AppNav.customNavigator(context: context, screen: SettingsView());
+            },
           ),
           ProfileListItem(
             isLast: true,

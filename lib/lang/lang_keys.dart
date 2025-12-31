@@ -136,6 +136,11 @@ abstract class LangKeys
     static const toRegisterClickHere = "toRegisterClickHere";
 
 
+    static const deleteAccount = "deleteAccount";
+    static const areYouSureToDeleteYourAccount = "areYouSureToDeleteYourAccount";
+    static const confirmDeleteAccount = "confirmDeleteAccount";
+
+
 
 
 }

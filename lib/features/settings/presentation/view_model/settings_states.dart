@@ -1,5 +1,6 @@
 import 'package:el_kottab/features/profile/data/models/logout_model.dart';
 import 'package:el_kottab/features/profile/data/models/profile_model.dart';
+import 'package:el_kottab/features/settings/data/models/delete_account_model.dart';
 
 import '../../data/models/terms_and_conditions_model.dart';
 import '../../data/models/who_we_are_model.dart';
@@ -36,6 +37,18 @@ class GetWhoWeAreDataSuccessState extends SettingsStates{
 
 
 
+
+class DeleteAccountLoadingState extends SettingsStates{}
+class DeleteAccountErrorState extends SettingsStates{
+  final String error;
+  DeleteAccountErrorState(this.error);
+
+}
+class DeleteAccountSuccessState extends SettingsStates{
+  final DeleteAccountModel deleteAccountModel;
+  DeleteAccountSuccessState(this.deleteAccountModel);
+
+}
 
 
 

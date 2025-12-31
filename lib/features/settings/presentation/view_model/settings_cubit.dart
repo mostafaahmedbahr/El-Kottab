@@ -1,3 +1,4 @@
+import 'package:el_kottab/features/settings/data/models/delete_account_model.dart';
 import 'package:el_kottab/features/settings/data/models/terms_and_conditions_model.dart';
 import 'package:el_kottab/features/settings/data/models/who_we_are_model.dart';
 import 'package:el_kottab/features/settings/presentation/view_model/settings_states.dart';
@@ -40,4 +41,18 @@ class SettingsCubit extends Cubit<SettingsStates> {
     });
   }
 
+
+
+  DeleteAccountModel? deleteAccountModel;
+  Future<void> deleteAccount()
+  async {
+    emit(DeleteAccountLoadingState());
+    var result = await settingsRepo!.deleteAccount();
+    return result.fold((failure) {
+      emit(DeleteAccountErrorState(failure.errMessage));
+    }, (data) async {
+      deleteAccountModel = data;
+      emit(DeleteAccountSuccessState(data));
+    });
+  }
 }
