@@ -133,7 +133,12 @@ class ArLang {
     "message": "الرسالة",
     "noNotifications": "لا توجد إشعارات",
     "exploreElKottab": "استكشف الكتّاب",
-    "toRegisterClickHere": "للتسجيل اضغط هنا"
+    "toRegisterClickHere": "للتسجيل اضغط هنا",
+    "deleteAccount": "حذف الحساب",
+    "areYouSureToDeleteYourAccount": "هل أنت متأكد من رغبتك في حذف حسابك؟",
+    "confirmDeleteAccount": "تأكيد حذف الحساب",
+
+
 
 
 

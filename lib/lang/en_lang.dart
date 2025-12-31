@@ -133,7 +133,11 @@ class EnLang {
     "message": "Message",
     "noNotifications": "No Notifications",
     "exploreElKottab": "Explore El Kottab",
-    "toRegisterClickHere": "To Register Click Here"
+    "toRegisterClickHere": "To Register Click Here",
+    "deleteAccount": "Delete Account",
+    "areYouSureToDeleteYourAccount": "Are you sure you want to delete your account?",
+    "confirmDeleteAccount": "Confirm Delete Account",
+
 
 
 

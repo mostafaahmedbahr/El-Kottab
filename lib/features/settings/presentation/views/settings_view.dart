@@ -1,7 +1,11 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:el_kottab/core/extensions/lang.dart';
+import 'package:el_kottab/features/settings/presentation/views/terms_view.dart';
+import 'package:el_kottab/features/settings/presentation/views/who_we_are_view.dart';
 import 'package:el_kottab/features/settings/presentation/views/widgets/show_delete_account_dialog.dart';
 import 'package:el_kottab/main_imports.dart';
+
+import '../../../profile/presentation/views/widgets/profile_list_item.dart';
 
 class SettingsView extends StatelessWidget {
   const SettingsView({super.key});
@@ -16,6 +20,24 @@ class SettingsView extends StatelessWidget {
         padding:   EdgeInsets.all(12.0.r),
         child: Column(
           children: [
+            Gap(12.h),
+            ProfileListItem(
+              title: LangKeys.aboutUs,
+              svgImage: SvgImages.warning,
+              onTap: (){
+                AppNav.customNavigator(context: context, screen: WhoWeAreView());
+              },
+            ),
+            Gap(12.h),
+            ProfileListItem(
+              isLast: true,
+              title: LangKeys.privacyAndTerms,
+              svgImage: SvgImages.terms,
+              onTap: (){
+                AppNav.customNavigator(context: context, screen: TermsView());
+              },
+            ),
+            Gap(24.h),
             InkWell(
               onTap: (){
                 showDeleteAccountDialog(context);
@@ -25,7 +47,7 @@ class SettingsView extends StatelessWidget {
                 width: double.infinity,
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(12.r),
-                    color: AppColors.white,
+                    color: AppColors.errorDark,
                     border: Border.all(
                         color: AppColors.errorDark
                     )
@@ -40,7 +62,7 @@ class SettingsView extends StatelessWidget {
                           height: 40.h,
                           width: 40.w,
                           decoration: BoxDecoration(
-                            color: AppColors.errorLight.withValues(alpha: 0.3),
+                            color: AppColors.white,
                             shape: BoxShape.circle,
                           ),
                           child: SvgPicture.asset(SvgImages.logout),
@@ -49,9 +71,7 @@ class SettingsView extends StatelessWidget {
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text(LangKeys.deleteAccount.tr(),style: AppStyles.black16SemiBold.copyWith(
-                                color: AppColors.errorLight
-                            ),),
+                            Text(LangKeys.deleteAccount.tr(),style: AppStyles.white16SemiBold,),
                           ],
                         ),
                       ],
@@ -60,7 +80,7 @@ class SettingsView extends StatelessWidget {
                       showDeleteAccountDialog(context);
                     }, icon: SvgPicture.asset(
                       context.isArabic? SvgImages.arrowLeft:
-                      SvgImages.arrowRight,colorFilter: ColorFilter.mode(AppColors.errorLight, BlendMode.srcIn),),),
+                      SvgImages.arrowRight,colorFilter: ColorFilter.mode(AppColors.white, BlendMode.srcIn),),),
 
                   ],
                 ),

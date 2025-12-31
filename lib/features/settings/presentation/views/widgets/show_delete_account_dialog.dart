@@ -1,4 +1,5 @@
 import 'package:easy_localization/easy_localization.dart';
+import 'package:el_kottab/features/layout/presentation/view_model/layout_cubit.dart';
 import 'package:el_kottab/features/login/presentation/views/login_view.dart';
 import '../../../../../main_imports.dart';
 import '../../view_model/settings_cubit.dart';
@@ -12,6 +13,7 @@ void showDeleteAccountDialog(BuildContext context) {
         if(state is DeleteAccountSuccessState){
           Toast.showSuccessToast(msg: state.deleteAccountModel.message.toString(), context: context);
           AppNav.customNavigator(context: context, screen: LoginView(),finish: true);
+          LayoutCubit.pageIndex=0;
         }
         else if(state is DeleteAccountErrorState){
           Toast.showErrorToast(msg: state.error.toString(), context: context);

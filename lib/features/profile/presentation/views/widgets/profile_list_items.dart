@@ -1,12 +1,9 @@
-import 'package:el_kottab/core/utils/app_nav.dart';
-import 'package:el_kottab/features/balance/presentation/views/balance_view.dart';
+ import 'package:el_kottab/features/balance/presentation/views/balance_view.dart';
 import 'package:el_kottab/features/change_password/presentation/views/change_password_view.dart';
 import 'package:el_kottab/features/profile/presentation/views/widgets/profile_list_item.dart';
-import 'package:el_kottab/features/settings/presentation/views/who_we_are_view.dart';
-import '../../../../../main_imports.dart';
+ import '../../../../../main_imports.dart';
 import '../../../../contact_us/presentation/views/contact_us_view.dart';
 import '../../../../settings/presentation/views/settings_view.dart';
-import '../../../../settings/presentation/views/terms_view.dart';
 
 class ProfileListItems extends StatelessWidget {
   const ProfileListItems({super.key});
@@ -36,13 +33,6 @@ class ProfileListItems extends StatelessWidget {
             },
           ),
           ProfileListItem(
-            title: LangKeys.aboutUs,
-            svgImage: SvgImages.warning,
-            onTap: (){
-              AppNav.customNavigator(context: context, screen: WhoWeAreView());
-            },
-          ),
-          ProfileListItem(
             title: LangKeys.contactUs,
             svgImage: SvgImages.callCalling,
             onTap: (){
@@ -52,16 +42,9 @@ class ProfileListItems extends StatelessWidget {
           ProfileListItem(
             title: LangKeys.settings,
             svgImage: SvgImages.settings,
+            isLast: true,
             onTap: (){
               AppNav.customNavigator(context: context, screen: SettingsView());
-            },
-          ),
-          ProfileListItem(
-            isLast: true,
-            title: LangKeys.privacyAndTerms,
-            svgImage: SvgImages.terms,
-            onTap: (){
-              AppNav.customNavigator(context: context, screen: TermsView());
             },
           ),
 
