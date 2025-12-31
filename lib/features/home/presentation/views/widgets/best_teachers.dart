@@ -63,6 +63,14 @@ class BestTeachers extends StatelessWidget {
                     state is GetBestTeachersLoadingState ||
                         homeCubit.bestTeachersModel == null
                     ? BestTeachersLoading()
+                    : homeCubit.bestTeachersModel != null &&
+                          homeCubit.bestTeachersModel!.data!.isEmpty
+                    ? Center(
+                      child: Text(
+                          LangKeys.noTeachersFound.tr(),
+                          style: AppStyles.black16SemiBold,
+                        ),
+                    )
                     : ListView.separated(
                         scrollDirection: Axis.horizontal,
                         itemBuilder: (context, index) {

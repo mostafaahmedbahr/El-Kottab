@@ -134,11 +134,12 @@ abstract class LangKeys
     static const noNotifications = "noNotifications";
     static const exploreElKottab = "exploreElKottab";
     static const toRegisterClickHere = "toRegisterClickHere";
-
-
     static const deleteAccount = "deleteAccount";
     static const areYouSureToDeleteYourAccount = "areYouSureToDeleteYourAccount";
     static const confirmDeleteAccount = "confirmDeleteAccount";
+
+
+    static const noTeachersFound = "noTeachersFound";
 
 
 

@@ -3,6 +3,7 @@ import 'package:el_kottab/features/teachers/presentation/view_model/teachers_sta
 import 'package:el_kottab/features/teachers/presentation/views/widgets/teachers_list_item.dart';
 import 'package:el_kottab/main_imports.dart';
 
+import '../../../../../core/shared_widgets/empty_widget.dart';
 import 'all_teachers_loading.dart';
 
 class AllTeachersList extends StatelessWidget {
@@ -20,6 +21,7 @@ class AllTeachersList extends StatelessWidget {
         var teachersCubit = context.read<TeachersCubit>();
         return
           state is GetAllTeachersLoadingState || teachersCubit.allTeachersModel == null ? AllTeachersLoading():
+          teachersCubit.allTeachersModel != null && teachersCubit.allTeachersModel!.data!.isEmpty ? EmptyWidget(msg: LangKeys.noTeachersFound,):
           ListView.separated(
           itemBuilder: (context, index) {
             return TeachersListItem(teacher: teachersCubit.allTeachersModel!.data![index]);

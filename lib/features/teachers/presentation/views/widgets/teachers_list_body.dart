@@ -53,7 +53,7 @@ class TeachersListBody extends StatelessWidget {
 
             child: index == 0
                 ? AllTeachersList()
-                : EmptyWidget(msg: "no data found !!",),
+                : EmptyWidget(msg: LangKeys.noTeachersFound,),
           );
         },
       ),
