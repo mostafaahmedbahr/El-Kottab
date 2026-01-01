@@ -38,11 +38,11 @@ class SocialMediaIcons extends StatelessWidget {
               Gap(10.w),
 
               // تويتر
-              _buildSocialIcon(
-                iconPath: SvgImages.twitter,
-                onTap: () => _launchSocialMedia('https://twitter.com/yourpage'),
-              ),
-              Gap(10.w),
+              // _buildSocialIcon(
+              //   iconPath: SvgImages.twitter,
+              //   onTap: () => _launchSocialMedia('https://twitter.com/yourpage'),
+              // ),
+              // Gap(10.w),
 
               // انستجرام
               _buildSocialIcon(
@@ -56,20 +56,15 @@ class SocialMediaIcons extends StatelessWidget {
                 iconPath: SvgImages.youtube,
                 onTap: () => _launchSocialMedia('https://youtube.com/c/yourchannel'),
               ),
-            ],
-          ),
-          Gap(10.h),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              // واتساب
+              Gap(10.w),
               _buildSocialIcon(
                 iconPath: SvgImages.whatsapp,
                 onTap: () => _launchWhatsApp('+201234567890'),
               ),
-
             ],
           ),
+          Gap(10.h),
+
         ],
       ),
     );
@@ -94,7 +89,7 @@ Widget _buildSocialIcon({
         iconPath,
         width: 24.r,
         height: 24.r,
-        colorFilter: ColorFilter.mode(AppColors.black, BlendMode.srcIn),
+
       ),
     ),
   );
