@@ -9,7 +9,15 @@ class PackagesListItem extends StatelessWidget {
   final Data? package;
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<PackagesCubit , PackagesStates>(
+    return BlocConsumer<PackagesCubit , PackagesStates>(
+      listener: (context,state){
+        if(state is SubscribePackageSuccessState){
+          Toast.showSuccessToast(msg: state.subscribeToPackageModel.message.toString(), context: context);
+          context.read<PackagesCubit>().getAllPackages(loading: false);
+        }else if(state is SubscribePackageErrorState){
+          Toast.showErrorToast(msg: state.error.toString(), context: context);
+        }
+      },
       builder: (context,state){
         var packagesCubit = context.read<PackagesCubit>();
         return Container(
@@ -22,22 +30,7 @@ class PackagesListItem extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Column(
-                children: [
-                  // Padding(
-                  //   padding: const EdgeInsets.all(8.0),
-                  //   child: Container(
-                  //     height: 30.h,
-                  //     decoration: BoxDecoration(
-                  //       color: AppColors.white,
-                  //       borderRadius: BorderRadius.circular(12.r),
-                  //     ),
-                  //     child: Text(package!.categories![0].nameEn.toString()),
-                  //   ),
-                  // ),
-                  SvgPicture.asset(SvgImages.packageTest,height: 60.h,width: 60.w,),
-                ],
-              ),
+              SvgPicture.asset(SvgImages.packageTest,height: 60.h,width: 60.w,),
               Column(
                 children: [
                   Row(
@@ -114,11 +107,23 @@ class PackagesListItem extends StatelessWidget {
                     ),
                   ),
                   Gap(8.h),
-                  CustomButton(
-                    width: 100,
-                      height: 30.h,
-                      btnText: LangKeys.bookNow.tr(),
-                      onPressed: (){}),
+
+                  ConditionalBuilder(
+                    condition: !(state is SubscribePackageLoadingState &&
+                        packagesCubit.loadingPackageId == package!.id),
+                    fallback: (context)=>CustomLoading(),
+                    builder: (context){
+                      return CustomButton(
+                          btnColor: AppColors.gold.withValues(alpha: 0.5),
+                          width: 150.w,
+                          height: 40.h,
+                          btnText:package?.isSubscribed==true ? LangKeys.reserved.tr() : LangKeys.bookNow.tr(),
+                          onPressed:package?.isSubscribed==true ? null :  (){
+                            packagesCubit.subscribeToPackage(packageId: package?.id??0);
+                          });
+                    },
+
+                  ),
 
                 ],
               )

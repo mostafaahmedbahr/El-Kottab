@@ -28,7 +28,7 @@ Future<Either<Failure, PackagesModel>> getAllPackages() async{
   @override
   Future<Either<Failure, SubscribeToPackageModel>> subscribeToPackage({required int packageId}) async{
     try {
-      var response = await apiService!.getData(
+      var response = await apiService!.postData(
         endPoint: "plans/$packageId/subscribe",
       );
       SubscribeToPackageModel result = SubscribeToPackageModel.fromJson(response.data);

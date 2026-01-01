@@ -13,9 +13,11 @@ class PackagesCubit extends Cubit<PackagesStates> {
 
 
   PackagesModel? packagesModel;
-  Future<void> getAllPackages()
+  Future<void> getAllPackages({required bool loading})
   async {
-    emit(GetAllPackagesLoadingState());
+    if(loading==true){
+      emit(GetAllPackagesLoadingState());
+    }
     var result = await packagesRepo!.getAllPackages();
     return result.fold((failure) {
       emit(GetAllPackagesErrorState(failure.errMessage));
@@ -31,16 +33,19 @@ class PackagesCubit extends Cubit<PackagesStates> {
     emit(ChangeCurrencyState());
   }
 
-
+  int? loadingPackageId;
   SubscribeToPackageModel? subscribeToPackageModel;
   Future<void> subscribeToPackage({required int packageId})
   async {
+    loadingPackageId = packageId;
     emit(SubscribePackageLoadingState());
     var result = await packagesRepo!.subscribeToPackage(packageId: packageId);
     return result.fold((failure) {
+      loadingPackageId = null;
       emit(SubscribePackageErrorState(failure.errMessage));
     }, (data) async {
       subscribeToPackageModel = data;
+      loadingPackageId = null;
       emit(SubscribePackageSuccessState(data));
     });
   }

@@ -142,6 +142,7 @@ abstract class LangKeys
     static const noTeachersFound = "noTeachersFound";
     static const followUsOnSocialMedia = "followUsOnSocialMedia";
     static const bookNow = "bookNow";
+    static const reserved = "reserved";
 
 
 

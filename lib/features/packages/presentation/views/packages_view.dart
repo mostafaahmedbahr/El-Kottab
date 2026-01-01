@@ -4,7 +4,6 @@ import 'package:el_kottab/features/packages/data/repos/packages_repo_imple.dart'
 import 'package:el_kottab/features/packages/presentation/view_model/packages_cubit.dart';
 import 'package:el_kottab/features/packages/presentation/view_model/packages_states.dart';
 import 'package:el_kottab/features/packages/presentation/views/widgets/currency_bottom_sheet.dart';
-import 'package:el_kottab/features/packages/presentation/views/widgets/custom_code_filed.dart';
 import 'package:el_kottab/features/packages/presentation/views/widgets/packages_list.dart';
 import 'package:el_kottab/main_imports.dart';
 
@@ -14,7 +13,7 @@ class PackagesView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context)=>PackagesCubit(getIt.get<PackagesRepoImpl>())..getAllPackages(),
+      create: (context)=>PackagesCubit(getIt.get<PackagesRepoImpl>())..getAllPackages(loading: true),
       child: BlocConsumer<PackagesCubit , PackagesStates>(
         listener: (context,state){},
         builder:  (context,state){
