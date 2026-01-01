@@ -26,6 +26,7 @@ class EndPoints {
   static const String  deleteAccount = 'delete-account';
   static const String  notificationsMarkAllAsRead = 'notifications/mark-all-as-read';
   static const String  notificationsDeleteAll = 'notifications/delete-all';
+  static const String  sendMessage = 'chats/messages';
 
 
 

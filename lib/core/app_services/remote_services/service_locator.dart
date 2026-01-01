@@ -80,4 +80,5 @@ void setup() {
   getIt.registerSingleton<SettingsRepoImpl>(SettingsRepoImpl(
     getIt.get<ApiService>(),
   ));
+
 }

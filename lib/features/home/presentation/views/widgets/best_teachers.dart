@@ -78,6 +78,7 @@ class BestTeachers extends StatelessWidget {
                               homeCubit.bestTeachersModel!.data![index];
                           return BestTeacherItem(
                             teacherName: teacher.name.toString(),
+                            teacherImage: teacher.image.toString(),
                             teacherRate: teacher.rate.toString(),
                             teacherId: teacher.id!,
                             teacherNumber: "01110690299",

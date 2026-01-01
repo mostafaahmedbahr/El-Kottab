@@ -37,8 +37,10 @@ class Data {
   List<Categories>? categories;
   String? createdAt;
   String? updatedAt;
+  bool? isSubscribed;
 
-  Data({this.id, this.name, this.minutes, this.validDays, this.priceInDolar, this.priceInEgp, this.hasDiscount, this.discount, this.discountPriceDolar, this.discountPriceEgp, this.categories, this.createdAt, this.updatedAt});
+  Data({this.id, this.name, this.minutes, this.validDays, this.priceInDolar, this.priceInEgp, this.hasDiscount, this.discount,
+    this.discountPriceDolar, this.discountPriceEgp, this.categories, this.createdAt, this.updatedAt,this.isSubscribed});
 
   Data.fromJson(Map<String, dynamic> json) {
     id = json["id"];
@@ -54,6 +56,7 @@ class Data {
     categories = json["categories"] == null ? null : (json["categories"] as List).map((e) => Categories.fromJson(e)).toList();
     createdAt = json["created_at"];
     updatedAt = json["updated_at"];
+    isSubscribed = json["is_subscribed"];
   }
 
   Map<String, dynamic> toJson() {
@@ -73,6 +76,7 @@ class Data {
     }
     _data["created_at"] = createdAt;
     _data["updated_at"] = updatedAt;
+    _data["is_subscribed"] = isSubscribed;
     return _data;
   }
 }

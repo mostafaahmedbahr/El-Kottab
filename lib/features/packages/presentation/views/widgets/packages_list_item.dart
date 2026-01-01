@@ -113,6 +113,13 @@ class PackagesListItem extends StatelessWidget {
                       ],
                     ),
                   ),
+                  Gap(8.h),
+                  CustomButton(
+                    width: 100,
+                      height: 30.h,
+                      btnText: LangKeys.bookNow.tr(),
+                      onPressed: (){}),
+
                 ],
               )
             ],

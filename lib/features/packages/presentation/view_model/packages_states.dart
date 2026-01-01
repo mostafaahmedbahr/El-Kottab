@@ -1,4 +1,5 @@
 import 'package:el_kottab/features/packages/data/models/packages_model.dart';
+import 'package:el_kottab/features/packages/data/models/subscribe_to_package_model.dart';
 
 abstract class PackagesStates{}
 
@@ -22,6 +23,10 @@ class SubscribePackageErrorState extends PackagesStates{
   SubscribePackageErrorState(this.error);
 
 }
-class SubscribePackageSuccessState extends PackagesStates{}
+class SubscribePackageSuccessState extends PackagesStates{
+  final SubscribeToPackageModel subscribeToPackageModel;
+  SubscribePackageSuccessState(this.subscribeToPackageModel);
+
+}
 
 class ChangeCurrencyState extends PackagesStates{}

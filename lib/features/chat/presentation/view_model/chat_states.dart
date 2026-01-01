@@ -1,3 +1,5 @@
+import 'package:el_kottab/features/chat/data/models/send_message_model.dart';
+
 abstract class ChatStates{}
 
 class ChatInitState extends ChatStates{}
@@ -9,3 +11,17 @@ class GetAllChatMessagesErrorState extends ChatStates{
 
 }
 class GetAllChatMessagesSuccessState extends ChatStates{}
+
+
+
+class SendMessageLoadingState extends ChatStates{}
+class SendMessageErrorState extends ChatStates{
+  final String error;
+  SendMessageErrorState(this.error);
+
+}
+class SendMessageSuccessState extends ChatStates{
+  final SendMessageModel sendMessageModel;
+  SendMessageSuccessState(this.sendMessageModel);
+
+}
