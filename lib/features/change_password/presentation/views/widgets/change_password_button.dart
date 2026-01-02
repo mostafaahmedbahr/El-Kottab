@@ -8,8 +8,9 @@ import '../../view_model/change_password_cubit.dart';
 import '../../view_model/change_password_states.dart';
 
 class ChangePasswordButton extends StatelessWidget {
-  const ChangePasswordButton({super.key, required this.formKey});
+  const ChangePasswordButton({super.key, required this.formKey, required this.screenName});
   final GlobalKey<FormState> formKey;
+  final String screenName;
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<ChangePasswordCubit,ChangePasswordStates>(
@@ -48,7 +49,11 @@ class ChangePasswordButton extends StatelessWidget {
               btnText: LangKeys.changePassword.tr(),
               onPressed: (){
                 if (formKey.currentState!.validate()){
+                  print(context.read<ChangePasswordCubit>().oldPasswordCon.text);
+                  print(context.read<ChangePasswordCubit>().newPasswordCon.text);
+                  print(context.read<ChangePasswordCubit>().confirmNewPasswordCon.text);
                  context.read<ChangePasswordCubit>().changePassword(
+                   screenName: screenName,
                    oldPassword: context.read<ChangePasswordCubit>().oldPasswordCon.text,
                    newPassword: context.read<ChangePasswordCubit>().newPasswordCon.text,
                      newPasswordConfirmation: context.read<ChangePasswordCubit>().confirmNewPasswordCon.text,

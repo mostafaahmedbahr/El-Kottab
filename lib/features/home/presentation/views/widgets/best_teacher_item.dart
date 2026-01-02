@@ -4,16 +4,32 @@ import 'package:el_kottab/features/teacher_details/presentation/views/teacher_de
 import 'package:el_kottab/main_imports.dart';
 
 class BestTeacherItem extends StatelessWidget {
-  const BestTeacherItem({super.key, required this.teacherName, required this.teacherRate, required this.teacherNumber, required this.teacherId});
+  const BestTeacherItem({
+    super.key,
+    required this.teacherName,
+    required this.teacherRate,
+    required this.teacherNumber,
+    required this.teacherId,
+    required this.teacherImage,
+  });
+
   final String teacherName;
+  final String teacherImage;
   final String teacherRate;
   final String teacherNumber;
   final int teacherId;
+
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: (){
-        AppNav.customNavigator(context: context, screen: TeacherDetailsView(teacherName: teacherName,teacherId: teacherId,));
+      onTap: () {
+        AppNav.customNavigator(
+          context: context,
+          screen: TeacherDetailsView(
+            teacherName: teacherName,
+            teacherId: teacherId,
+          ),
+        );
       },
       child: Container(
         padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 8.h),
@@ -21,10 +37,7 @@ class BestTeacherItem extends StatelessWidget {
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(12.r),
           color: AppColors.darkOlive.withValues(alpha: .1),
-          border: Border.all(
-            color: AppColors.darkOlive,
-            width: 1.w,
-          ),
+          border: Border.all(color: AppColors.darkOlive, width: 1.w),
           boxShadow: [
             BoxShadow(
               color: Colors.black.withValues(alpha: 0.1),
@@ -42,15 +55,13 @@ class BestTeacherItem extends StatelessWidget {
               height: 60.h,
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
-                border: Border.all(
-                  color: AppColors.darkOlive,
-                  width: 2.w,
-                ),
+                border: Border.all(color: AppColors.darkOlive, width: 2.w),
               ),
               child: ClipOval(
                 child: CustomNetWorkImage(
                   raduis: 50,
-                  imageUrl: "https://ichef.bbci.co.uk/ace/standard/976/cpsprodpb/153FD/production/_126973078_whatsubject.jpg.webp",
+                  imageUrl:
+                      "https://ichef.bbci.co.uk/ace/standard/976/cpsprodpb/153FD/production/_126973078_whatsubject.jpg.webp",
                   width: 60.w,
                   height: 60.h,
                   fit: BoxFit.cover,
@@ -148,7 +159,14 @@ class BestTeacherItem extends StatelessWidget {
                         ),
                         child: IconButton(
                           onPressed: () {
-                            AppNav.customNavigator(context: context, screen: ChatView());
+                            AppNav.customNavigator(
+                              context: context,
+                              screen: ChatView(
+                                teacherName: teacherName,
+                                teacherImage: teacherImage,
+                                teacherId: teacherId,
+                              ),
+                            );
                           },
                           icon: SvgPicture.asset(
                             SvgImages.chat,

@@ -117,12 +117,32 @@ abstract class LangKeys
     static const changePassword = "changePassword";
     static const oldPassword = "oldPassword";
     static const newPassword = "newPassword";
-
-
-
     static const profilePhoto = "profilePhoto";
     static const change = "change";
     static const delete = "delete";
+    static const resetPassword = "resetPassword";
+    static const enterEmailToReceiveResetCode = "enterEmailToReceiveResetCode";
+    static const enterYourEmailToResetPassword = "enterYourEmailToResetPassword";
+    static const eGP = "eGP";
+    static const uSD = "uSD";
+    static const chooseYourCurrency = "chooseYourCurrency";
+    static const egyptianPound = "egyptianPound";
+    static const uSDollar = "uSDollar";
+    static const title = "title";
+    static const send = "send";
+    static const message = "message";
+    static const noNotifications = "noNotifications";
+    static const exploreElKottab = "exploreElKottab";
+    static const toRegisterClickHere = "toRegisterClickHere";
+    static const deleteAccount = "deleteAccount";
+    static const areYouSureToDeleteYourAccount = "areYouSureToDeleteYourAccount";
+    static const confirmDeleteAccount = "confirmDeleteAccount";
+
+
+    static const noTeachersFound = "noTeachersFound";
+    static const followUsOnSocialMedia = "followUsOnSocialMedia";
+    static const bookNow = "bookNow";
+    static const reserved = "reserved";
 
 
 

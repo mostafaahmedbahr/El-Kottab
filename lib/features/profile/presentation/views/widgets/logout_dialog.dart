@@ -1,6 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:el_kottab/features/login/presentation/views/login_view.dart';
 import '../../../../../main_imports.dart';
+import '../../../../layout/presentation/view_model/layout_cubit.dart';
 import '../../view_model/profile_cubit.dart';
 import '../../view_model/profile_states.dart';
 
@@ -12,6 +13,7 @@ void showLogoutDialog(BuildContext context) {
         if(state is LogoutSuccessState){
           Toast.showSuccessToast(msg: state.logoutModel.message.toString(), context: context);
           AppNav.customNavigator(context: context, screen: LoginView(),finish: true);
+          LayoutCubit.pageIndex=0;
         }
         else if(state is LogoutErrorState){
           Toast.showErrorToast(msg: state.error.toString(), context: context);

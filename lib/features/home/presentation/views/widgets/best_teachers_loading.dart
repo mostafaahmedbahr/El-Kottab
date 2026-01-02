@@ -17,6 +17,7 @@ class BestTeachersLoading extends StatelessWidget {
           child: BestTeacherItem(
               teacherName: 'name',
               teacherRate: "5.0",
+              teacherImage: "",
               teacherNumber: "01110690299",
             teacherId: -1,
           ),

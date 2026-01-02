@@ -117,6 +117,30 @@ class ArLang {
     "changePassword": "تغيير كلمة المرور",
     "oldPassword": "كلمة المرور القديمة",
     "newPassword": "كلمة المرور الجديدة",
+    "profilePhoto": "صورة الملف الشخصي",
+    "change": "تغيير",
+    "delete": "حذف",
+    "resetPassword": "إعادة تعيين كلمة المرور",
+    "enterEmailToReceiveResetCode": "أدخل بريدك الإلكتروني لتلقي رمز إعادة التعيين",
+    "enterYourEmailToResetPassword": "أدخل بريدك الإلكتروني لإعادة تعيين كلمة المرور",
+    "eGP": "ج.م",
+    "uSD": "دولار",
+    "chooseYourCurrency": "اختر عملتك",
+    "egyptianPound": "الجنيه المصري",
+    "uSDollar": "الدولار الأمريكي",
+    "title": "العنوان",
+    "send": "إرسال",
+    "message": "الرسالة",
+    "noNotifications": "لا توجد إشعارات",
+    "exploreElKottab": "استكشف الكتّاب",
+    "toRegisterClickHere": "للتسجيل اضغط هنا",
+    "deleteAccount": "حذف الحساب",
+    "areYouSureToDeleteYourAccount": "هل أنت متأكد من رغبتك في حذف حسابك؟",
+    "confirmDeleteAccount": "تأكيد حذف الحساب",
+
+
+
+
 
 
 

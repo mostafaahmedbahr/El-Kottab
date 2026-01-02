@@ -9,7 +9,9 @@ import 'package:el_kottab/features/login/presentation/views/widgets/login_email_
 import 'package:el_kottab/features/login/presentation/views/widgets/logo_widget.dart';
 
 import '../../../../core/app_services/remote_services/service_locator.dart';
+import '../../../../core/shared_cubits/auth_cubit/auth_cubit.dart';
 import '../../../../main_imports.dart';
+import '../../../layout/presentation/views/layout_view.dart';
 import '../../data/repos/login_repo_imple.dart';
 
 class LoginView extends StatelessWidget {
@@ -39,6 +41,16 @@ class LoginView extends StatelessWidget {
                   LoginEmailAndPasswordForm(),
                   Gap(12.h),
                   LoginButton(formKey: loginKey,),
+                  Gap(24.h),
+                  TextButton(
+                      onPressed: () {
+                        context.read<AuthCubit>().loginAsGuest();
+                        AppNav.customNavigator(context: context, screen: LayoutView());
+                      },
+                      child: Text(LangKeys.exploreElKottab.tr(),
+                        style: AppStyles.primary16SemiBold,
+                      )
+                  ),
                   Gap(24.h),
                   ForgetPassword(),
                   Gap(24.h),

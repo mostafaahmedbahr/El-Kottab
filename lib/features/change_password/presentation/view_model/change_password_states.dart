@@ -10,7 +10,7 @@ class ChangePasswordInitState extends ChangePasswordStates{}
 
 class ChangePasswordLoadingState extends ChangePasswordStates{}
 class ChangePasswordSuccessState extends ChangePasswordStates{
-  ChangePasswordModel changePasswordModel;
+  dynamic changePasswordModel;
   ChangePasswordSuccessState(this.changePasswordModel);
 }
 class ChangePasswordErrorState extends ChangePasswordStates{

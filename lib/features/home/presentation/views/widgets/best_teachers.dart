@@ -63,6 +63,14 @@ class BestTeachers extends StatelessWidget {
                     state is GetBestTeachersLoadingState ||
                         homeCubit.bestTeachersModel == null
                     ? BestTeachersLoading()
+                    : homeCubit.bestTeachersModel != null &&
+                          homeCubit.bestTeachersModel!.data!.isEmpty
+                    ? Center(
+                      child: Text(
+                          LangKeys.noTeachersFound.tr(),
+                          style: AppStyles.black16SemiBold,
+                        ),
+                    )
                     : ListView.separated(
                         scrollDirection: Axis.horizontal,
                         itemBuilder: (context, index) {
@@ -70,6 +78,7 @@ class BestTeachers extends StatelessWidget {
                               homeCubit.bestTeachersModel!.data![index];
                           return BestTeacherItem(
                             teacherName: teacher.name.toString(),
+                            teacherImage: teacher.image.toString(),
                             teacherRate: teacher.rate.toString(),
                             teacherId: teacher.id!,
                             teacherNumber: "01110690299",

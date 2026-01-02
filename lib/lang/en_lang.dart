@@ -116,7 +116,29 @@ class EnLang {
     "editProfileInfo": "Edit profile information",
     "changePassword": "Change password",
     "oldPassword": "Old password",
-    "newPassword": "New password"
+    "newPassword": "New password",
+    "profilePhoto": "Profile Photo",
+    "change": "Change",
+    "delete": "Delete",
+    "resetPassword": "Reset Password",
+    "enterEmailToReceiveResetCode": "Enter your email to receive a reset code",
+    "enterYourEmailToResetPassword": "Enter your email to reset password",
+    "eGP": "EGP",
+    "uSD": "USD",
+    "chooseYourCurrency": "Choose Your Currency",
+    "egyptianPound": "Egyptian Pound",
+    "uSDollar": "US Dollar",
+    "title": "Title",
+    "send": "Send",
+    "message": "Message",
+    "noNotifications": "No Notifications",
+    "exploreElKottab": "Explore El Kottab",
+    "toRegisterClickHere": "To Register Click Here",
+    "deleteAccount": "Delete Account",
+    "areYouSureToDeleteYourAccount": "Are you sure you want to delete your account?",
+    "confirmDeleteAccount": "Confirm Delete Account",
+
+
 
 
 

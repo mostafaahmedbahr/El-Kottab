@@ -25,7 +25,7 @@ class EditProfileInfoCubit extends Cubit<EditProfileInfoStates> {
     required String? gender,
     required File? image,
     required String? description,
-    required String? categoryId,
+    // required String? categoryId,
   }) async {
     emit(EditProfileInfoLoadingState());
 
@@ -48,9 +48,9 @@ class EditProfileInfoCubit extends Cubit<EditProfileInfoStates> {
     if (description != null && description.isNotEmpty) {
       formData.fields.add(MapEntry('description', description));
     }
-    if (categoryId != null) {
-      formData.fields.add(MapEntry('category_id', categoryId.toString()));
-    }
+    // if (categoryId != null) {
+    //   formData.fields.add(MapEntry('category_id', categoryId.toString()));
+    // }
 
     // إضافة الصورة إذا كانت موجودة
     if (image != null) {
@@ -114,27 +114,25 @@ class EditProfileInfoCubit extends Cubit<EditProfileInfoStates> {
   String phoneNumber = '';
 
   // In your EditProfileInfoCubit
-  void initDateControllers(ProfileModel profile) {
-    nameCon.text = profile.data?.name ?? '';
-    emailCon.text = profile.data?.email ?? '';
-    phoneNumber =  profile.data?.phone??'';
-    // Remove first 3 numbers from phone number
-    String? phone = profile.data?.phone;
-    if (phone != null && phone.length > 3) {
-      phoneCon.text = phone.substring(3);
-    } else {
-      phoneCon.text = phone ?? '';
-    }
-
-    if (profile.data?.categoryId != null) {
-      categoryController.text = profile.data!.categoryId!;
-
-    }
-
-    // If you have countryId and cityId in your profile model, set them too
-    // countryId = profile.data?.countryId;
-    // cityId = profile.data?.cityId;
+void initDateControllers(ProfileModel profile) {
+  nameCon.text = profile.data?.name ?? '';
+  emailCon.text = profile.data?.email ?? '';
+  phoneNumber = profile.data?.phone ?? '';
+  descriptionCon.text = profile.data?.description ?? ''; // Add this line
+  gender = profile.data?.gender; // Initialize gender from profile
+  
+  // Rest of the method remains the same
+  String? phone = profile.data?.phone;
+  if (phone != null && phone.length > 3) {
+    phoneCon.text = phone.substring(3);
+  } else {
+    phoneCon.text = phone ?? '';
   }
+
+  if (profile.data?.categoryId != null) {
+    categoryController.text = profile.data!.categoryId!;
+  }
+}
 
 // Add this method to clear country/city selection
   void clearCountryCitySelection() {
@@ -146,6 +144,10 @@ class EditProfileInfoCubit extends Cubit<EditProfileInfoStates> {
     emailCon.dispose();
     phoneCon.dispose();
     categoryController.dispose();
+    
+  
+ 
+  descriptionCon.dispose(); // Add this line
   }
 
   // void initCountryCity({
@@ -157,6 +159,10 @@ class EditProfileInfoCubit extends Cubit<EditProfileInfoStates> {
   // }
 
 
+// In EditProfileInfoCubit
+var descriptionCon = TextEditingController();
+String? gender; // Add this line to store the selected gender
 
+ 
 
 }

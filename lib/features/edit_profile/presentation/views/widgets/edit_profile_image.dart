@@ -92,7 +92,7 @@ class EditProfileImage extends StatelessWidget {
                               foregroundColor: AppColors.darkOlive,
                             ),
                             child:  Text(
-                              LangKeys.delete,
+                              LangKeys.delete.tr(),
                               style: AppStyles.black14Medium.copyWith(
                                 color: AppColors.errorDark,
                               ),

@@ -1,13 +1,10 @@
 import 'package:el_kottab/main_imports.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../../../../core/app_services/remote_services/service_locator.dart';
+ import '../../../../../core/app_services/remote_services/service_locator.dart';
 import '../../../data/repos/edit_profile_repo_imple.dart';
 import '../../view_model/edit_profile_info_cubit.dart';
 import '../../view_model/edit_profile_info_states.dart';
 import 'edit_profile_button.dart';
-import 'edit_profile_category_form.dart';
-import 'edit_profile_image.dart';
+ import 'edit_profile_image.dart';
 import 'edit_profile_name_email_phone_form.dart';
 
 class EditProfileInfoViewBody extends StatelessWidget {
@@ -25,7 +22,6 @@ class EditProfileInfoViewBody extends StatelessWidget {
               children: [
                  EditProfileImage(),
                 EditProfileNameEmailPhoneForm(),
-                 EditProfileCategoryForm(),
                 Gap(40.h),
                 EditProfileButton(),
               ],

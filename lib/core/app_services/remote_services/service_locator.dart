@@ -5,7 +5,9 @@ import 'package:get_it/get_it.dart';
  import '../../../features/balance/data/repos/balance_repo_imple.dart';
 import '../../../features/change_password/data/repos/change_password_repo_imple.dart';
 import '../../../features/chat/data/repos/chat_repo_imple.dart';
- import '../../../features/edit_profile/data/repos/edit_profile_repo_imple.dart';
+ import '../../../features/contact_us/data/repos/contact_us_repo_impl.dart';
+import '../../../features/edit_profile/data/repos/edit_profile_repo_imple.dart';
+import '../../../features/forget_password/data/repos/forget_password_repo_impl.dart';
 import '../../../features/home/data/repos/home_repo_imple.dart';
 import '../../../features/login/data/repos/login_repo_imple.dart';
 import '../../../features/notifications/data/repos/notifications_repo_imple.dart';
@@ -14,6 +16,7 @@ import '../../../features/packages/data/repos/packages_repo_imple.dart';
 import '../../../features/profile/data/repos/profile_repo_imple.dart';
 import '../../../features/register/data/repos/register_repos_imple.dart';
 import '../../../features/sessions/data/repos/sessions_repo_imple.dart';
+import '../../../features/settings/data/repos/settings_repo_impl.dart';
 import '../../../features/teacher_details/data/repos/teacher_details_repo_imple.dart';
 import '../../../features/teachers/data/repos/teachers_repo_imple.dart';
 import 'api_service.dart';
@@ -68,4 +71,14 @@ void setup() {
   getIt.registerSingleton<ChangePasswordRepoImpl>(ChangePasswordRepoImpl(
     getIt.get<ApiService>(),
   ));
+  getIt.registerSingleton<ForgetPasswordRepoImpl>(ForgetPasswordRepoImpl(
+    getIt.get<ApiService>(),
+  ));
+  getIt.registerSingleton<ContactUsRepoImpl>(ContactUsRepoImpl(
+    getIt.get<ApiService>(),
+  ));
+  getIt.registerSingleton<SettingsRepoImpl>(SettingsRepoImpl(
+    getIt.get<ApiService>(),
+  ));
+
 }

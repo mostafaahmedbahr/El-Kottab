@@ -17,8 +17,7 @@ class CompleteRegisterView extends StatelessWidget {
         padding:   EdgeInsets.all(20.0.r),
         child: Form(
           key:formKey ,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+          child: ListView(
             children: [
               Text(LangKeys.pleaseEnterTheFollowingData.tr(),style: AppStyles.black16SemiBold,),
               Text(LangKeys.enterTheFollowingInformationToSuccessfullyCreateAnAccount.tr(),style: AppStyles.gray14SemiBold,),

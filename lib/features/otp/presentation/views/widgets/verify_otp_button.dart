@@ -1,4 +1,5 @@
 import 'package:easy_localization/easy_localization.dart';
+import 'package:el_kottab/features/change_password/presentation/views/change_password_view.dart';
 import '../../../../../core/shared_cubits/auth_cubit/auth_cubit.dart';
 import '../../../../../main_imports.dart';
 import '../../../../layout/presentation/views/layout_view.dart';
@@ -9,12 +10,14 @@ class VerifyOtpButton extends StatelessWidget {
   final TextEditingController controller;
   final String goToLayoutOrResetPassword;
   final String email;
+  final String screenName;
 
   const VerifyOtpButton({
     super.key,
     required this.controller,
     required this.goToLayoutOrResetPassword,
-    required this.email
+    required this.email,
+    required this.screenName
   });
 
   @override
@@ -27,16 +30,24 @@ class VerifyOtpButton extends StatelessWidget {
       },
       listener: (context, state) {
         if (state is VerifyOtpSuccessState) {
+          screenName=="ForgetPasswordView" ?  AppNav.customNavigator(
+            context: context,
+            screen: const ChangePasswordView(screenName: "ForgetPasswordView",),
+            finish: false,
+          ):
           AppNav.customNavigator(
             context: context,
             screen: const LayoutView(),
             finish: goToLayoutOrResetPassword == "Layout",
           );
           Toast.showSuccessToast(
-            msg: state.verifyOtpModel.message?.toString() ?? "",
+            msg:screenName!="ForgetPasswordView" ? state.verifyOtpModel.message?.toString() ?? "" : state.verifyOtpModel.message?.toString() ?? "",
             context: context,
           );
-          context.read<AuthCubit>().loginWithToken(state.verifyOtpModel.data!.token.toString());
+          if(screenName!="ForgetPasswordView" ){
+            context.read<AuthCubit>().loginWithToken(state.verifyOtpModel.data!.token.toString());
+          }
+
         }
         if (state is VerifyOtpErrorState) {
           Toast.showErrorToast(
@@ -56,13 +67,13 @@ class VerifyOtpButton extends StatelessWidget {
         return isLoading
             ? const CustomLoading()
             : CustomButton(
-          borderColor: AppColors.white,
           btnText: LangKeys.continuee.tr(),
           onPressed: () {
             if (controller.text.length == 6) {
               context.read<OtpCubit>().verifyOtp(
                 otpCode: controller.text,
-                email: email,
+                email: CacheHelper.getData(key: "userEmail"),
+                screenName: screenName,
               );
             } else {
               ScaffoldMessenger.of(context).showSnackBar(

@@ -18,10 +18,16 @@ class ChangePasswordCubit extends Cubit<ChangePasswordStates> {
 
 
   ChangePasswordModel? changePasswordModel;
-  Future<void> changePassword({required String oldPassword ,required String newPassword , required String newPasswordConfirmation })
+  Future<void> changePassword({required String oldPassword ,required String newPassword , required String newPasswordConfirmation,
+    required String screenName })
   async {
     emit(ChangePasswordLoadingState());
-    var result = await changePasswordRepo!.changePassword(oldPassword: oldPassword, newPassword: newPassword, newPasswordConfirmation: newPasswordConfirmation);
+    var result = await changePasswordRepo!.changePassword(
+        screenName: screenName,
+        oldPassword: oldPassword,
+        newPassword: newPassword,
+        newPasswordConfirmation: newPasswordConfirmation
+    );
     return result.fold((failure) {
       emit(ChangePasswordErrorState(failure.errMessage));
     }, (data) async {
@@ -52,5 +58,11 @@ class ChangePasswordCubit extends Cubit<ChangePasswordStates> {
     isConfirmNewPasswordVisible = !isConfirmNewPasswordVisible;
     emit(ChangeConfirmNewPasswordVisibleState());
   }
-
+  @override
+  Future<void> close() {
+    oldPasswordCon.dispose();
+    newPasswordCon.dispose();
+    confirmNewPasswordCon.dispose();
+    return super.close();
+  }
 }

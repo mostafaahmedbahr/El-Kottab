@@ -1,8 +1,9 @@
-import 'package:el_kottab/core/utils/app_nav.dart';
-import 'package:el_kottab/features/balance/presentation/views/balance_view.dart';
+ import 'package:el_kottab/features/balance/presentation/views/balance_view.dart';
 import 'package:el_kottab/features/change_password/presentation/views/change_password_view.dart';
 import 'package:el_kottab/features/profile/presentation/views/widgets/profile_list_item.dart';
-import '../../../../../main_imports.dart';
+ import '../../../../../main_imports.dart';
+import '../../../../contact_us/presentation/views/contact_us_view.dart';
+import '../../../../settings/presentation/views/settings_view.dart';
 
 class ProfileListItems extends StatelessWidget {
   const ProfileListItems({super.key});
@@ -28,29 +29,23 @@ class ProfileListItems extends StatelessWidget {
             title: LangKeys.changePassword,
             svgImage: SvgImages.lock,
             onTap: (){
-              AppNav.customNavigator(context: context, screen: ChangePasswordView());
+              AppNav.customNavigator(context: context, screen: ChangePasswordView(screenName: "",));
             },
-          ),
-          ProfileListItem(
-            title: LangKeys.aboutUs,
-            svgImage: SvgImages.warning,
-            onTap: (){},
           ),
           ProfileListItem(
             title: LangKeys.contactUs,
             svgImage: SvgImages.callCalling,
-            onTap: (){},
+            onTap: (){
+              AppNav.customNavigator(context: context, screen: ContactUsView());
+            },
           ),
           ProfileListItem(
             title: LangKeys.settings,
             svgImage: SvgImages.settings,
-            onTap: (){},
-          ),
-          ProfileListItem(
             isLast: true,
-            title: LangKeys.privacyAndTerms,
-            svgImage: SvgImages.terms,
-            onTap: (){},
+            onTap: (){
+              AppNav.customNavigator(context: context, screen: SettingsView());
+            },
           ),
 
 

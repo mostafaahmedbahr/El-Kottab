@@ -1,5 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:el_kottab/core/app_services/remote_services/service_locator.dart';
+import 'package:el_kottab/features/layout/presentation/views/layout_view.dart';
 import 'package:el_kottab/features/profile/data/repos/profile_repo_imple.dart';
 import 'package:el_kottab/features/profile/presentation/view_model/profile_cubit.dart';
 import 'package:el_kottab/features/register/presentation/view_model/register_cubit.dart';
@@ -7,8 +8,14 @@ import 'package:el_kottab/features/splash/presentation/views/splash_view.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 import 'core/shared_cubits/auth_cubit/auth_cubit.dart';
 import 'core/shared_cubits/lang_cubit/lang_cubit.dart';
+import 'features/forget_password/data/repos/forget_password_repo_impl.dart';
+import 'features/forget_password/presentation/view_model/forget_password_cubit.dart';
 import 'features/layout/presentation/view_model/layout_cubit.dart';
+import 'features/notifications/data/repos/notifications_repo_imple.dart';
+import 'features/notifications/presentation/view_model/notifications_cubit.dart';
 import 'features/register/data/repos/register_repos_imple.dart';
+import 'features/settings/data/repos/settings_repo_impl.dart';
+import 'features/settings/presentation/view_model/settings_cubit.dart';
 import 'main_imports.dart';
 
 class MyApp extends StatelessWidget {
@@ -31,8 +38,11 @@ class MyApp extends StatelessWidget {
                 BlocProvider(create: (context) => AuthCubit()..checkAuthStatus()),
                 BlocProvider(create: (context) => LanguageCubit()),
                 BlocProvider(create: (context) => LayoutCubit()),
-                BlocProvider(create: (context) => ProfileCubit(getIt.get<ProfileRepoImpl>())..getProfileData()),
+                BlocProvider(create: (context) => ProfileCubit(getIt.get<ProfileRepoImpl>())),
                 BlocProvider(create: (context) => RegisterCubit(getIt.get<RegisterRepoImpl>())..getAllCategories()),
+                BlocProvider(create: (context) => ForgetPasswordCubit(getIt.get<ForgetPasswordRepoImpl>()) ),
+                BlocProvider(create: (context)=> NotificationsCubit(getIt.get<NotificationsRepoImpl>())),
+                BlocProvider(create: (context)=> SettingsCubit(getIt.get<SettingsRepoImpl>())..getWhoWeAre()..getTermsAndConditions()),
               ],
               child: BlocBuilder<LanguageCubit, Locale>(
                 builder: (context, locale) {
@@ -67,7 +77,6 @@ class MyApp extends StatelessWidget {
                       return ResponsiveBreakpoints.builder(
                         child: child!,
                         breakpoints: const [
-
                           Breakpoint(start: 0, end: 450, name: MOBILE),
                           Breakpoint(start: 451, end: 800, name: TABLET),
                           Breakpoint(start: 801, end: 1920, name: DESKTOP),

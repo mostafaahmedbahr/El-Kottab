@@ -15,10 +15,12 @@ class OtpView extends StatefulWidget {
     super.key,
     required this.goToLayoutOrResetPassword,
     required this.email,
+    required this.screenName,
   });
 
   final String goToLayoutOrResetPassword;
   final String email;
+  final String screenName;
 
   @override
   State<OtpView> createState() => _OtpViewState();
@@ -30,10 +32,11 @@ class _OtpViewState extends State<OtpView> {
 
   @override
   void initState() {
+
     super.initState();
     // حفظ الإيميل في الـ cache عند فتح الشاشة
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      CacheHelper.saveData(key: "userEmail", value: widget.email);
+      // CacheHelper.saveData(key: "userEmail", value: widget.email);
     });
   }
 
@@ -84,6 +87,7 @@ class _OtpViewState extends State<OtpView> {
                           controller: _otpController,
                           goToLayoutOrResetPassword: widget.goToLayoutOrResetPassword,
                           email: widget.email,
+                          screenName: widget.screenName,
                         ),
                         SizedBox(
                           height: 80.h + MediaQuery.of(context).viewInsets.bottom,
