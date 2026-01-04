@@ -143,6 +143,7 @@ abstract class LangKeys
     static const followUsOnSocialMedia = "followUsOnSocialMedia";
     static const bookNow = "bookNow";
     static const reserved = "reserved";
+    static const noMessagesFound = "noMessagesFound";
 
 
 

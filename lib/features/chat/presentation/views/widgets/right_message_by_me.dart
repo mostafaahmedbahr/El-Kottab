@@ -1,8 +1,11 @@
+import '../../../../../core/helpers/convert_date.dart';
 import '../../../../../main_imports.dart';
 
 class RightMessageByMe extends StatelessWidget {
-  const RightMessageByMe({super.key});
+  const RightMessageByMe({super.key,   required this.date, required this.message});
 
+  final String date;
+  final String message;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -29,22 +32,22 @@ class RightMessageByMe extends StatelessWidget {
                   ],
                 ),
                 child: Text(
-                  "from me",
+                  message,
                   style: AppStyles.white12SemiBold,
                 ),
               ),
-              Gap(10.w),
-              CustomNetWorkImage(
-                imageUrl:  "https://i.pravatar.cc/150?img=12",
-                height: 34.h,
-                width: 34.w,
-                raduis: 50.r,
-              ),
+              // Gap(10.w),
+              // CustomNetWorkImage(
+              //   imageUrl:  image,
+              //   height: 34.h,
+              //   width: 34.w,
+              //   raduis: 50.r,
+              // ),
             ],
           ),
           Padding(
             padding:   EdgeInsets.only(right: 50.w),
-            child: Text("3:16 PM"),
+            child: Text(DateFormatterClass.toTimeAgo(date)),
           ),
         ],
       ),

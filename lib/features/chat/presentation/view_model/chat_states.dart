@@ -1,3 +1,4 @@
+import 'package:el_kottab/features/chat/data/models/all_messages_model.dart';
 import 'package:el_kottab/features/chat/data/models/send_message_model.dart';
 
 abstract class ChatStates{}
@@ -10,7 +11,11 @@ class GetAllChatMessagesErrorState extends ChatStates{
   GetAllChatMessagesErrorState(this.error);
 
 }
-class GetAllChatMessagesSuccessState extends ChatStates{}
+class GetAllChatMessagesSuccessState extends ChatStates{
+  final AllMessagesModel allMessagesModel;
+  GetAllChatMessagesSuccessState(this.allMessagesModel);
+
+}
 
 
 

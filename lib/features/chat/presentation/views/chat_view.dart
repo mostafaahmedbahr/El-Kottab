@@ -6,14 +6,15 @@ import 'package:el_kottab/features/chat/presentation/views/widgets/message_list.
 import '../../../../main_imports.dart';
 
 class  ChatView extends StatelessWidget {
-  const  ChatView({super.key,   this.teacherName, this.teacherImage ,this.teacherId});
+  const  ChatView({super.key,   this.teacherName, this.teacherImage ,this.teacherId, this.userId});
   final String? teacherName;
   final String? teacherImage;
   final int? teacherId;
+  final int? userId;
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context)=> ChatCubit(getIt.get<ChatRepoImpl>()),
+      create: (context)=> ChatCubit(getIt.get<ChatRepoImpl>())..getAllMessages(userId: userId!, teacherId: teacherId!),
       child: Scaffold(
         backgroundColor: const Color(0xffF5F7FA),
         appBar: AppBar(

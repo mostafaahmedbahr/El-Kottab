@@ -11,6 +11,7 @@ class BestTeacherItem extends StatelessWidget {
     required this.teacherNumber,
     required this.teacherId,
     required this.teacherImage,
+    required this.userId,
   });
 
   final String teacherName;
@@ -18,6 +19,7 @@ class BestTeacherItem extends StatelessWidget {
   final String teacherRate;
   final String teacherNumber;
   final int teacherId;
+  final int userId;
 
   @override
   Widget build(BuildContext context) {
@@ -165,6 +167,7 @@ class BestTeacherItem extends StatelessWidget {
                                 teacherName: teacherName,
                                 teacherImage: teacherImage,
                                 teacherId: teacherId,
+                                userId: CacheHelper.getData(key: "userId"),
                               ),
                             );
                           },
