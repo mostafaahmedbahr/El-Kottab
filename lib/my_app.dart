@@ -16,6 +16,8 @@ import 'features/notifications/presentation/view_model/notifications_cubit.dart'
 import 'features/register/data/repos/register_repos_imple.dart';
 import 'features/settings/data/repos/settings_repo_impl.dart';
 import 'features/settings/presentation/view_model/settings_cubit.dart';
+import 'features/teachers/data/repos/teachers_repo_imple.dart';
+import 'features/teachers/presentation/view_model/teachers_cubit.dart';
 import 'main_imports.dart';
 
 class MyApp extends StatelessWidget {
@@ -43,6 +45,7 @@ class MyApp extends StatelessWidget {
                 BlocProvider(create: (context) => ForgetPasswordCubit(getIt.get<ForgetPasswordRepoImpl>()) ),
                 BlocProvider(create: (context)=> NotificationsCubit(getIt.get<NotificationsRepoImpl>())),
                 BlocProvider(create: (context)=> SettingsCubit(getIt.get<SettingsRepoImpl>())..getWhoWeAre()..getTermsAndConditions()),
+                BlocProvider(create: (context)=> TeachersCubit(getIt.get<TeachersRepoImpl>())..getFavTeachers()..getAllTeachers()),
               ],
               child: BlocBuilder<LanguageCubit, Locale>(
                 builder: (context, locale) {

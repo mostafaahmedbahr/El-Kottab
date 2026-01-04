@@ -37,7 +37,7 @@ class TeacherDetailsView extends StatelessWidget {
               padding: EdgeInsets.all(20.0.r),
               child: ListView(
                 children: [
-                  MainTeacherInfoContainer(name: teacher?.name ?? "", email: teacher?.email??""),
+                  MainTeacherInfoContainer(name: teacher?.name ?? "", email: teacher?.email??"",teacherId: teacher?.id ?? 0,),
                   Gap(12.h),
                   /// summary
                   TeacherDetailsItem(

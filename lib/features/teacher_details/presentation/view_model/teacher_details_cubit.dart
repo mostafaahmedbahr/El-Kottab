@@ -14,9 +14,11 @@ class TeacherDetailsCubit extends Cubit<TeacherDetailsStates> {
 
 
   TeachersDetailsModel? teachersDetailsModel;
-  Future<void> getTeachersDetails({ required int teacherId,})
+  Future<void> getTeachersDetails({ required int teacherId,   bool loading = true})
   async {
-    emit(GetTeacherDetailsLoadingState());
+    if(loading == true){
+      emit(GetTeacherDetailsLoadingState());
+    }
     var result = await teacherDetailsRepo!.getTeachersDetails(teacherId: teacherId);
     return result.fold((failure) {
       emit(GetTeacherDetailsErrorState(failure.errMessage));

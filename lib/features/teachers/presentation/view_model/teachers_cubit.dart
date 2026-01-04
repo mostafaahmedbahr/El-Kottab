@@ -1,5 +1,7 @@
 
+import 'package:el_kottab/features/teachers/data/models/add_to_fav_model.dart';
 import 'package:el_kottab/features/teachers/data/models/all_teachers_model.dart';
+import 'package:el_kottab/features/teachers/data/models/fav_teachers_model.dart';
 import 'package:el_kottab/features/teachers/presentation/view_model/teachers_states.dart';
 
 import '../../../../main_imports.dart';
@@ -43,6 +45,34 @@ class TeachersCubit extends Cubit<TeachersStates> {
     }, (data) async {
       allTeachersModel = data;
       emit(GetAllTeachersSuccessState(data));
+    });
+  }
+
+
+  AddToFavModel? addToFavModel;
+  Future<void> addToFav({required int teacherId})
+  async {
+    emit(AddTeachersFavLoadingState());
+    var result = await teachersRepo!.addToFav(teacherId: teacherId);
+    return result.fold((failure) {
+      emit(AddTeachersFavErrorState(failure.errMessage));
+    }, (data) async {
+      addToFavModel = data;
+      emit(AddTeachersFavSuccessState(data));
+    });
+  }
+
+
+  FavTeachersModel? favTeachersModel;
+  Future<void> getFavTeachers()
+  async {
+    emit(GetAllFavTeachersLoadingState());
+    var result = await teachersRepo!.getFavTeachers();
+    return result.fold((failure) {
+      emit(GetAllFavTeachersErrorState(failure.errMessage));
+    }, (data) async {
+      favTeachersModel = data;
+      emit(GetAllFavTeachersSuccessState(data));
     });
   }
 

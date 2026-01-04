@@ -1,4 +1,7 @@
+import 'package:el_kottab/features/teachers/data/models/add_to_fav_model.dart';
 import 'package:el_kottab/features/teachers/data/models/all_teachers_model.dart';
+
+import '../../data/models/fav_teachers_model.dart';
 
 abstract class TeachersStates{}
 
@@ -26,4 +29,21 @@ class AddTeachersFavErrorState extends TeachersStates {
   AddTeachersFavErrorState(this.error);
 
 }
-class AddTeachersFavSuccessState extends TeachersStates {}
+class AddTeachersFavSuccessState extends TeachersStates {
+  final AddToFavModel addToFavModel;
+  AddTeachersFavSuccessState(this.addToFavModel);
+
+}
+
+
+class GetAllFavTeachersLoadingState extends TeachersStates {}
+class GetAllFavTeachersErrorState extends TeachersStates {
+  final String error;
+  GetAllFavTeachersErrorState(this.error);
+
+}
+class GetAllFavTeachersSuccessState extends TeachersStates {
+  final FavTeachersModel favTeachersModel;
+  GetAllFavTeachersSuccessState(this.favTeachersModel);
+}
+
