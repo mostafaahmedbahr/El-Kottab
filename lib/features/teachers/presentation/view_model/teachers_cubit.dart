@@ -80,9 +80,11 @@ class TeachersCubit extends Cubit<TeachersStates> {
 
 
   FavTeachersModel? favTeachersModel;
-  Future<void> getFavTeachers()
+  Future<void> getFavTeachers({bool loading = true})
   async {
-    emit(GetAllFavTeachersLoadingState());
+    if(loading==true){
+      emit(GetAllFavTeachersLoadingState());
+    }
     var result = await teachersRepo!.getFavTeachers();
     return result.fold((failure) {
       emit(GetAllFavTeachersErrorState(failure.errMessage));

@@ -25,7 +25,7 @@ class GeneralFavIcon extends StatelessWidget {
           );
           await   context.read<TeachersCubit>().getAllTeachers(loading: false);
           if(context.mounted){
-            await    context.read<TeachersCubit>().getFavTeachers();
+            await    context.read<TeachersCubit>().getFavTeachers(loading: false);
           }
         } else if (state is AddTeachersFavErrorState) {
           Toast.showErrorToast(

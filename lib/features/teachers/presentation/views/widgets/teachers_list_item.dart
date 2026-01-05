@@ -8,7 +8,7 @@ import 'calls_buttons.dart';
 class TeachersListItem extends StatelessWidget {
   const TeachersListItem({super.key, required this.teacher});
 
-  final Data teacher;
+  final dynamic teacher;
 
   @override
   Widget build(BuildContext context) {
