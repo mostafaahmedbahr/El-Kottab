@@ -62,8 +62,7 @@ class BestTeacherItem extends StatelessWidget {
               child: ClipOval(
                 child: CustomNetWorkImage(
                   raduis: 50,
-                  imageUrl:
-                      "https://ichef.bbci.co.uk/ace/standard/976/cpsprodpb/153FD/production/_126973078_whatsubject.jpg.webp",
+                  imageUrl:teacherImage,
                   width: 60.w,
                   height: 60.h,
                   fit: BoxFit.cover,
@@ -77,7 +76,7 @@ class BestTeacherItem extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    "mostafa bahr",
+                    teacherName,
                     style: AppStyles.black16SemiBold,
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
@@ -96,7 +95,7 @@ class BestTeacherItem extends StatelessWidget {
                       ),
                       Gap(4.w),
                       Text(
-                        "4.6",
+                        teacherRate,
                         style: TextStyle(
                           fontSize: 14.sp,
                           fontWeight: FontWeight.w500,
