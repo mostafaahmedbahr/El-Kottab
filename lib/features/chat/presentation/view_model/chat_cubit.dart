@@ -50,8 +50,13 @@ class ChatCubit extends Cubit<ChatStates> {
         emit(GetAllChatMessagesErrorState(failure.errMessage));
       },
           (data) async {
-            allMessagesModel = data;
-        emit(GetAllChatMessagesSuccessState(data));
+            if(data.status==200){
+              allMessagesModel = data;
+              emit(GetAllChatMessagesSuccessState(data));
+            }else{
+              emit(GetAllChatMessagesErrorState(data.message.toString()));
+            }
+
       },
     );
   }

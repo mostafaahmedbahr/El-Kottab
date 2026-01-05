@@ -10,7 +10,7 @@ import 'package:el_kottab/main_imports.dart';
 
 import '../../../../core/app_services/remote_services/service_locator.dart';
 
-class TeacherDetailsView extends StatelessWidget {
+class TeacherDetailsView extends StatefulWidget {
   const TeacherDetailsView({
     super.key,
     required this.teacherName,
@@ -21,73 +21,79 @@ class TeacherDetailsView extends StatelessWidget {
   final int teacherId;
 
   @override
+  State<TeacherDetailsView> createState() => _TeacherDetailsViewState();
+}
+
+class _TeacherDetailsViewState extends State<TeacherDetailsView> {
+  @override
+  void initState() {
+    context.read<TeacherDetailsCubit>().getTeachersDetails(teacherId:widget.teacherId);
+    super.initState();
+  }
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text(teacherName)),
-      body: BlocProvider(
-        create: (context) =>
-            TeacherDetailsCubit(getIt.get<TeacherDetailsRepoImpl>())
-              ..getTeachersDetails(teacherId: teacherId),
-        child: BlocConsumer<TeacherDetailsCubit, TeacherDetailsStates>(
-          listener: (context, state) {},
-          builder: (context, state) {
-            var teacherDetailsCubit = context.read<TeacherDetailsCubit>();
-            Data? teacher;
-            if (teacherDetailsCubit.teachersDetailsModel != null) {
-              teacher = teacherDetailsCubit.teachersDetailsModel!.data;
-            }
-            return state is GetTeacherDetailsLoadingState ||
-                    teacherDetailsCubit.teachersDetailsModel == null
-                ? CustomLoading()
-                : Padding(
-                    padding: EdgeInsets.all(20.0.r),
-                    child: ListView(
-                      children: [
-                        MainTeacherInfoContainer(
-                          name: teacher?.name ?? "",
-                          email: teacher?.email ?? "",
-                          teacherId: teacher?.id ?? 0,
-                          isFav: teacher?.isFav ?? false,
-                        ),
-                        Gap(12.h),
+      appBar: AppBar(title: Text(widget.teacherName)),
+      body: BlocConsumer<TeacherDetailsCubit, TeacherDetailsStates>(
+        listener: (context, state) {},
+        builder: (context, state) {
+          var teacherDetailsCubit = context.read<TeacherDetailsCubit>();
+          Data? teacher;
+          if (teacherDetailsCubit.teachersDetailsModel != null) {
+            teacher = teacherDetailsCubit.teachersDetailsModel!.data;
+          }
+          return state is GetTeacherDetailsLoadingState ||
+                  teacherDetailsCubit.teachersDetailsModel == null
+              ? CustomLoading()
+              : Padding(
+                  padding: EdgeInsets.all(20.0.r),
+                  child: ListView(
+                    children: [
+                      MainTeacherInfoContainer(
+                        name: teacher?.name ?? "",
+                        email: teacher?.email ?? "",
+                        teacherId: teacher?.id ?? 0,
+                        isFav: teacher?.isFav ?? false,
+                        image: teacher?.image??"",
+                      ),
+                      Gap(12.h),
 
-                        /// summary
-                        TeacherDetailsItem(
-                          svgImage: SvgImages.summary,
-                          title: LangKeys.summary.tr(),
-                          des: teacher?.summary ?? "",
-                        ),
-                        Gap(12.h),
+                      /// summary
+                      TeacherDetailsItem(
+                        svgImage: SvgImages.summary,
+                        title: LangKeys.summary.tr(),
+                        des: teacher?.summary ?? "",
+                      ),
+                      Gap(12.h),
 
-                        /// summary
-                        TeacherDetailsItem(
-                          svgImage: SvgImages.star,
-                          title: LangKeys.compatibility.tr(),
-                          des: "des" * 10,
-                        ),
-                        Gap(12.h),
+                      /// summary
+                      TeacherDetailsItem(
+                        svgImage: SvgImages.star,
+                        title: LangKeys.compatibility.tr(),
+                        des: "des" * 10,
+                      ),
+                      Gap(12.h),
 
-                        /// summary
-                        TeacherDetailsItem(
-                          svgImage: SvgImages.ejazat,
-                          title: LangKeys.ejazat.tr(),
-                          des: "des" * 10,
-                        ),
-                        Gap(12.h),
+                      /// summary
+                      TeacherDetailsItem(
+                        svgImage: SvgImages.ejazat,
+                        title: LangKeys.ejazat.tr(),
+                        des: "des" * 10,
+                      ),
+                      Gap(12.h),
 
-                        /// summary
-                        TeacherDetailsItem(
-                          svgImage: SvgImages.lang,
-                          title: LangKeys.languages.tr(),
-                          des: "des" * 10,
-                        ),
-                        Gap(12.h),
-                        TeacherReviews(),
-                      ],
-                    ),
-                  );
-          },
-        ),
+                      /// summary
+                      TeacherDetailsItem(
+                        svgImage: SvgImages.lang,
+                        title: LangKeys.languages.tr(),
+                        des: "des" * 10,
+                      ),
+                      Gap(12.h),
+                      TeacherReviews(),
+                    ],
+                  ),
+                );
+        },
       ),
     );
   }

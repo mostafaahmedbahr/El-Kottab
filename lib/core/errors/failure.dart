@@ -61,6 +61,23 @@ class ServerFailure extends Failure {
         return ServerFailure(errorMessage);
       }
 
+      // ✅ Validation Errors (422)
+      if (statusCode == 404 && response["data"] is Map<String, dynamic>) {
+        final Map<String, dynamic> errors =
+        response["data"] as Map<String, dynamic>;
+
+        if (errors.isNotEmpty) {
+          final String firstKey = errors.keys.first;
+          final dynamic firstError = errors[firstKey];
+
+          if (firstError is List && firstError.isNotEmpty) {
+            errorMessage = firstError.first.toString();
+          }
+        }
+
+        return ServerFailure(errorMessage);
+      }
+
       // الرسالة العامة
       errorMessage = response["message"]?.toString() ?? errorMessage;
     } else if (response is String && response.isNotEmpty) {

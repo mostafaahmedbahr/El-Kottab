@@ -37,9 +37,11 @@ class TeachersCubit extends Cubit<TeachersStates> {
 
 
   AllTeachersModel? allTeachersModel;
-  Future<void> getAllTeachers()
+  Future<void> getAllTeachers({bool loading = true})
   async {
-    emit(GetAllTeachersLoadingState());
+    if(loading==true){
+      emit(GetAllTeachersLoadingState());
+    }
     var result = await teachersRepo!.getAllTeachers();
     return result.fold((failure) {
       emit(GetAllTeachersErrorState(failure.errMessage));

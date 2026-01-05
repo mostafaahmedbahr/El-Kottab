@@ -13,11 +13,11 @@ class MessageList extends StatelessWidget {
     return BlocBuilder<ChatCubit, ChatStates>(
       builder: (context, state) {
         var chatCubit = context.read<ChatCubit>();
-        return state is GetAllChatMessagesLoadingState ||
+        return state is GetAllChatMessagesLoadingState &&
                 chatCubit.allMessagesModel == null
             ? CustomLoading()
             : state is GetAllChatMessagesErrorState
-            ? Text(state.error.toString())
+            ? Center(child: Text(state.error.toString(),style: AppStyles.black16SemiBold,))
             : state is GetAllChatMessagesSuccessState &&
                   chatCubit.allMessagesModel!.data!.isEmpty
             ? EmptyWidget(msg: LangKeys.noMessagesFound)
