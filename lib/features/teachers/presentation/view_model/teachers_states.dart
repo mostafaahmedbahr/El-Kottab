@@ -30,7 +30,7 @@ class AddTeachersFavErrorState extends TeachersStates {
 
 }
 class AddTeachersFavSuccessState extends TeachersStates {
-  final AddToFavModel addToFavModel;
+  final dynamic addToFavModel;
   AddTeachersFavSuccessState(this.addToFavModel);
 
 }

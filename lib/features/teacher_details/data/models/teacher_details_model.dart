@@ -1,4 +1,3 @@
-
 class TeachersDetailsModel {
   String? message;
   int? status;
@@ -34,8 +33,10 @@ class Data {
   List<String>? language;
   String? category;
   List<String>? attachments;
+  String? country;
+  bool? isFav;
 
-  Data({this.id, this.name, this.email, this.phone, this.image, this.gender, this.summary, this.language, this.category, this.attachments});
+  Data({this.id, this.name, this.email, this.phone, this.image, this.gender, this.summary, this.language, this.category, this.attachments, this.country, this.isFav});
 
   Data.fromJson(Map<String, dynamic> json) {
     id = json["id"];
@@ -48,6 +49,8 @@ class Data {
     language = json["language"] == null ? null : List<String>.from(json["language"]);
     category = json["category"];
     attachments = json["attachments"] == null ? null : List<String>.from(json["attachments"]);
+    country = json["country"];
+    isFav = json["is_fav"];
   }
 
   Map<String, dynamic> toJson() {
@@ -66,6 +69,8 @@ class Data {
     if(attachments != null) {
       _data["attachments"] = attachments;
     }
+    _data["country"] = country;
+    _data["is_fav"] = isFav;
     return _data;
   }
 }

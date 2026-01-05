@@ -2,6 +2,7 @@
 import 'package:el_kottab/features/teachers/data/models/add_to_fav_model.dart';
 import 'package:el_kottab/features/teachers/data/models/all_teachers_model.dart';
 import 'package:el_kottab/features/teachers/data/models/fav_teachers_model.dart';
+import 'package:el_kottab/features/teachers/data/models/remove_teacher_from_fav_model.dart';
 import 'package:el_kottab/features/teachers/presentation/view_model/teachers_states.dart';
 
 import '../../../../main_imports.dart';
@@ -58,6 +59,19 @@ class TeachersCubit extends Cubit<TeachersStates> {
       emit(AddTeachersFavErrorState(failure.errMessage));
     }, (data) async {
       addToFavModel = data;
+      emit(AddTeachersFavSuccessState(data));
+    });
+  }
+
+  RemoveTeacherFromFavModel? removeTeacherFromFavModel;
+  Future<void> removeTeacherFromFav({required int teacherId})
+  async {
+    emit(AddTeachersFavLoadingState());
+    var result = await teachersRepo!.removeTeacherFromFav(teacherId: teacherId);
+    return result.fold((failure) {
+      emit(AddTeachersFavErrorState(failure.errMessage));
+    }, (data) async {
+      removeTeacherFromFavModel = data;
       emit(AddTeachersFavSuccessState(data));
     });
   }

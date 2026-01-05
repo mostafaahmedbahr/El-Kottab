@@ -4,6 +4,7 @@ import '../../../../main_imports.dart';
 import '../models/add_to_fav_model.dart';
 import '../models/all_teachers_model.dart';
 import '../models/fav_teachers_model.dart';
+import '../models/remove_teacher_from_fav_model.dart';
 
 class TeachersRepoImpl implements TeachersRepo {
   final ApiService? apiService;
@@ -52,6 +53,21 @@ class TeachersRepoImpl implements TeachersRepo {
         endPoint: EndPoints.favourites,
       );
       FavTeachersModel result = FavTeachersModel.fromJson(response.data);
+      return right(result);
+    } catch (e) {
+      return left(handleError(e));
+    }
+  }
+
+
+  @override
+  Future<Either<Failure, RemoveTeacherFromFavModel>> removeTeacherFromFav({required int teacherId})
+  async {
+    try {
+      var response = await apiService!.deleteData(
+          endPoint: "${EndPoints.favourites}/$teacherId",
+      );
+      RemoveTeacherFromFavModel result = RemoveTeacherFromFavModel.fromJson(response.data);
       return right(result);
     } catch (e) {
       return left(handleError(e));

@@ -31,8 +31,9 @@ class Data {
   String? category;
   String? phone;
   int? rate;
+  bool? isFav;
 
-  Data({this.id, this.name, this.image, this.languages, this.category, this.phone, this.rate});
+  Data({this.id, this.name, this.image, this.languages, this.category, this.phone, this.rate, this.isFav});
 
   Data.fromJson(Map<String, dynamic> json) {
     id = json["id"];
@@ -42,6 +43,7 @@ class Data {
     category = json["category"];
     phone = json["phone"];
     rate = json["rate"];
+    isFav = json["is_fav"];
   }
 
   Map<String, dynamic> toJson() {
@@ -55,6 +57,7 @@ class Data {
     _data["category"] = category;
     _data["phone"] = phone;
     _data["rate"] = rate;
+    _data["is_fav"] = isFav;
     return _data;
   }
 }
