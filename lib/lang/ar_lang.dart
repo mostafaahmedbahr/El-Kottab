@@ -146,6 +146,9 @@ class ArLang {
     "activePackages": "الباقات النشطة",
     "remainingMinutes": "الدقائق المتبقية",
     "renewalDate": "تاريخ التجديد",
+    "filterTeachers": "تصفية المدرسين",
+    "minimumRate": "الحد الأدنى للتقييم",
+    "reset": "إعادة تعيين",
 
 
 

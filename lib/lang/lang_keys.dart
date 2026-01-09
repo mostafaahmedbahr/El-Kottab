@@ -146,8 +146,6 @@ abstract class LangKeys
     static const activePackages = "activePackages";
     static const remainingMinutes = "remainingMinutes";
     static const renewalDate = "renewalDate";
-
-
     static const filterTeachers = "filterTeachers";
     static const minimumRate = "minimumRate";
     static const reset = "reset";

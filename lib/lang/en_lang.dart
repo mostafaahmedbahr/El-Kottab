@@ -145,7 +145,11 @@ class EnLang {
     "totalBalance": "Total Balance",
     "activePackages": "Active Packages",
     "remainingMinutes": "Remaining Minutes",
-    "renewalDate": "Renewal Date"
+    "renewalDate": "Renewal Date",
+    "filterTeachers": "Filter Teachers",
+    "minimumRate": "Minimum Rate",
+    "reset": "Reset",
+
 
 
 
