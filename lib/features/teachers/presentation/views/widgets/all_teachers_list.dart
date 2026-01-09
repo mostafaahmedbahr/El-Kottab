@@ -19,17 +19,18 @@ class AllTeachersList extends StatelessWidget {
       },
       builder: (context, state) {
         var teachersCubit = context.read<TeachersCubit>();
+        final teachers = teachersCubit.filteredAllTeachers;
         return
           state is GetAllTeachersLoadingState || teachersCubit.allTeachersModel == null ? AllTeachersLoading():
-          teachersCubit.allTeachersModel != null && teachersCubit.allTeachersModel!.data!.isEmpty ? EmptyWidget(msg: LangKeys.noTeachersFound,):
+          teachers.isEmpty ? EmptyWidget(msg: LangKeys.noTeachersFound,):
           ListView.separated(
           itemBuilder: (context, index) {
-            return TeachersListItem(teacher: teachersCubit.allTeachersModel!.data![index]);
+            return TeachersListItem(teacher: teachers[index]);
           },
           separatorBuilder: (context, index) {
             return Gap(12.h);
           },
-          itemCount: teachersCubit.allTeachersModel!.data!.length,
+            itemCount: teachers.length,
         );
       },
     );

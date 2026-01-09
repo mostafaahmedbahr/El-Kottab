@@ -2,7 +2,7 @@
 class AllTeachersModel {
   String? message;
   int? status;
-  List<Data>? data;
+  List<AllTeachersData>? data;
   bool? hasMorePage;
 
   AllTeachersModel({this.message, this.status, this.data, this.hasMorePage});
@@ -10,7 +10,7 @@ class AllTeachersModel {
   AllTeachersModel.fromJson(Map<String, dynamic> json) {
     message = json["message"];
     status = json["status"];
-    data = json["data"] == null ? null : (json["data"] as List).map((e) => Data.fromJson(e)).toList();
+    data = json["data"] == null ? null : (json["data"] as List).map((e) => AllTeachersData.fromJson(e)).toList();
     hasMorePage = json["hasMorePage"];
   }
 
@@ -26,7 +26,7 @@ class AllTeachersModel {
   }
 }
 
-class Data {
+class AllTeachersData {
   int? id;
   String? name;
   String? image;
@@ -36,9 +36,9 @@ class Data {
   int? rate;
   bool? isFav;
 
-  Data({this.id, this.name, this.image, this.languages, this.category, this.phone, this.rate, this.isFav});
+  AllTeachersData({this.id, this.name, this.image, this.languages, this.category, this.phone, this.rate, this.isFav});
 
-  Data.fromJson(Map<String, dynamic> json) {
+  AllTeachersData.fromJson(Map<String, dynamic> json) {
     id = json["id"];
     name = json["name"];
     image = json["image"];

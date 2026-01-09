@@ -47,3 +47,4 @@ class GetAllFavTeachersSuccessState extends TeachersStates {
   GetAllFavTeachersSuccessState(this.favTeachersModel);
 }
 
+class TeachersSearchState extends TeachersStates {}

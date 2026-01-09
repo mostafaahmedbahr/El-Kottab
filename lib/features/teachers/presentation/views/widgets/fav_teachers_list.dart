@@ -19,17 +19,19 @@ class FavTeachersList extends StatelessWidget {
       },
       builder: (context, state) {
         var teachersCubit = context.read<TeachersCubit>();
+        final teachers = teachersCubit.filteredFavTeachers;
+
         return
           state is GetAllFavTeachersLoadingState || teachersCubit.favTeachersModel == null ? AllTeachersLoading():
-          teachersCubit.favTeachersModel != null && teachersCubit.favTeachersModel!.data!.isEmpty ? EmptyWidget(msg: LangKeys.noTeachersFound,):
+          teachers.isEmpty ? EmptyWidget(msg: LangKeys.noTeachersFound,):
           ListView.separated(
             itemBuilder: (context, index) {
-              return TeachersListItem(teacher: teachersCubit.favTeachersModel!.data![index]);
+              return TeachersListItem(teacher: teachers[index]);
             },
             separatorBuilder: (context, index) {
               return Gap(12.h);
             },
-            itemCount: teachersCubit.favTeachersModel!.data!.length,
+            itemCount: teachers.length,
           );
       },
     );

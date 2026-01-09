@@ -37,20 +37,19 @@ class TeachersCubit extends Cubit<TeachersStates> {
 
 
   AllTeachersModel? allTeachersModel;
-  Future<void> getAllTeachers({bool loading = true})
-  async {
-    if(loading==true){
-      emit(GetAllTeachersLoadingState());
-    }
-    var result = await teachersRepo!.getAllTeachers();
-    return result.fold((failure) {
-      emit(GetAllTeachersErrorState(failure.errMessage));
-    }, (data) async {
-      allTeachersModel = data;
-      emit(GetAllTeachersSuccessState(data));
-    });
-  }
+  Future<void> getAllTeachers({bool loading = true}) async {
+    if (loading) emit(GetAllTeachersLoadingState());
 
+    var result = await teachersRepo!.getAllTeachers();
+    result.fold(
+          (failure) => emit(GetAllTeachersErrorState(failure.errMessage)),
+          (data) {
+        allTeachersModel = data;
+        filteredAllTeachers = data.data ?? [];
+        emit(GetAllTeachersSuccessState(data));
+      },
+    );
+  }
 
   AddToFavModel? addToFavModel;
   Future<void> addToFav({required int teacherId})
@@ -80,18 +79,49 @@ class TeachersCubit extends Cubit<TeachersStates> {
 
 
   FavTeachersModel? favTeachersModel;
-  Future<void> getFavTeachers({bool loading = true})
-  async {
-    if(loading==true){
-      emit(GetAllFavTeachersLoadingState());
-    }
+  Future<void> getFavTeachers({bool loading = true}) async {
+    if (loading) emit(GetAllFavTeachersLoadingState());
+
     var result = await teachersRepo!.getFavTeachers();
-    return result.fold((failure) {
-      emit(GetAllFavTeachersErrorState(failure.errMessage));
-    }, (data) async {
-      favTeachersModel = data;
-      emit(GetAllFavTeachersSuccessState(data));
-    });
+    result.fold(
+          (failure) => emit(GetAllFavTeachersErrorState(failure.errMessage)),
+          (data) {
+        favTeachersModel = data;
+        filteredFavTeachers = data.data ?? [];
+        emit(GetAllFavTeachersSuccessState(data));
+      },
+    );
   }
+
+
+
+
+  final TextEditingController searchController = TextEditingController();
+
+  List<AllTeachersData> filteredAllTeachers = [];
+  List<FavData> filteredFavTeachers = [];
+
+
+
+  void searchByName(String query) {
+    if (query.isEmpty) {
+      filteredAllTeachers = allTeachersModel?.data ?? [];
+      filteredFavTeachers = favTeachersModel?.data ?? [];
+    } else {
+      filteredAllTeachers = allTeachersModel!.data!
+          .where((teacher) =>
+          teacher.name!.toLowerCase().contains(query.toLowerCase()))
+          .toList();
+
+      filteredFavTeachers = favTeachersModel!.data!
+          .where((teacher) =>
+          teacher.name!.toLowerCase().contains(query.toLowerCase()))
+          .toList();
+    }
+
+    emit(TeachersSearchState());
+  }
+
+
 
 }

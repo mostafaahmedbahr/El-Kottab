@@ -2,14 +2,14 @@
 class FavTeachersModel {
   String? message;
   int? status;
-  List<Data>? data;
+  List<FavData>? data;
 
   FavTeachersModel({this.message, this.status, this.data});
 
   FavTeachersModel.fromJson(Map<String, dynamic> json) {
     message = json["message"];
     status = json["status"];
-    data = json["data"] == null ? null : (json["data"] as List).map((e) => Data.fromJson(e)).toList();
+    data = json["data"] == null ? null : (json["data"] as List).map((e) => FavData.fromJson(e)).toList();
   }
 
   Map<String, dynamic> toJson() {
@@ -23,7 +23,7 @@ class FavTeachersModel {
   }
 }
 
-class Data {
+class FavData {
   int? id;
   String? name;
   String? image;
@@ -33,9 +33,9 @@ class Data {
   int? rate;
   bool? isFav;
 
-  Data({this.id, this.name, this.image, this.languages, this.category, this.phone, this.rate, this.isFav});
+  FavData({this.id, this.name, this.image, this.languages, this.category, this.phone, this.rate, this.isFav});
 
-  Data.fromJson(Map<String, dynamic> json) {
+  FavData.fromJson(Map<String, dynamic> json) {
     id = json["id"];
     name = json["name"];
     image = json["image"];
