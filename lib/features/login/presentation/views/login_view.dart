@@ -41,16 +41,16 @@ class LoginView extends StatelessWidget {
                   LoginEmailAndPasswordForm(),
                   Gap(12.h),
                   LoginButton(formKey: loginKey,),
-                  Gap(24.h),
-                  TextButton(
-                      onPressed: () {
-                        context.read<AuthCubit>().loginAsGuest();
-                        AppNav.customNavigator(context: context, screen: LayoutView());
-                      },
-                      child: Text(LangKeys.exploreElKottab.tr(),
-                        style: AppStyles.primary16SemiBold,
-                      )
-                  ),
+                  // Gap(24.h),
+                  // TextButton(
+                  //     onPressed: () {
+                  //       context.read<AuthCubit>().loginAsGuest();
+                  //       AppNav.customNavigator(context: context, screen: LayoutView());
+                  //     },
+                  //     child: Text(LangKeys.exploreElKottab.tr(),
+                  //       style: AppStyles.primary16SemiBold,
+                  //     )
+                  // ),
                   Gap(24.h),
                   ForgetPassword(),
                   Gap(24.h),

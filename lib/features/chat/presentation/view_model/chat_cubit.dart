@@ -1,3 +1,4 @@
+import 'package:el_kottab/features/chat/data/models/all_messages_model.dart';
 import 'package:el_kottab/features/chat/data/models/send_message_model.dart';
 import 'package:el_kottab/features/chat/data/repos/chat_repo.dart';
 import 'package:el_kottab/features/chat/presentation/view_model/chat_states.dart';
@@ -15,7 +16,8 @@ class ChatCubit extends Cubit<ChatStates> {
   Future<void> sendMessage({
     required String message,
     required int teacherId,
-  }) async {
+  })
+  async {
     emit(SendMessageLoadingState());
     var result = await chatRepo!.sendMessage(
       message: message,
@@ -32,6 +34,32 @@ class ChatCubit extends Cubit<ChatStates> {
     );
   }
 
+
+  AllMessagesModel? allMessagesModel;
+  Future<void> getAllMessages({
+    required int userId , required int teacherId
+  })
+  async {
+    emit(GetAllChatMessagesLoadingState());
+    var result = await chatRepo!.getAllMessages(
+      userId: userId,
+      teacherId: teacherId,
+    );
+    return result.fold(
+          (failure) {
+        emit(GetAllChatMessagesErrorState(failure.errMessage));
+      },
+          (data) async {
+            if(data.status==200){
+              allMessagesModel = data;
+              emit(GetAllChatMessagesSuccessState(data));
+            }else{
+              emit(GetAllChatMessagesErrorState(data.message.toString()));
+            }
+
+      },
+    );
+  }
 
   var messageCon = TextEditingController();
 }

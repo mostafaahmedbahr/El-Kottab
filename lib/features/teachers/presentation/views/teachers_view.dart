@@ -12,19 +12,16 @@ class TeachersView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: BlocProvider(
-        create: (context)=>TeachersCubit(getIt.get<TeachersRepoImpl>())..getAllTeachers(),
-        child: Padding(
-          padding:   EdgeInsets.symmetric(horizontal: 12.w,vertical: 20.h),
-          child: Column(
-            children: [
-              AllTeachersAndFavToggleButtons(),
-              Gap(18.h),
-              SearchAndFilter(),
-              Gap(18.h),
-              TeachersListBody(),
-            ],
-          ),
+      body: Padding(
+        padding:   EdgeInsets.symmetric(horizontal: 12.w,vertical: 20.h),
+        child: Column(
+          children: [
+            AllTeachersAndFavToggleButtons(),
+            Gap(18.h),
+            SearchAndFilter(),
+            Gap(18.h),
+            TeachersListBody(),
+          ],
         ),
       ),
     );

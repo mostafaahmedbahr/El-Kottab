@@ -7,13 +7,20 @@ import 'calls_buttons.dart';
 
 class TeachersListItem extends StatelessWidget {
   const TeachersListItem({super.key, required this.teacher});
-  final Data teacher;
+
+  final dynamic teacher;
+
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: (){
-        AppNav.customNavigator(context: context, screen: TeacherDetailsView(teacherName:teacher.name.toString(),teacherId: teacher.id!,
-        ));
+      onTap: () {
+        AppNav.customNavigator(
+          context: context,
+          screen: TeacherDetailsView(
+            teacherName: teacher.name.toString(),
+            teacherId: teacher.id!,
+          ),
+        );
       },
       child: Container(
         width: double.infinity,
@@ -21,18 +28,26 @@ class TeachersListItem extends StatelessWidget {
         decoration: BoxDecoration(
           color: AppColors.white,
           borderRadius: BorderRadius.circular(8.r),
-          border: Border.all(
-            color: AppColors.darkOlive,
-          ),
+          border: Border.all(color: AppColors.darkOlive),
         ),
         child: Column(
           children: [
-            TeacherMainInfoData(name: teacher.name??"", rate: teacher.rate??0, languages: teacher.languages??[],image: teacher.image.toString(),),
+            TeacherMainInfoData(
+              name: teacher.name ?? "",
+              rate: teacher.rate ?? 0,
+              languages: teacher.languages ?? [],
+              image: teacher.image.toString(),
+              isFav: teacher.isFav??false,
+              teacherId: teacher.id??0,
+            ),
             Gap(6.h),
             AboutTheTeacher(des: teacher.category.toString()),
             Gap(6.h),
-            CallsButtons(),
-
+            CallsButtons(
+                teacherName:  teacher.name ?? "",
+                teacherImage: teacher.image ?? "",
+                teacherId: teacher.id??0,
+            ),
           ],
         ),
       ),

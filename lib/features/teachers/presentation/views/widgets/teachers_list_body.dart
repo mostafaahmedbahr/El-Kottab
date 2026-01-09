@@ -4,6 +4,7 @@ import 'dart:math';
 import '../../../../../main_imports.dart';
 import '../../view_model/teachers_cubit.dart';
 import 'all_teachers_list.dart';
+import 'fav_teachers_list.dart';
 
 class TeachersListBody extends StatelessWidget {
   const TeachersListBody({super.key});
@@ -52,8 +53,9 @@ class TeachersListBody extends StatelessWidget {
             },
 
             child: index == 0
-                ? AllTeachersList()
-                : EmptyWidget(msg: LangKeys.noTeachersFound,),
+                ? AllTeachersList() :
+               // : EmptyWidget(msg: LangKeys.noTeachersFound,),
+            FavTeachersList(),
           );
         },
       ),

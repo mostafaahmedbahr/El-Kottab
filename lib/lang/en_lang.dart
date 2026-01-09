@@ -137,6 +137,15 @@ class EnLang {
     "deleteAccount": "Delete Account",
     "areYouSureToDeleteYourAccount": "Are you sure you want to delete your account?",
     "confirmDeleteAccount": "Confirm Delete Account",
+    "noTeachersFound": "No teachers found",
+    "followUsOnSocialMedia": "Follow us on social media",
+    "bookNow": "Book Now",
+    "reserved": "Reserved",
+    "noMessagesFound": "No messages found",
+    "totalBalance": "Total Balance",
+    "activePackages": "Active Packages",
+    "remainingMinutes": "Remaining Minutes",
+    "renewalDate": "Renewal Date"
 
 
 

@@ -1,12 +1,12 @@
 
-class BestTeachersModel {
+class FavTeachersModel {
   String? message;
   int? status;
   List<Data>? data;
 
-  BestTeachersModel({this.message, this.status, this.data});
+  FavTeachersModel({this.message, this.status, this.data});
 
-  BestTeachersModel.fromJson(Map<String, dynamic> json) {
+  FavTeachersModel.fromJson(Map<String, dynamic> json) {
     message = json["message"];
     status = json["status"];
     data = json["data"] == null ? null : (json["data"] as List).map((e) => Data.fromJson(e)).toList();

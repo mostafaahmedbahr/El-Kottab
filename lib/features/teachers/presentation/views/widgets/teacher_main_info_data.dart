@@ -1,11 +1,14 @@
+import 'package:el_kottab/core/shared_widgets/general_fav_icon.dart';
 import 'package:el_kottab/features/teachers/presentation/views/widgets/profile_image.dart';
 import 'package:el_kottab/main_imports.dart';
 
 class TeacherMainInfoData extends StatelessWidget {
-  const TeacherMainInfoData({super.key, required this.name, required this.rate,required this.languages, required this.image});
+  const TeacherMainInfoData({super.key, required this.name, required this.rate,required this.languages, required this.image, required this.isFav, required this.teacherId});
   final String name;
   final String image;
   final int rate;
+  final int teacherId;
+  final bool isFav;
   final   List<String> languages;
   @override
   Widget build(BuildContext context) {
@@ -29,44 +32,26 @@ class TeacherMainInfoData extends StatelessWidget {
                   ),
                   Row(
                     children: [
-                      InkWell(
-                        onTap: () {},
-                        child: Container(
-                          height: 20.h,
-                          width: 20.w,
-                          decoration: BoxDecoration(
-                            shape: BoxShape.circle,
-                            color: AppColors.grayLightest,
-                          ),
-                          child: SvgPicture.asset(
-                            SvgImages.notify,
-                            colorFilter: ColorFilter.mode(
-                              AppColors.gold,
-                              BlendMode.srcIn,
-                            ),
-                          ),
-                        ),
-                      ),
-                      Gap(12.w),
-                      InkWell(
-                        onTap: () {},
-                        child: Container(
-                          height: 20.h,
-                          width: 20.w,
-                          padding: EdgeInsets.all(4.r),
-                          decoration: BoxDecoration(
-                            shape: BoxShape.circle,
-                            color: AppColors.grayLightest,
-                          ),
-                          child: SvgPicture.asset(
-                            SvgImages.fav,
-                            colorFilter: ColorFilter.mode(
-                              AppColors.gold,
-                              BlendMode.srcIn,
-                            ),
-                          ),
-                        ),
-                      ),
+                      // InkWell(
+                      //   onTap: () {},
+                      //   child: Container(
+                      //     height: 20.h,
+                      //     width: 20.w,
+                      //     decoration: BoxDecoration(
+                      //       shape: BoxShape.circle,
+                      //       color: AppColors.grayLightest,
+                      //     ),
+                      //     child: SvgPicture.asset(
+                      //       SvgImages.notify,
+                      //       colorFilter: ColorFilter.mode(
+                      //         AppColors.gold,
+                      //         BlendMode.srcIn,
+                      //       ),
+                      //     ),
+                      //   ),
+                      // ),
+                      // Gap(12.w),
+                      GeneralFavIcon(isFav: isFav, teacherId: teacherId),
                     ],
                   ),
                 ],
@@ -88,8 +73,8 @@ class TeacherMainInfoData extends StatelessWidget {
                     ],
                   ),
                   Gap(8.w),
-                  if (languages != null && languages!.isNotEmpty)
-                    ...languages!.map((language) {
+                  if (languages.isNotEmpty)
+                    ...languages.map((language) {
                       return Padding(
                         padding: EdgeInsets.only(right: 8.w),
                         child: Container(

@@ -137,12 +137,15 @@ abstract class LangKeys
     static const deleteAccount = "deleteAccount";
     static const areYouSureToDeleteYourAccount = "areYouSureToDeleteYourAccount";
     static const confirmDeleteAccount = "confirmDeleteAccount";
-
-
     static const noTeachersFound = "noTeachersFound";
     static const followUsOnSocialMedia = "followUsOnSocialMedia";
     static const bookNow = "bookNow";
     static const reserved = "reserved";
+    static const noMessagesFound = "noMessagesFound";
+    static const totalBalance = "totalBalance";
+    static const activePackages = "activePackages";
+    static const remainingMinutes = "remainingMinutes";
+    static const renewalDate = "renewalDate";
 
 
 

@@ -137,6 +137,15 @@ class ArLang {
     "deleteAccount": "حذف الحساب",
     "areYouSureToDeleteYourAccount": "هل أنت متأكد من رغبتك في حذف حسابك؟",
     "confirmDeleteAccount": "تأكيد حذف الحساب",
+    "noTeachersFound": "لم يتم العثور على معلمين",
+    "followUsOnSocialMedia": "تابعنا على وسائل التواصل الاجتماعي",
+    "bookNow": "احجز الآن",
+    "reserved": "محجوز",
+    "noMessagesFound": "لا توجد رسائل",
+    "totalBalance": "إجمالي الرصيد",
+    "activePackages": "الباقات النشطة",
+    "remainingMinutes": "الدقائق المتبقية",
+    "renewalDate": "تاريخ التجديد",
 
 
 

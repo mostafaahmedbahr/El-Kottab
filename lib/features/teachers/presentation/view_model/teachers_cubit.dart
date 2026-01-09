@@ -1,5 +1,8 @@
 
+import 'package:el_kottab/features/teachers/data/models/add_to_fav_model.dart';
 import 'package:el_kottab/features/teachers/data/models/all_teachers_model.dart';
+import 'package:el_kottab/features/teachers/data/models/fav_teachers_model.dart';
+import 'package:el_kottab/features/teachers/data/models/remove_teacher_from_fav_model.dart';
 import 'package:el_kottab/features/teachers/presentation/view_model/teachers_states.dart';
 
 import '../../../../main_imports.dart';
@@ -34,15 +37,60 @@ class TeachersCubit extends Cubit<TeachersStates> {
 
 
   AllTeachersModel? allTeachersModel;
-  Future<void> getAllTeachers()
+  Future<void> getAllTeachers({bool loading = true})
   async {
-    emit(GetAllTeachersLoadingState());
+    if(loading==true){
+      emit(GetAllTeachersLoadingState());
+    }
     var result = await teachersRepo!.getAllTeachers();
     return result.fold((failure) {
       emit(GetAllTeachersErrorState(failure.errMessage));
     }, (data) async {
       allTeachersModel = data;
       emit(GetAllTeachersSuccessState(data));
+    });
+  }
+
+
+  AddToFavModel? addToFavModel;
+  Future<void> addToFav({required int teacherId})
+  async {
+    emit(AddTeachersFavLoadingState());
+    var result = await teachersRepo!.addToFav(teacherId: teacherId);
+    return result.fold((failure) {
+      emit(AddTeachersFavErrorState(failure.errMessage));
+    }, (data) async {
+      addToFavModel = data;
+      emit(AddTeachersFavSuccessState(data));
+    });
+  }
+
+  RemoveTeacherFromFavModel? removeTeacherFromFavModel;
+  Future<void> removeTeacherFromFav({required int teacherId})
+  async {
+    emit(AddTeachersFavLoadingState());
+    var result = await teachersRepo!.removeTeacherFromFav(teacherId: teacherId);
+    return result.fold((failure) {
+      emit(AddTeachersFavErrorState(failure.errMessage));
+    }, (data) async {
+      removeTeacherFromFavModel = data;
+      emit(AddTeachersFavSuccessState(data));
+    });
+  }
+
+
+  FavTeachersModel? favTeachersModel;
+  Future<void> getFavTeachers({bool loading = true})
+  async {
+    if(loading==true){
+      emit(GetAllFavTeachersLoadingState());
+    }
+    var result = await teachersRepo!.getFavTeachers();
+    return result.fold((failure) {
+      emit(GetAllFavTeachersErrorState(failure.errMessage));
+    }, (data) async {
+      favTeachersModel = data;
+      emit(GetAllFavTeachersSuccessState(data));
     });
   }
 

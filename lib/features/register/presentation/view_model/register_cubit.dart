@@ -66,6 +66,7 @@ class RegisterCubit extends Cubit<RegisterStates> {
       "password": password,
       "password_confirmation": password,
       "category_id": categoryId,
+      'fcm_token': CacheHelper.getData(key: "fcmToken"),
     });
     final result = await registerRepo!.register(data: formData);
     return result.fold((failure) {
