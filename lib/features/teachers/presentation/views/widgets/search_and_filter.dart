@@ -1,3 +1,4 @@
+import 'package:el_kottab/features/teachers/presentation/views/widgets/teachers_filter_bottom_sheet.dart';
 import 'package:el_kottab/main_imports.dart';
 
 import '../../../../../core/shared_widgets/container_search_widget.dart';
@@ -25,7 +26,16 @@ class SearchAndFilter extends StatelessWidget {
              Gap(12.w),
              InkWell(
                borderRadius: BorderRadius.circular(8.r),
-               onTap: () {},
+               onTap: () {
+                 showModalBottomSheet(
+                   context: context,
+                   isScrollControlled: true,
+                   shape: RoundedRectangleBorder(
+                     borderRadius: BorderRadius.vertical(top: Radius.circular(16.r)),
+                   ),
+                   builder: (_) => const TeachersFilterBottomSheet(),
+                 );
+               },
                child: Container(
                  padding: EdgeInsets.all(6.r),
                  height: 54.h,

@@ -104,24 +104,72 @@ class TeachersCubit extends Cubit<TeachersStates> {
 
 
   void searchByName(String query) {
-    if (query.isEmpty) {
-      filteredAllTeachers = allTeachersModel?.data ?? [];
-      filteredFavTeachers = favTeachersModel?.data ?? [];
-    } else {
-      filteredAllTeachers = allTeachersModel!.data!
-          .where((teacher) =>
-          teacher.name!.toLowerCase().contains(query.toLowerCase()))
-          .toList();
+    final all = allTeachersModel?.data ?? [];
+    final fav = favTeachersModel?.data ?? [];
 
-      filteredFavTeachers = favTeachersModel!.data!
-          .where((teacher) =>
-          teacher.name!.toLowerCase().contains(query.toLowerCase()))
-          .toList();
-    }
+    List<AllTeachersData> searchAll = all.where((teacher) {
+      return teacher.name!
+          .toLowerCase()
+          .contains(query.toLowerCase());
+    }).toList();
 
-    emit(TeachersSearchState());
+    filteredAllTeachers = searchAll;
+    filteredFavTeachers = fav.where((teacher) {
+      return teacher.name!
+          .toLowerCase()
+          .contains(query.toLowerCase());
+    }).toList();
+
+    applyFilters();
   }
 
+
+
+
+  double? selectedRate;
+  dynamic selectedCategoryId;
+
+  void selectRatingFun(value)
+  {
+    selectedRate = value;
+    emit(TeachersFilterAppliedState());
+  }
+  void applyFilters() {
+    List<AllTeachersData> all = allTeachersModel?.data ?? [];
+    List<FavData> fav = favTeachersModel?.data ?? [];
+
+    filteredAllTeachers = all.where((teacher) {
+      final matchesRate = selectedRate == null ||
+          (teacher.rate ?? 0) >= selectedRate!;
+
+      final matchesCategory = selectedCategoryId == null ||
+          teacher.category == selectedCategoryId;
+
+      return matchesRate && matchesCategory;
+    }).toList();
+
+    filteredFavTeachers = fav.where((teacher) {
+      final matchesRate = selectedRate == null ||
+          (teacher.rate ?? 0) >= selectedRate!;
+
+      final matchesCategory = selectedCategoryId == null ||
+          teacher.category == selectedCategoryId;
+
+      return matchesRate && matchesCategory;
+    }).toList();
+
+    emit(TeachersFilterAppliedState());
+  }
+
+  void resetFilters() {
+    selectedRate = null;
+    selectedCategoryId = null;
+
+    filteredAllTeachers = allTeachersModel?.data ?? [];
+    filteredFavTeachers = favTeachersModel?.data ?? [];
+
+    emit(TeachersFilterResetState());
+  }
 
 
 }

@@ -148,6 +148,11 @@ abstract class LangKeys
     static const renewalDate = "renewalDate";
 
 
+    static const filterTeachers = "filterTeachers";
+    static const minimumRate = "minimumRate";
+    static const reset = "reset";
+
+
 
 
 }

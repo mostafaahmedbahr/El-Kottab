@@ -48,3 +48,6 @@ class GetAllFavTeachersSuccessState extends TeachersStates {
 }
 
 class TeachersSearchState extends TeachersStates {}
+
+class TeachersFilterAppliedState extends TeachersStates {}
+class TeachersFilterResetState extends TeachersStates {}
