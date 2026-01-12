@@ -30,7 +30,7 @@ class FavData {
   List<String>? languages;
   String? category;
   String? phone;
-  int? rate;
+  dynamic rate;
   bool? isFav;
 
   FavData({this.id, this.name, this.image, this.languages, this.category, this.phone, this.rate, this.isFav});

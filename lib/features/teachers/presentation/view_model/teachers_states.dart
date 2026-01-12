@@ -51,3 +51,4 @@ class TeachersSearchState extends TeachersStates {}
 
 class TeachersFilterAppliedState extends TeachersStates {}
 class TeachersFilterResetState extends TeachersStates {}
+class TeachersSearchAppliedState extends TeachersStates {}

@@ -12,27 +12,28 @@ class AllTeachersList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<TeachersCubit, TeachersStates>(
-      buildWhen: (previous, current) {
-        return current is GetAllTeachersSuccessState ||
-            current is GetAllTeachersErrorState ||
-            current is GetAllTeachersLoadingState;
-      },
       builder: (context, state) {
-        var teachersCubit = context.read<TeachersCubit>();
-        final teachers = teachersCubit.filteredAllTeachers;
-        return
-          state is GetAllTeachersLoadingState || teachersCubit.allTeachersModel == null ? AllTeachersLoading():
-          teachers.isEmpty ? EmptyWidget(msg: LangKeys.noTeachersFound,):
-          ListView.separated(
+        final cubit = context.read<TeachersCubit>();
+        final teachers = cubit.displayedAllTeachers;
+
+        if (state is GetAllTeachersLoadingState ||
+            cubit.allTeachersModel == null) {
+          return const AllTeachersLoading();
+        }
+
+        if (teachers.isEmpty) {
+          return EmptyWidget(msg: LangKeys.noTeachersFound);
+        }
+
+        return ListView.separated(
+          itemCount: teachers.length,
+          separatorBuilder: (_, __) => Gap(12.h),
           itemBuilder: (context, index) {
             return TeachersListItem(teacher: teachers[index]);
           },
-          separatorBuilder: (context, index) {
-            return Gap(12.h);
-          },
-            itemCount: teachers.length,
         );
       },
     );
   }
 }
+

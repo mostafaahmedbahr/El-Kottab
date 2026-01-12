@@ -12,28 +12,28 @@ class FavTeachersList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<TeachersCubit, TeachersStates>(
-      buildWhen: (previous, current) {
-        return current is GetAllFavTeachersSuccessState ||
-            current is GetAllFavTeachersErrorState ||
-            current is GetAllFavTeachersLoadingState;
-      },
       builder: (context, state) {
-        var teachersCubit = context.read<TeachersCubit>();
-        final teachers = teachersCubit.filteredFavTeachers;
+        final cubit = context.read<TeachersCubit>();
+        final teachers = cubit.displayedFavTeachers;
 
-        return
-          state is GetAllFavTeachersLoadingState || teachersCubit.favTeachersModel == null ? AllTeachersLoading():
-          teachers.isEmpty ? EmptyWidget(msg: LangKeys.noTeachersFound,):
-          ListView.separated(
-            itemBuilder: (context, index) {
-              return TeachersListItem(teacher: teachers[index]);
-            },
-            separatorBuilder: (context, index) {
-              return Gap(12.h);
-            },
-            itemCount: teachers.length,
-          );
+        if (state is GetAllFavTeachersLoadingState ||
+            cubit.favTeachersModel == null) {
+          return const AllTeachersLoading();
+        }
+
+        if (teachers.isEmpty) {
+          return EmptyWidget(msg: LangKeys.noTeachersFound);
+        }
+
+        return ListView.separated(
+          itemCount: teachers.length,
+          separatorBuilder: (_, __) => Gap(12.h),
+          itemBuilder: (context, index) {
+            return TeachersListItem(teacher: teachers[index]);
+          },
+        );
       },
     );
   }
 }
+

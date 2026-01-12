@@ -19,7 +19,7 @@ class BestTeacherItem extends StatelessWidget {
   final String teacherRate;
   final String teacherNumber;
   final int teacherId;
-  final int userId;
+  final dynamic userId;
 
   @override
   Widget build(BuildContext context) {
