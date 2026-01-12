@@ -3,7 +3,6 @@ import 'package:el_kottab/features/teachers/data/models/all_teachers_model.dart'
 import 'package:el_kottab/features/teachers/data/models/fav_teachers_model.dart';
 import 'package:el_kottab/features/teachers/data/models/remove_teacher_from_fav_model.dart';
 import 'package:el_kottab/features/teachers/presentation/view_model/teachers_states.dart';
-
 import '../../../../main_imports.dart';
 import '../../data/repos/teachers_repo.dart';
 
@@ -14,7 +13,7 @@ class TeachersCubit extends Cubit<TeachersStates> {
 
   static TeachersCubit get(context) => BlocProvider.of(context);
 
-  // ---------------- Tabs ----------------
+
   int buttonValue = 0;
   final PageController pageController = PageController();
 
@@ -33,18 +32,15 @@ class TeachersCubit extends Cubit<TeachersStates> {
     emit(TeachersButtonChangedState());
   }
 
-  // ---------------- Data ----------------
   AllTeachersModel? allTeachersModel;
   FavTeachersModel? favTeachersModel;
 
   List<AllTeachersData> allTeachers = [];
   List<FavData> favTeachers = [];
-
-  /// القوائم المعروضة بعد البحث والفلترة
   List<AllTeachersData> displayedAllTeachers = [];
   List<FavData> displayedFavTeachers = [];
 
-  // ---------------- Get Data ----------------
+
   Future<void> getAllTeachers({bool loading = true}) async {
     if (loading) emit(GetAllTeachersLoadingState());
 
@@ -77,7 +73,7 @@ class TeachersCubit extends Cubit<TeachersStates> {
     );
   }
 
-  // ---------------- Favorites ----------------
+
   AddToFavModel? addToFavModel;
   RemoveTeacherFromFavModel? removeTeacherFromFavModel;
 
@@ -107,13 +103,10 @@ class TeachersCubit extends Cubit<TeachersStates> {
     );
   }
 
-  // ---------------- Search & Filters ----------------
+
   final TextEditingController searchController = TextEditingController();
   String currentSearchQuery = '';
-
   String? selectedCategory;
-
-
 
 
   void searchByName(String query) {
@@ -185,7 +178,7 @@ class TeachersCubit extends Cubit<TeachersStates> {
     emit(TeachersFilterResetState());
   }
 
-  // داخل TeachersCubit
+
   void applySearchAndFilter() {
     _applySearchAndFilter();
   }
