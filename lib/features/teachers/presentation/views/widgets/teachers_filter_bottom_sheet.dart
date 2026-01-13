@@ -23,34 +23,30 @@ class TeachersFilterBottomSheet extends StatelessWidget {
           ),
           Gap(16.h),
 
-          // -------- Slider للتقييم --------
           Text(LangKeys.minimumRate.tr()),
           Slider(
             activeColor: AppColors.darkOlive,
-            value: (cubit.selectedRate ?? 0).toDouble(), // Convert int to double for Slider
+            value: (cubit.selectedRate ?? 0).toDouble(),
             min: 0.0,
             max: 5.0,
             divisions: 5,
             label: (cubit.selectedRate ?? 0).toString(),
             onChanged: (value) {
               cubit.selectRating(value);
-              print(cubit.selectedRate);
-              print("121212");
               (context as Element).markNeedsBuild();
             },
           ),
 
           Gap(16.h),
 
-          // -------- Dropdown للفئة --------
           Text(LangKeys.category.tr()),
           DropdownButtonFormField<String?>(
-            value: cubit.selectedCategory,
+            initialValue: cubit.selectedCategory,
             hint: Text(LangKeys.selectCategory.tr()),
             items: [
-              const DropdownMenuItem<String?>(
+                DropdownMenuItem<String?>(
                 value: null,
-                child: Text('الكل'),
+                child: Text(LangKeys.all.tr()),
               ),
               ...context.read<RegisterCubit>().categories.map(
                     (e) => DropdownMenuItem<String>(
@@ -61,7 +57,7 @@ class TeachersFilterBottomSheet extends StatelessWidget {
             ],
             onChanged: (value) {
               cubit.selectCategory(value);
-              (context as Element).markNeedsBuild(); // لتحديث الـ UI
+              (context as Element).markNeedsBuild();
             },
           ),
 
@@ -81,7 +77,7 @@ class TeachersFilterBottomSheet extends StatelessWidget {
               Expanded(
                 child: ElevatedButton(
                   onPressed: () {
-                    cubit.applySearchAndFilter(); // هنا نطبق البحث + الفلترة مع بعض
+                    cubit.applySearchAndFilter();
                     Navigator.pop(context);
                   },
                   child: Text(LangKeys.apply.tr()),

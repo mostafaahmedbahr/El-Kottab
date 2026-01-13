@@ -1,4 +1,3 @@
-import 'dart:math';
 import 'package:animated_toggle_switch/animated_toggle_switch.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:el_kottab/main_imports.dart';

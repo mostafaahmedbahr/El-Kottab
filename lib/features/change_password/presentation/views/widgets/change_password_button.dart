@@ -1,5 +1,4 @@
 import 'package:easy_localization/easy_localization.dart';
-
 import '../../../../../core/app_services/local_services/secure_storage_service.dart';
 import '../../../../../main_imports.dart';
 import '../../../../layout/presentation/view_model/layout_cubit.dart';
@@ -49,9 +48,6 @@ class ChangePasswordButton extends StatelessWidget {
               btnText: LangKeys.changePassword.tr(),
               onPressed: (){
                 if (formKey.currentState!.validate()){
-                  print(context.read<ChangePasswordCubit>().oldPasswordCon.text);
-                  print(context.read<ChangePasswordCubit>().newPasswordCon.text);
-                  print(context.read<ChangePasswordCubit>().confirmNewPasswordCon.text);
                  context.read<ChangePasswordCubit>().changePassword(
                    screenName: screenName,
                    oldPassword: context.read<ChangePasswordCubit>().oldPasswordCon.text,

@@ -1,4 +1,3 @@
-import 'package:el_kottab/features/teachers/data/models/add_to_fav_model.dart';
 import 'package:el_kottab/features/teachers/data/models/all_teachers_model.dart';
 
 import '../../data/models/fav_teachers_model.dart';

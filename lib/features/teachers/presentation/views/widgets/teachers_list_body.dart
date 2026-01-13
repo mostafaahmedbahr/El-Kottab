@@ -40,7 +40,6 @@ class TeachersListBody extends StatelessWidget {
 
                   double angle = -rotation * pi / 2;
 
-
                   return Transform(
                     alignment: rotation > 0
                         ? Alignment.centerLeft
@@ -48,16 +47,20 @@ class TeachersListBody extends StatelessWidget {
                     transform: Matrix4.identity()
                       ..setEntry(3, 2, 0.001)
                       ..rotateY(angle)
-                      ..scale(appliedScale),
+                      ..scaleByDouble(
+                        appliedScale,
+                        appliedScale,
+                        1.0,
+                        1.0,
+                      ),
                     child: child,
                   );
                 },
-
                 child: index == 0
-                    ? AllTeachersList() :
-                // : EmptyWidget(msg: LangKeys.noTeachersFound,),
-                FavTeachersList(),
+                    ? AllTeachersList()
+                    : FavTeachersList(),
               );
+
             },
           ),
         );
