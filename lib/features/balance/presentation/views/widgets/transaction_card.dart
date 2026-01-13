@@ -1,9 +1,10 @@
 import '../../../../../main_imports.dart';
-import '../balance_view.dart';
+import '../../../../profile/data/models/profile_model.dart';
 
 class TransactionCard extends StatelessWidget {
-  const TransactionCard({super.key, required this.item});
-  final SubscriptionItem item;
+  const TransactionCard({super.key,   required this.plan});
+
+  final Plan plan;
   @override
   Widget build(BuildContext context) {
     return Material(
@@ -25,7 +26,7 @@ class TransactionCard extends StatelessWidget {
               children: [
                 Expanded(
                   child: Text(
-                    item.name,
+                    plan.name.toString(),
                     style: AppStyles.primary16SemiBold,
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
@@ -34,15 +35,15 @@ class TransactionCard extends StatelessWidget {
                 Container(
                   padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 4.h),
                   decoration: BoxDecoration(
-                    color: _getStatusColor(item.status).withValues(alpha: 0.1),
+                    color: _getStatusColor(plan.isSubscribed.toString()).withValues(alpha: 0.1),
                     borderRadius: BorderRadius.circular(20.r),
                   ),
                   child: Text(
-                    item.status,
+                    plan.isSubscribed.toString(),
                     style: TextStyle(
                       fontSize: 10.sp,
                       fontWeight: FontWeight.w600,
-                      color: _getStatusColor(item.status),
+                      color: _getStatusColor(plan.isSubscribed.toString()),
                     ),
                   ),
                 ),

@@ -35,24 +35,3 @@ class BalanceView extends StatelessWidget {
 
 
 }
-class SubscriptionItem {
-  final String name;
-  final String price;
-  final String startDate;
-  final String endDate;
-  final String totalMinutes;
-  final String remainingMinutes;
-  final String type;
-  final String status;
-
-  SubscriptionItem({
-    required this.name,
-    required this.price,
-    required this.startDate,
-    required this.endDate,
-    required this.totalMinutes,
-    required this.remainingMinutes,
-    required this.type,
-    required this.status,
-  });
-}
