@@ -1,5 +1,4 @@
-import 'dart:io';
-import 'package:el_kottab/features/register/data/models/categories_model.dart';
+ import 'package:el_kottab/features/register/data/models/categories_model.dart';
 import 'package:el_kottab/features/register/presentation/view_model/register_states.dart';
 import '../../../../main_imports.dart';
 import '../../data/models/register_model.dart';
@@ -93,6 +92,7 @@ class RegisterCubit extends Cubit<RegisterStates> {
     passCon.clear();
     confirmPassCon.clear();
     phoneCon.clear();
+    gender=null;
     emit(RegisterInitState());
   }
 
@@ -144,7 +144,11 @@ class RegisterCubit extends Cubit<RegisterStates> {
   }
 
 
-
+  /// Focus Nodes
+  final FocusNode nameFocusNode = FocusNode();
+  final FocusNode emailFocusNode = FocusNode();
+  final FocusNode passwordFocusNode = FocusNode();
+  final FocusNode confirmPasswordFocusNode = FocusNode();
 
 
 

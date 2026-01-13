@@ -42,7 +42,7 @@ class _OtpViewState extends State<OtpView> {
 
   @override
   void dispose() {
-    _otpController.dispose();
+    // _otpController.dispose();
     super.dispose();
   }
 

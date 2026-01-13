@@ -149,6 +149,8 @@ abstract class LangKeys
     static const filterTeachers = "filterTeachers";
     static const minimumRate = "minimumRate";
     static const reset = "reset";
+    static const pleaseSelectTheEducationalPath = "pleaseSelectTheEducationalPath";
+    static const pleaseEnterYourPhoneNumber = "pleaseEnterYourPhoneNumber";
 
 
 

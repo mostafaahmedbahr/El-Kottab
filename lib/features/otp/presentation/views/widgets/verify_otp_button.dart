@@ -25,7 +25,7 @@ class VerifyOtpButton extends StatelessWidget {
     return BlocConsumer<OtpCubit, OtpStates>(
       listenWhen: (previous, current) {
         // استمع فقط للحالات المطلوبة
-        return current is VerifyOtpSuccessState ||
+        return current is VerifyOtpSuccessState || current is VerifyOtpLoadingState||
             current is VerifyOtpErrorState;
       },
       listener: (context, state) {
@@ -58,8 +58,8 @@ class VerifyOtpButton extends StatelessWidget {
       },
       buildWhen: (previous, current) {
         // اعمل build فقط للحالات المتعلقة بـ verify
-        return current is VerifyOtpLoadingState ||
-            current is! VerifyOtpLoadingState;
+        return current is VerifyOtpSuccessState || current is VerifyOtpLoadingState||
+            current is VerifyOtpErrorState;
       },
       builder: (context, state) {
         final isLoading = state is VerifyOtpLoadingState;

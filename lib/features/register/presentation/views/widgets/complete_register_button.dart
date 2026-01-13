@@ -39,7 +39,15 @@ class CompleteRegisterButton extends StatelessWidget {
                   if (formKey.currentState!.validate()) {
                     if(registerCubit.gender==""){
                       Toast.showErrorToast(msg: LangKeys.pleaseSelectYourGender.tr(), context: context);
-                    }else{
+                    }
+                    else if(registerCubit.phoneNumber.isEmpty){
+                      Toast.showErrorToast(msg: LangKeys.pleaseEnterYourPhoneNumber.tr(), context: context);
+                    }
+                    else if(registerCubit.categoryId==null){
+                      Toast.showErrorToast(msg: LangKeys.pleaseSelectTheEducationalPath.tr(), context: context);
+                    }
+
+                    else{
                     registerCubit.register(
                       name: registerCubit.nameCon.text,
                       email: registerCubit.emailCon.text,
