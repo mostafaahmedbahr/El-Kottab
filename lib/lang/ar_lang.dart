@@ -149,6 +149,11 @@ class ArLang {
     "filterTeachers": "تصفية المدرسين",
     "minimumRate": "الحد الأدنى للتقييم",
     "reset": "إعادة تعيين",
+    "pleaseSelectTheEducationalPath": "الرجاء اختيار المسار التعليمي",
+    "pleaseEnterYourPhoneNumber": "الرجاء إدخال رقم الهاتف",
+    "all": "الكل",
+    "teacherName": "اسم المعلم",
+
 
 
 

@@ -149,6 +149,10 @@ class EnLang {
     "filterTeachers": "Filter Teachers",
     "minimumRate": "Minimum Rate",
     "reset": "Reset",
+    "pleaseSelectTheEducationalPath": "Please select the educational path",
+    "pleaseEnterYourPhoneNumber": "Please enter your phone number",
+    "all": "All",
+    "teacherName": "Teacher name",
 
 
 

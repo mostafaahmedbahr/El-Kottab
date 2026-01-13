@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:shimmer/shimmer.dart';
 
 import '../../../../../main_imports.dart';
@@ -15,10 +16,10 @@ class BestTeachersLoading extends StatelessWidget {
           baseColor: Colors.grey[300]!,
           highlightColor: Colors.grey[100]!,
           child: BestTeacherItem(
-              teacherName: 'name',
-              teacherRate: "5.0",
+              teacherName: LangKeys.teacherName.tr(),
+              teacherRate: "0.0",
               teacherImage: "",
-              teacherNumber: "01110690299",
+              teacherNumber: "01x xxxx xxxx",
             teacherId: -1,
             userId: CacheHelper.getData(key: "userId") ?? "",
           ),

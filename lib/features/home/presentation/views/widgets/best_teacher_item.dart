@@ -1,4 +1,3 @@
-import 'package:el_kottab/core/utils/app_nav.dart';
 import 'package:el_kottab/features/chat/presentation/views/chat_view.dart';
 import 'package:el_kottab/features/teacher_details/presentation/views/teacher_details_view.dart';
 import 'package:el_kottab/main_imports.dart';
