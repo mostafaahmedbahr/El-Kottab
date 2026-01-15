@@ -155,6 +155,8 @@ abstract class LangKeys
     static const teacherName = "teacherName";
 
     static const viewAll = "viewAll";
+    static const allReviews = "allReviews";
+    static const noReviewsYet = "noReviewsYet";
 
 
 

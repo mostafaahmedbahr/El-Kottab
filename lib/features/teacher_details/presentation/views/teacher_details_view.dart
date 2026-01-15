@@ -24,8 +24,7 @@ class _TeacherDetailsViewState extends State<TeacherDetailsView> {
   @override
   void initState() {
     context.read<TeacherDetailsCubit>().getTeachersDetails(teacherId:widget.teacherId);
-    context.read<TeacherDetailsCubit>().getTeacherReviews(teacherId:widget.teacherId);
-    super.initState();
+     super.initState();
   }
   @override
   Widget build(BuildContext context) {
@@ -86,7 +85,7 @@ class _TeacherDetailsViewState extends State<TeacherDetailsView> {
                         des: "des" * 10,
                       ),
                       Gap(12.h),
-                      TeacherReviews(),
+                      TeacherReviews(teacherId : widget.teacherId),
                     ],
                   ),
                 );
