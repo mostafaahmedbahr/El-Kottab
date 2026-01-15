@@ -8,14 +8,13 @@ class CommentItem extends StatelessWidget {
     required this.userImage,
     required this.commentText,
     required this.rating,
-    required this.createdAt,
   });
 
   final String userName;
   final String userImage;
   final String commentText;
-  final double rating;
-  final DateTime createdAt;
+  final dynamic rating;
+
 
   @override
   Widget build(BuildContext context) {
@@ -50,14 +49,14 @@ class CommentItem extends StatelessWidget {
                     Gap(4.h),
                     Row(
                       children: [
-                        Text(
-                          _formatTime(createdAt),
-                          style: TextStyle(
-                            fontSize: 11.sp,
-                            color: Colors.grey.shade600,
-                          ),
-                        ),
-                        Gap(8.w),
+                        // Text(
+                        //   _formatTime(createdAt),
+                        //   style: TextStyle(
+                        //     fontSize: 11.sp,
+                        //     color: Colors.grey.shade600,
+                        //   ),
+                        // ),
+                        // Gap(8.w),
 
                         Row(
                           children: List.generate(5, (index) {

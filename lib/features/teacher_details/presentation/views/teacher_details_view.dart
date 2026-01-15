@@ -1,15 +1,11 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:el_kottab/features/teacher_details/data/models/teacher_details_model.dart';
-import 'package:el_kottab/features/teacher_details/data/repos/teacher_details_repo_imple.dart';
 import 'package:el_kottab/features/teacher_details/presentation/view_model/teacher_details_cubit.dart';
 import 'package:el_kottab/features/teacher_details/presentation/view_model/teacher_details_states.dart';
 import 'package:el_kottab/features/teacher_details/presentation/views/widgets/main_teacher_info_container.dart';
 import 'package:el_kottab/features/teacher_details/presentation/views/widgets/teacher_details_item.dart';
 import 'package:el_kottab/features/teacher_details/presentation/views/widgets/teacher_reviews.dart';
 import 'package:el_kottab/main_imports.dart';
-
-import '../../../../core/app_services/remote_services/service_locator.dart';
-
 class TeacherDetailsView extends StatefulWidget {
   const TeacherDetailsView({
     super.key,
@@ -28,6 +24,7 @@ class _TeacherDetailsViewState extends State<TeacherDetailsView> {
   @override
   void initState() {
     context.read<TeacherDetailsCubit>().getTeachersDetails(teacherId:widget.teacherId);
+    context.read<TeacherDetailsCubit>().getTeacherReviews(teacherId:widget.teacherId);
     super.initState();
   }
   @override
