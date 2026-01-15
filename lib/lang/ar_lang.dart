@@ -153,6 +153,9 @@ class ArLang {
     "pleaseEnterYourPhoneNumber": "الرجاء إدخال رقم الهاتف",
     "all": "الكل",
     "teacherName": "اسم المعلم",
+    "viewAll": "عرض الكل",
+    "allReviews": "جميع التقييمات",
+    "noReviewsYet": "لا توجد تقييمات بعد"
 
 
 

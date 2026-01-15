@@ -153,7 +153,6 @@ abstract class LangKeys
     static const pleaseEnterYourPhoneNumber = "pleaseEnterYourPhoneNumber";
     static const all = "all";
     static const teacherName = "teacherName";
-
     static const viewAll = "viewAll";
     static const allReviews = "allReviews";
     static const noReviewsYet = "noReviewsYet";

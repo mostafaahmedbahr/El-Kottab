@@ -153,6 +153,10 @@ class EnLang {
     "pleaseEnterYourPhoneNumber": "Please enter your phone number",
     "all": "All",
     "teacherName": "Teacher name",
+    "viewAll": "View All",
+    "allReviews": "All Reviews",
+    "noReviewsYet": "No Reviews Yet",
+
 
 
 
