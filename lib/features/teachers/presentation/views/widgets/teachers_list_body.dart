@@ -10,10 +10,10 @@ class TeachersListBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<TeachersCubit , TeachersStates>(
-      builder: (context,state){
-         final teachersCubit = context.read<TeachersCubit>();
-         return Expanded(
+    return BlocBuilder<TeachersCubit, TeachersStates>(
+      builder: (context, state) {
+        final teachersCubit = context.read<TeachersCubit>();
+        return Expanded(
           child: PageView.builder(
             controller: teachersCubit.pageController,
             itemCount: 2,
@@ -47,25 +47,20 @@ class TeachersListBody extends StatelessWidget {
                     transform: Matrix4.identity()
                       ..setEntry(3, 2, 0.001)
                       ..rotateY(angle)
-                      ..scaleByDouble(
+                      ..scale(
                         appliedScale,
                         appliedScale,
                         1.0,
-                        1.0,
-                      ),
+                      ), // هنا استخدمنا scale()
                     child: child,
                   );
                 },
-                child: index == 0
-                    ? AllTeachersList()
-                    : FavTeachersList(),
+                child: index == 0 ? AllTeachersList() : FavTeachersList(),
               );
-
             },
           ),
         );
       },
-
     );
   }
 }

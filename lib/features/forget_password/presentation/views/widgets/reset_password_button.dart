@@ -22,7 +22,7 @@ class ForgetPasswordButton extends StatelessWidget {
             context: context,
             screen: OtpView(
               goToLayoutOrResetPassword: "",
-              email: context.read<ForgetPasswordCubit>().emailCon.text,
+              email: context.read<ForgetPasswordCubit>().emailCon.text.trim(),
               screenName: "ForgetPasswordView",
             ),
           );
