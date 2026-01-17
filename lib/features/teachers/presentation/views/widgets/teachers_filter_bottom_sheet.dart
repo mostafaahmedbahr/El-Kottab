@@ -41,15 +41,15 @@ class TeachersFilterBottomSheet extends StatelessWidget {
 
           Text(LangKeys.category.tr()),
           DropdownButtonFormField<String?>(
-            initialValue: cubit.selectedCategory,
+            value: cubit.selectedCategory,
             hint: Text(LangKeys.selectCategory.tr()),
             items: [
-                DropdownMenuItem<String?>(
+              DropdownMenuItem<String?>(
                 value: null,
                 child: Text(LangKeys.all.tr()),
               ),
               ...context.read<RegisterCubit>().categories.map(
-                    (e) => DropdownMenuItem<String>(
+                (e) => DropdownMenuItem<String>(
                   value: e.name.toString(),
                   child: Text(e.name.toString()),
                 ),
@@ -90,4 +90,3 @@ class TeachersFilterBottomSheet extends StatelessWidget {
     );
   }
 }
-
